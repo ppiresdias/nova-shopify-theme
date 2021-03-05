@@ -3,7 +3,7 @@
 
 
 1. Download the code from repo
-2. Upload the archive to Shopify store
+2. Upload the archive to Shopify store (upload theme)
 3. Clone the repository
 3. Create config.yml and paste the following information:
     ```
