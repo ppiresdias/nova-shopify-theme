@@ -1,0 +1,951 @@
+<!-- {% if section.settings.message %}
+    <style>
+        {% if section.settings.logo != blank %}
+        .site-header__logo-image {
+            max-width: {{ section.settings.logo_max_width | escape }}px;
+        }
+        {% endif %}
+
+        {% if section.settings.align_logo == 'left' %}
+        .site-header__logo-image {
+            margin: 0;
+        }
+        {% endif %}
+    </style>
+{% endif %}
+
+{% include 'search-drawer' %}
+ -->
+
+<div class="header-wrapper">
+    <section class="main-header-section" id="header">
+        <div class="header-announcement-bar show">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-center">
+                    <a class="announcement-text">
+                        <span>Free</span> Shipping on Orders over <span>$50</span>
+                    </a>
+                </div>                        
+            </div>
+        </div>
+        <div class="header-banner">
+            <div class="container-lg">
+                <div class="row d-flex align-items-center justify-content-between">
+                    <div class="col header-banner-left d-flex align-items-center">
+                        <button class="navbar-toggler" id="navbar-toggle" type="button" data-toggle="collapsable" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </button>
+                        <div class="socials header-banner-socials d-flex">
+                            <div class="header-banner-social__item">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                                <span class="header-banner-social__item-count">1.6M</span>
+                            </div>
+                        </div>
+                        <div class="header-banner-search">
+                            <form class="form-inline">
+                                <button class="btn search-btn" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                                <input
+                                class="form-control search-input"
+                                type="search"
+                                placeholder="Search here..."
+                                aria-label="Search"
+                                />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col header-banner-logo">
+                        <!-- {% if section.settings.logo %}
+                            {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                            <a href="{{ routes.root_url }}" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}">
+                            {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
+                            <img class="lazyload js"
+                                src="{{ section.settings.logo | img_url: '300x300' }}"
+                                data-src="{{ img_url }}"
+                                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                                data-aspectratio="{{ section.settings.logo.aspect_ratio }}"
+                                data-sizes="auto"
+                                alt="{{ logo_alt | escape }}"
+                                style="max-width: {{ section.settings.logo_max_width }}px">
+                            <noscript>
+                                {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
+                                <img src="{{ section.settings.logo | img_url: image_size }}"
+                                    srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                                    alt="{{ section.settings.logo.alt | default: shop.name }}"
+                                    style="max-width: {{ section.settings.logo_max_width }}px;">
+                            </noscript>
+                            </a>
+                        {% else %}
+                            <a class="site-header__logo-link" href="{{ routes.root_url }}">{{ shop.name }} Lil Billys</a>
+                        {% endif %} -->
+                        <a href="/" class="navbar-brand">nova</a>
+                    </div>
+                    <div class="col header-banner-right d-flex justify-content-end">
+                        <div class="header-banner-right__item header-banner-settings">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                        </div>
+                        <div class="header-banner-right__item header-banner-account">
+                            <!-- {% if shop.customer_accounts_enabled %}
+                                {% if customer %}
+                                hi
+                                <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
+                                    {% include 'icon-login' %}
+                                    <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
+                                </a>
+                                {% else %}
+                                bye
+                                <a href="{{ routes.account_login_url }}" class="site-header__icon site-header__account">
+                                    {% include 'icon-login' %}
+                                    <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
+                                </a>
+                                {% endif %}
+                            {% endif %} -->
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        <div class="header-banner-right__item header-wishlist">
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <span class="banner-count header-wishlist-count">0</span>
+                        </div>
+                        <div class="header-banner-right__item header-cart">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            <span class="banner-count header-cart-count">0</span>
+                        </div>
+                        <div class="shopping-bag-section" id="shopping-bag">
+                            <div class="shopping-cart-close__icon" id="shopping-cart-close-icon">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </div>
+                            <div class="shopping-cart-heading">
+                                Shopping Cart
+                            </div>
+                            <hr/>
+                            <div class="shopping-cart-items d-flex flex-column">
+                                <div class="row shopping-cart-item">
+                                    <div class="col-4 shopping-cart-item__img"> 
+                                        <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 100px;" />
+                                    </div>
+                                    <div class="col shopping-cart-item__info d-flex flex-column">
+                                        <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                                        <div class="shopping-cart-item__price item_info">
+                                            <strike class="item_original_price">US$19.99</strike> 
+                                            <span class="item_discount_price">US$12.99</span> 
+                                            (<span class="item_discount_percentage">30%</span> off)
+                                        </div>
+                                        <div class="shopping-cart-item__size item_info">
+                                            Size: <span class="item_size">6</span>
+                                        </div>
+                                        <div class="shopping-cart-item__color item_info">
+                                            Color:   
+                                            <div class="item_color"></div> 
+                                            <span class="item_color-name">red</span>
+                                        </div>
+                                        <div class="row item_info shopping-cart-item__functions">
+                                            <div class="col item_adjust_count">
+                                                <div class="row">
+                                                    <span class="col item_count_sub"> &minus; </span>
+                                                    <span class="col item_count">1</span>
+                                                    <span class="col item_count_add"> &#43; </span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col item_remove">remove</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row shopping-cart-item">
+                                    <div class="col-4 shopping-cart-item__img"> 
+                                        <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 100px;" />
+                                    </div>
+                                    <div class="col shopping-cart-item__info d-flex flex-column">
+                                        <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                                        <div class="shopping-cart-item__price item_info">
+                                            <strike class="item_original_price">US$19.99</strike> 
+                                            <span class="item_discount_price">US$12.99</span> 
+                                            (<span class="item_discount_percentage">30%</span> off)
+                                        </div>
+                                        <div class="shopping-cart-item__size item_info">
+                                            Size: <span class="item_size">6</span>
+                                        </div>
+                                        <div class="shopping-cart-item__color item_info">
+                                            Color:   
+                                            <div class="item_color"></div> 
+                                            <span class="item_color-name">red</span>
+                                        </div>
+                                        <div class="row item_info shopping-cart-item__functions">
+                                            <div class="col item_adjust_count">
+                                                <div class="row">
+                                                    <span class="col item_count_sub"> &minus; </span>
+                                                    <span class="col item_count">1</span>
+                                                    <span class="col item_count_add"> &#43; </span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col item_remove">remove</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row shopping-cart-item">
+                                    <div class="col-4 shopping-cart-item__img"> 
+                                        <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 100px;" />
+                                    </div>
+                                    <div class="col shopping-cart-item__info d-flex flex-column">
+                                        <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                                        <div class="shopping-cart-item__price item_info">
+                                            <strike class="item_original_price">US$19.99</strike> 
+                                            <span class="item_discount_price">US$12.99</span> 
+                                            (<span class="item_discount_percentage">30%</span> off)
+                                        </div>
+                                        <div class="shopping-cart-item__size item_info">
+                                            Size: <span class="item_size">6</span>
+                                        </div>
+                                        <div class="shopping-cart-item__color item_info">
+                                            Color:   
+                                            <div class="item_color"></div> 
+                                            <span class="item_color-name">red</span>
+                                        </div>
+                                        <div class="row item_info shopping-cart-item__functions">
+                                            <div class="col item_adjust_count">
+                                                <div class="row">
+                                                    <span class="col item_count_sub"> &minus; </span>
+                                                    <span class="col item_count">1</span>
+                                                    <span class="col item_count_add"> &#43; </span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col item_remove">remove</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row shopping-cart-item">
+                                    <div class="col-4 shopping-cart-item__img"> 
+                                        <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 100px;" />
+                                    </div>
+                                    <div class="col shopping-cart-item__info d-flex flex-column">
+                                        <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                                        <div class="shopping-cart-item__price item_info">
+                                            <strike class="item_original_price">US$19.99</strike> 
+                                            <span class="item_discount_price">US$12.99</span> 
+                                            (<span class="item_discount_percentage">30%</span> off)
+                                        </div>
+                                        <div class="shopping-cart-item__size item_info">
+                                            Size: <span class="item_size">6</span>
+                                        </div>
+                                        <div class="shopping-cart-item__color item_info">
+                                            Color:   
+                                            <div class="item_color"></div> 
+                                            <span class="item_color-name">red</span>
+                                        </div>
+                                        <div class="row item_info shopping-cart-item__functions">
+                                            <div class="col item_adjust_count">
+                                                <div class="row">
+                                                    <span class="col item_count_sub"> &minus; </span>
+                                                    <span class="col item_count">1</span>
+                                                    <span class="col item_count_add"> &#43; </span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col item_remove">remove</div>
+                                        </div>
+                                    </div>
+                                </div>                                       
+                            </div>
+                            <div class="shopping-cart-actions">
+                                <div class="shopping-cart-total d-flex justify-content-between">
+                                    <div class="">subtotal:</div>
+                                    <div class="shopping-cart-subtotal-amount">US$89.99</div>
+                                </div>
+                                <div class="shopping-cart__buttons primary-action">
+                                    Checkout
+                                </div>
+                                <div class="shopping-cart__buttons secondary-action">
+                                    Continue Shopping
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-nav">
+            <div class="container">
+                <div class="navbar navbar-expand-lg">
+                    <div class="collapsable navbar-collapsable" id="navbarSupportedContent">
+                        <div class="collapsed-nav-search">
+                            <form class="form-inline">
+                                <button class="btn search-btn" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                                <input
+                                class="form-control search-input"
+                                type="search"
+                                placeholder="Search here..."
+                                aria-label="Search"
+                                />
+                            </form>
+                        </div>
+                        <div class="nav-collapse-mobile-close-icon" id="nav-collapse-icon">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </div>
+                        <ul class="menu wrappers d-flex justify-content-around">
+                            <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-1" title="new" data-target="#header-jumbo-menu-1">
+                                new <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                    <div id="header-jumbo-menu-1" class="header-jumbo-menu">
+                                        <div class="container-lg">
+                                            <div class="row d-flex justify-content-around header-jumbo__pad full_width">
+                                                <div class="col">
+                                                    <ul class="jumbo-menu-items">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase">New in</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">New in women</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">New in men</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">New in plus+curve</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">New in kids</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">New in beauty</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">New in collections</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="jumbo-menu-img d-flex flex-row justify-content-around">
+                                                        <div>
+                                                            <img src="/img/Jeans.jpg" alt="new jeans" style="width: 200px;" />
+                                                          
+                                                        </div>
+                                                        <div  class="collapse-img">
+                                                            <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 200px;" />
+                                                            
+                                                        </div>
+                                                        <div  class="collapse-img collapse-img-primary">
+                                                            <img src="/img/purple__dress.jpg" alt="new purple dress" style="width: 200px;" />
+                                                           
+                                                        </div>                                   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="menu-link header-nav-menu-link" id="header-nav-menu-link-2" title="women" data-target="#header-jumbo-menu-2">
+                                women <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                <div id="header-jumbo-menu-2" class="header-jumbo-menu">
+                                        <div class="container-lg">
+                                            <div class="row d-flex justify-content-evenly header-jumbo__pad full_width">                                                     
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Shop All</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Shop new</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">best sellers</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">sale</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">Dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">all dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">mini dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">midi dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">maxi dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">casual dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">formal dresses</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">Tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">all tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shirts &amp; blouses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">short sleeve tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">long sleeve tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">bodysuits</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">hoddies &amp; sweatshirts</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">bottoms</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">All bottoms</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">pants</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">jeans</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shorts</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">skirts</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">sweatpants</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">leggings</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">More</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">swimwear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">activewear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">outerwear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">loungewear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shoes</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="menu-link header-nav-menu-link" id="header-nav-menu-link-3" title="men" data-target="#header-jumbo-menu-3">
+                                men <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                <div id="header-jumbo-menu-3" class="header-jumbo-menu">
+                                        <div class="container-lg">
+                                            <div class="row d-flex justify-content-evenly header-jumbo__pad full_width">
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Shop All</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Shop new</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">best sellers</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">sale</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">Tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">all tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">graphic tees</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">button down shirts</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">tees &amp; tanks</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">short sleeve shirts</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">long sleeve shirts</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">sweaters</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">bottoms</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">All bottoms</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">jeans</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">pants</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">joggers &amp; sweats</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shorts</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">Outerwear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">all outerwear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">coats &amp; jackets</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">track suits</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">More</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">suits</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">swimwear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">activewear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shoes</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="menu-link header-nav-menu-link" id="header-nav-menu-link-4" title="plus+curve" data-target="#header-jumbo-menu-4">
+                                plus+curve <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                <div id="header-jumbo-menu-4" class="header-jumbo-menu">
+                                        <div class="container-lg">
+                                            <div class="row d-flex justify-content-evenly header-jumbo__pad full_width">                                                     
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Shop All</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Shop new</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">best sellers</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">sale</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">Dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">all dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">mini dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">midi dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">maxi dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">casual dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">formal dresses</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">Tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">all tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shirts &amp; blouses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">short sleeve tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">long sleeve tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">bodysuits</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">hoddies &amp; sweatshirts</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">bottoms</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">All bottoms</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">pants</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">jeans</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shorts</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">skirts</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">sweatpants</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">leggings</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-4 col-md-3 col-lg">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">More</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">swimwear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">activewear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">outerwear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">loungewear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shoes</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="menu-link header-nav-menu-link" id="header-nav-menu-link-5" title="kids" data-target="#header-jumbo-menu-5">
+                                    kids <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                    <div id="header-jumbo-menu-5" class="header-jumbo-menu">
+                                        <div class="container-lg">
+                                            <div class="row d-flex justify-content-evenly header-jumbo__pad full_width">
+                                                <div class="col-md">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Shop All</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Shop new</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shop all girls</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shop all boys</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">best sellers</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">sale</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">Girls</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">all girls</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">dresses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">bottoms</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shoes</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">accessories</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-md">
+                                                    <ul class="jumbo-menu-items mar_bottom_20">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">Boys</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">All boys</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">tops</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">bottoms</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">outerwear</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">shoes</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">accessories</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-5">
+                                                    <div class="jumbo-menu-img d-flex flex-row justify-content-between">
+                                                        <div>
+                                                            <img src="/img/kids_fashion.jpg" alt="kids fashion" style="width: 400px;" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="menu-link header-nav-menu-link" id="header-nav-menu-link-6" title="accessories" data-target="#header-jumbo-menu-6">
+                                    accessories <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                    <div id="header-jumbo-menu-6" class="header-jumbo-menu">
+                                        <div class="container-lg">
+                                            <div class="row d-flex justify-content-around header-jumbo__pad full_width">
+                                                <div class="col">
+                                                    <ul class="jumbo-menu-items">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">Accessories</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">all accessories</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">sunglasses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">jewelry</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">face masks</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">bags &amp; purses</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">headwear &amp; hair pieces</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">makeup</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">phone accessories</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="jumbo-menu-img d-flex flex-row justify-content-around">
+                                                        <div>
+                                                            <img src="/img/accessories_girl.jpg" alt="accessories" style="width: 200px;" />
+                                                            
+                                                        </div>
+                                                        <div class="collapse-img">
+                                                            <img src="/img/makeup_girl.jpg" alt="girl with makeup" style="width: 200px;" />
+                                                           
+                                                        </div>
+                                                        <div class="collapse-img collapse-img-primary">
+                                                            <img src="/img/facemask.jpg" alt="boy with face mask" style="width: 200px;" />
+                                                           
+                                                        </div>                                   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="menu-link header-nav-menu-link" id="header-nav-menu-link-7" title="sale" data-target="#header-jumbo-menu-7">
+                                    sale <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                    <div id="header-jumbo-menu-7" class="header-jumbo-menu">
+                                        <div class="container-lg">
+                                            <div class="row d-flex justify-content-around header-jumbo__pad full_width">
+                                                <div class="col">
+                                                    <ul class="jumbo-menu-items">
+                                                        <li class="jumbo-menu-heading jumbo-menu-item">
+                                                            <a class="jumbo-menu-link uppercase" href="#">Sale in</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Sale in women</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Sale in men</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Sale in plus+curve</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Sale in kids</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Sale in beauty</a>
+                                                        </li>
+                                                        <li class="jumbo-menu-item">
+                                                            <a class="jumbo-menu-link" href="#">Sale in collections</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="jumbo-menu-img d-flex flex-row justify-content-around">
+                                                        <div>
+                                                            <img src="/img/Jeans.jpg" alt="new jeans" style="width: 200px;" />
+                                                            
+                                                        </div>
+                                                        <div  class="collapse-img">
+                                                            <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 200px;" />
+                                                            
+                                                        </div>
+                                                        <div  class="collapse-img">
+                                                            <img src="/img/purple__dress.jpg" alt="new purple dress" style="width: 200px;" />
+                                                            
+                                                        </div>  
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="menu-link header-nav-menu-link" id="header-nav-menu-link-8" title="collections" data-target="#header-jumbo-menu-8">
+                                collections <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                <div id="header-jumbo-menu-8" class="header-jumbo-menu">
+                                    <div class="container-lg">
+                                        <div class="row d-flex justify-content-around header-jumbo__pad full_width">
+                                            <div class="mar_bottom_20">
+                                                <a href="/collections">
+                                                    <div class="jumbo-menu-img">
+                                                        <img src="/img/charli_collection.jpg" alt="charli collection" style="width: 200px;" />
+                                                    </div>
+                                                    <div class="collection-title">
+                                                        Charli X Nova
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="mar_bottom_20">
+                                                <a href="/collections">
+                                                    <div class="jumbo-menu-img">
+                                                        <img src="/img/hawaiian_shirt.jpg" alt="boy with hawaiian shirt" style="width: 200px;" />                                        
+                                                    </div>
+                                                    <div class="collection-title">
+                                                        Nova Summer Collection
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="mar_bottom_20">
+                                                <a href="/collections">
+                                                    <div class="jumbo-menu-img">
+                                                        <img src="/img/Jacket.jpg" alt="girl with winter jacket" style="width: 200px" />
+                                                        
+                                                    </div>
+                                                    <div class="collection-title">
+                                                        Winter Wonderland
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="mar_bottom_20">
+                                                <a href="/collections">
+                                                    <div class="jumbo-menu-img">
+                                                        <img src="/img/beige__dress.jpg" alt="girl with beige dress" style="width: 200px;" />                                                         
+                                                    </div>
+                                                    <div class="collection-title">
+                                                        As seen on Instagram
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

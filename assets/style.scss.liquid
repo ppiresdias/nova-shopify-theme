@@ -1,0 +1,1238 @@
+/*================================ STYLES RULES ================================*/
+
+/*============================================================================
+  #Normalize
+  based on normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
+
+  1. Correct the line height in all browsers.
+  2. Prevent adjustments of font size after orientation changes in iOS.
+
+==============================================================================*/
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+     ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/**
+   * Remove the margin in all browsers.
+   */
+
+body {
+  margin: 0;
+}
+
+/**
+   * Render the `main` element consistently in IE.
+   */
+
+main {
+  display: block;
+}
+
+/* Grouping content
+     ========================================================================== */
+
+/**
+   * 1. Add the correct box sizing in Firefox.
+   * 2. Show the overflow in Edge and IE.
+   */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+     ========================================================================== */
+
+/**
+   * Remove the gray background on active links in IE 10.
+   */
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/**
+   * 1. Remove the bottom border in Chrome 57-
+   * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+   */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+   * Add the correct font weight in Chrome, Edge, and Safari.
+   */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+   * Add the correct font size in all browsers.
+   */
+
+small {
+  font-size: 80%;
+}
+
+/**
+   * Prevent `sub` and `sup` elements from affecting the line height in
+   * all browsers.
+   */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+     ========================================================================== */
+
+/**
+   * Remove the border on images inside links in IE 10.
+   */
+
+img {
+  border-style: none;
+}
+
+/* Forms
+     ========================================================================== */
+
+/**
+   * 1. Change the font styles in all browsers.
+   * 2. Remove the margin in Firefox and Safari.
+   */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+   * Show the overflow in IE.
+   * 1. Show the overflow in Edge.
+   */
+
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+   * Remove the inheritance of text transform in Edge, Firefox, and IE.
+   * 1. Remove the inheritance of text transform in Firefox.
+   */
+
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+   * Correct the inability to style clickable types in iOS and Safari.
+   */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+   * Remove the inner border and padding in Firefox.
+   */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+   * Restore the focus styles unset by the previous rule.
+   */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+   * Correct the padding in Firefox.
+   */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+   * 1. Correct the text wrapping in Edge and IE.
+   * 2. Correct the color inheritance from `fieldset` elements in IE.
+   * 3. Remove the padding so developers are not caught out when they zero out
+   *    `fieldset` elements in all browsers.
+   */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+li{
+  list-style-type: none;
+}
+
+/**
+   * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+   */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+   * Remove the default vertical scrollbar in IE 10+.
+   */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+   * 1. Add the correct box sizing in IE 10.
+   * 2. Remove the padding in IE 10.
+   */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+   * Correct the cursor style of increment and decrement buttons in Chrome.
+   */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+   * 1. Correct the odd appearance in Chrome and Safari.
+   * 2. Correct the outline style in Safari.
+   */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+   * Remove the inner padding in Chrome and Safari on macOS.
+   */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+   * 1. Correct the inability to style clickable types in iOS and Safari.
+   * 2. Change font properties to `inherit` in Safari.
+   */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+     ========================================================================== */
+
+/*
+   * Add the correct display in Edge, IE 10+, and Firefox.
+   */
+
+details {
+  display: block;
+}
+
+/*
+   * Add the correct display in all browsers.
+   */
+
+summary {
+  display: list-item;
+}
+
+/* Misc
+     ========================================================================== */
+
+/**
+   * Add the correct display in IE 10+.
+   */
+
+template {
+  display: none;
+}
+
+/**
+   * Add the correct display in IE 10.
+   */
+
+[hidden] {
+  display: none;
+}
+
+
+
+
+
+
+
+/*============================================================================
+  VARIABLES
+==============================================================================*/
+
+// GlOBAL VARIABLES
+
+// colors
+$primaryColor: rgb(59, 59, 59);
+$primaryTextColor: white;
+$primary_hover: rgb(141, 141, 141);
+$primaryTextHoverColor: rgb(141, 141, 141);
+$placeholderText: white; //#C4C4C4
+$color-white: #ffffff;
+$color_top_button_bg: #444444;
+$muteIconColors: rgb(173, 173, 173);
+
+// fonts
+$primaryFont: 'Montserrat';
+
+//sizes
+$primaryFontSize: 16px;
+
+// HEADER VARIABLES
+
+// announcement
+$announcementBgColor: rgb(207, 35, 58);
+$announcementTextColor: black;
+$announcementTextColorEmphasis: rgb(247, 247, 247);
+
+// nav menu
+$navHeaderBgColor: rgb(39, 31, 31);
+$navJumboMenuBgColor: white;
+$navJumboMenuTextColor: black;
+$navJumboMenuTextHoverColor: rgb(141, 141, 141);
+$navJumboMenuShadowColor: rgba(41,41,41,.25);
+
+
+
+//CONTACT VARIABLES
+$contact_font: "Montserrat", sans-serif;
+$heading_light: 90px Montserrat, sans-serif;
+$heading_weight: 800;
+$contact_btnBackground: rgb(0, 0, 0);
+
+$spacer: 1rem;
+$p1: $spacer*.25;
+$p2: $spacer*.5;
+$p3: $spacer;
+$p4: $spacer*1.5;
+$p5: $spacer*3;
+
+
+
+
+/*================ HEADER STYLES ================*/
+
+.header-announcement-bar{
+  background: $announcementBgColor;
+  color: $announcementTextColor;
+  font-family: $primaryFont;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 0;
+  display: none;
+  .announcement-text{
+      color: $announcementTextColor;
+
+      span{
+          color: $announcementTextColorEmphasis;
+      }
+  }
+}
+
+.header-banner{
+  background: $primaryColor;
+  color: $primaryTextColor;
+  font-family: $primaryFont;
+  font-size: 14px;
+
+  .header-banner-left{
+
+      .navbar-toggler{
+          display: none;
+          color: white;
+          cursor: pointer;
+      }
+      .header-banner-socials{
+          .header-banner-social__item{
+              margin-right: 10px;
+              cursor: pointer;
+              .header-banner-social__item-count{
+                  font-size: 12px;
+                  margin-left: 5px;
+              }
+              &:hover{
+                  color: $primaryTextHoverColor;
+              }
+          }
+      }
+
+      .header-banner-search{
+          padding-left: 30px;
+          .search-btn{
+              padding: 0;
+              color: white;
+          }
+          .search-input{
+              background: transparent;
+              border: none;
+              border-bottom: 1px solid white;
+              border-radius: 0;
+              font-family: $primaryFont;
+              &::placeholder{
+                  color: $placeholderText;
+                  font-size: 12px;
+              }
+              &:focus{
+                  outline:white;
+              }
+          }
+      }
+  }
+
+  .header-banner-logo{
+      text-align: center;
+
+      .navbar-brand{
+          font-family: 'Bebas Neue';
+          font-size: 40px;
+          color: $primaryTextColor !important;
+          &:hover{
+              color: $primaryTextColor !important;
+          }
+      }
+  }
+
+  .header-banner-right{
+      font-size: 18px;
+
+      .header-banner-right__item{
+          margin-left: 15px;
+          cursor: pointer;
+
+          .banner-count{
+              font-family: $primaryFont;
+              font-size: 12px;
+              margin-left: 5px;
+          }
+          &:hover{
+              color: $primaryTextHoverColor;
+          }
+      }
+
+      .shopping-bag-section{
+          display: none;
+          background: white;
+          color: black;
+          position: fixed; 
+          top: 0;
+          right: 0;
+          bottom: 0;
+          padding: 0 15px 15px 15px;
+          width: 390px !important;
+          font-family: $primaryFont;
+          overflow: hidden;
+          z-index: 110;
+          box-shadow: 0 20px 20px -5px $navJumboMenuShadowColor;
+
+          .shopping-cart-close__icon{
+              display: block !important;
+              font-size: 25px;
+              color: grey;
+              position: absolute;
+              left: 0;
+              padding: 10px 20px;
+              cursor: pointer;
+              &:hover{
+                  color: black;
+              }
+          }
+
+          .shopping-cart-heading{
+              margin-top: 15px;
+              text-align: center;
+              text-transform: capitalize;
+          }
+          hr{
+              margin-top: 20px;
+          }
+
+          .shopping-cart-items{
+              font-size: 14px;
+              overflow: scroll;
+              height: 100%;
+              padding-bottom: 250px;
+
+              .shopping-cart-item{
+                  border-bottom: 1px solid $muteIconColors;
+                  margin: 5px 0;
+              }
+              .item_info{
+                  margin-bottom: 5px;
+              }
+
+              .shopping-cart-item__title{
+                  color: $muteIconColors;
+              }
+
+              .shopping-cart-item__price{
+                  color: red;
+                  text-transform: uppercase;
+
+                  .item_original_price{
+                      color: black;
+                      font-style: italic;
+                  }
+
+                  .item_discount_price{
+                      font-size: 16px;
+                      font-weight: 600;
+                  }
+              }
+
+              .shopping-cart-item__color{
+                  .item_color{
+                      background: red;
+                      display: inline-block;
+                      position: relative;
+                      top: 2px;
+                      margin: 0 5px;
+                      border-radius: 50%;
+                      min-height: 12px;
+                      min-width: 12px;
+                  }
+              }
+
+              .item_adjust_count{
+
+                  .item_count{
+                      font-weight: 600;
+                  }
+
+                  .item_count_sub{
+                      font-size: 16px;
+                      color: $muteIconColors;
+                      &:hover{
+                          cursor: pointer;
+                          font-weight: 600;
+                          color: black;
+                      }
+                  }
+
+                  .item_count_add{
+                      font-size: 16px;
+                      color: $muteIconColors;
+                      &:hover{
+                          cursor: pointer;
+                          font-weight: 600;
+                          color: black;
+                      }
+                  }
+                  
+              }
+
+              .item_remove{
+                  color: $muteIconColors;
+                  text-decoration: underline;
+                  cursor: pointer;
+                  &:hover{
+                      color: black;
+                  }
+              }
+          }
+
+          .shopping-cart-actions{
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              width: 100%;
+              z-index: 150;
+              background: white;
+              padding: 10px;
+
+              .shopping-cart-total{
+                  margin-bottom: 10px;
+                  text-transform: capitalize;
+
+                  .shopping-cart-subtotal-amount{
+                      color: red;
+                      font-weight: 600;
+                  }
+              }
+
+              .shopping-cart__buttons{
+                  padding: 5px;
+                  text-align: center;
+                  margin-bottom: 10px;
+                  cursor: pointer;
+              }
+
+              .primary-action{
+                  background: black;
+                  color: white;
+                  &:hover{
+                      background: rgb(82, 80, 80);
+                  }
+              }
+
+              .secondary-action{
+                  background: white;
+                  color: black;
+                  border: 1px solid black;
+              }
+
+              
+          }
+
+      }
+  }
+}
+
+.header-nav{
+  background: $navHeaderBgColor;
+  color: $primaryTextColor;
+
+  .collapsable{
+      width: 100%;
+      z-index: 100;
+      .nav-collapse-mobile-close-icon{
+          display: none;
+          &:hover{
+              color: $primaryTextHoverColor;
+          }
+      }
+      .collapsed-nav-search{
+          display: none;
+          padding-left: 30px;
+          .search-btn{
+              padding: 0;
+              color: white;
+          }
+          .search-input{
+              background: transparent;
+              border: none;
+              border-bottom: 1px solid white;
+              border-radius: 0;
+              font-family: $primaryFont;
+              width: 300px;
+              
+              &::placeholder{
+                  color: $placeholderText;
+                  font-size: 12px;
+              }
+              &:focus{
+                  outline:white;
+              }
+          }
+      }
+  }
+  .nav-collapse-mobile-close-icon{
+      font-size: 25px;
+      position: absolute;
+      right: 0;
+      padding: 10px 20px;
+      cursor: pointer;
+  }
+  .menu{
+      width: 100%;
+      margin-bottom: 0px;
+
+      .menu-link{
+          color: $primaryTextColor;
+          font-family: $primaryFont;
+          font-size: 14px;
+          text-transform: uppercase;
+          &:hover{
+              color: $primaryTextHoverColor;
+              cursor: pointer;  
+          }
+
+          .fa-chevron-down{
+              font-size: 12px;
+          }
+      }
+  }
+}
+
+#header-nav-menu-link-1:hover{
+  & > div#header-jumbo-menu-1{
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+} 
+
+#header-nav-menu-link-2:hover{
+  & > div#header-jumbo-menu-2{
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+
+#header-nav-menu-link-3:hover{
+  & > div#header-jumbo-menu-3{
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+
+#header-nav-menu-link-4:hover{
+  & > div#header-jumbo-menu-4{
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+
+#header-nav-menu-link-5:hover{
+  & > div#header-jumbo-menu-5{
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+
+#header-nav-menu-link-6:hover{
+  & > div#header-jumbo-menu-6{
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+
+#header-nav-menu-link-7:hover{
+  & > div#header-jumbo-menu-7{
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+
+#header-nav-menu-link-8:hover{
+  & > div#header-jumbo-menu-8{
+      visibility: visible;
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}
+
+.header-jumbo-menu{
+  background: $navJumboMenuBgColor;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  margin-top: 8px;
+  // display: none;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: 0 20px 20px -5px $navJumboMenuShadowColor;
+  transition: all .4s ease-in-out;
+  transform: translate(0, 20px);
+
+  .header-jumbo__pad{
+      padding: 30px;
+
+      .jumbo-menu-item{
+          margin-bottom: 10px;
+
+          .jumbo-menu-link{
+              color: $navJumboMenuTextColor;
+              font-family: "Montserrat";
+              font-size: 14px;
+              text-transform: capitalize;
+              &:hover{
+                  color: $navJumboMenuTextHoverColor;
+              }
+          }
+      }
+
+      .jumbo-menu-heading{
+          font-weight: 700;
+          .uppercase{
+              text-transform: uppercase;
+          }
+      }
+
+      .jumbo-menu-img{
+          cursor: pointer;
+
+          img{
+              height: 275px;
+          }
+      }
+      .collection-title{
+          cursor: pointer;
+      }
+  }
+
+  img{
+      object-fit: cover;
+      object-position: center;
+  }
+
+  a{
+      color: $primaryColor;
+      &:hover{
+          color: $primary_hover;
+      }
+  }
+}
+
+.show{
+  display: block !important;
+}
+
+.hidden{
+  display: none !important;
+}
+
+.offset-margin-top{
+  margin-top: 142px;
+}
+
+.full_width{
+  width: 100%;
+}
+
+.mar_bottom_20{
+  margin-bottom: 20px;
+}
+
+/**** MEDIA QUERIES ****/
+
+@media all and (min-width: 1950px){
+ #shopping-bag{
+      width: 500px !important;
+  }
+}
+
+// laptops
+@media all and (max-width: 1200px){
+  .header-banner{
+      .header-banner-social__item-count{
+          display: none;
+      }
+      .header-banner-search{
+          .search-input{
+              width: 90%;
+          }
+      }
+  }   
+}
+
+@media all and (max-width: 992px){
+  .header-banner{
+      .header-banner-left{
+          .navbar-toggler{
+              display: inline-block;
+          }
+          .header-banner-social__item{
+              display: none;
+          }
+          .header-banner-search{
+              display: none !important;
+          }
+      }    
+
+      // .collapse-section{
+      //     display: none;
+      // }
+  } 
+ 
+  .header-nav{
+      display: none;
+  }
+
+  .navbar-collapsable {
+      background: $primaryColor; 
+      position: fixed; 
+      top: 0;
+      left: 0;
+      bottom: 0;
+      padding: 0 15px 15px 15px;
+      width: 100% !important;
+      // height: 100%;
+      display: none;
+      overflow-y: scroll;
+
+      .collapsed-nav-search{
+          display: block !important;
+          width: 150%;
+          position: absolute;
+          top: 10px;
+      }
+      .nav-collapse-mobile-close-icon{
+          display: block !important;
+          position: fixed;
+      }
+  }
+
+  .menu{
+      flex-direction: column;
+      align-items: flex-start !important;
+      padding: 20px 0 0 20px;
+      margin-top: 80px;
+      .menu-link{
+          margin-bottom: 20px;
+      }
+  }
+  
+  .header-jumbo-menu{
+      width: 100%;
+      z-index: 100;
+  }
+
+  .collapse-img-primary{
+      display: none;
+  }
+}
+
+@media all and (max-width: 768px){
+  .header-banner-right{
+      
+      .header-banner-right__item{
+          font-size: 16px;
+      }
+  }
+}
+
+@media all and (max-width: 576px){
+  .header-banner-right{
+      .banner-count{
+          display: none;
+      }
+  }
+
+  .collapse-img{
+      display: none;
+  }
+
+  .announcement-text{
+      font-size: 12px;
+  }
+
+  .footer__bottom{
+      .newsletter-input{
+          width: 75%;
+      }
+  }
+}
+
+@media all and (max-width: 460px) {
+  .header-banner-right{
+      .header-banner-right__item{
+          font-size: 14px;
+      }
+  }
+}
+
+@media all and (max-width: 400px){
+  .header-banner-left{
+      flex: 0 0 16.666667%;
+      max-width: 10% !important;
+
+      .navbar-toggler{
+          font-size: 14px;
+      }
+  }
+
+  .header-banner-logo{
+      .navbar-brand{
+          font-size: 32px !important;
+      }
+  }
+
+  .header-banner-right{
+      .header-banner-right__item{
+          font-size: 12px;
+      }
+  }
+
+  .collapsed-nav-search{
+      padding-left: 0px !important;
+
+      .search-input{
+          width: 50% !important;
+      }
+  }
+}
+
+
+/*============================================================================
+  FOOTER
+==============================================================================*/
+
+// .footer-wrapper{
+//   background: $primaryColor;
+//   font-family: $primaryFont;
+//   .footer-container{
+      
+//       .footer__content{
+//           padding-top: 80px;
+
+//           .footer__menu{
+//               color: $primaryTextColor;
+//               .footer__menu__header{
+//                   font-size: 18px;
+//                   font-weight: 600;
+//                   color: $primaryTextColor;
+//                   text-transform: capitalize; 
+//                   margin-bottom: 20px;
+//               }
+
+//               .footer__menu__links{
+
+//                   .footer__menu__link__item{
+//                       font-size: 14px;
+//                       font-weight: 300;
+//                       text-transform: capitalize;
+//                       padding-bottom: 10px;
+//                       cursor: pointer;
+
+//                       a{
+//                           color: $primaryTextColor;
+//                           &:hover{
+//                               color: $primaryTextHoverColor;
+//                           }
+//                       }
+//                   }
+//               }
+
+//               .footer__newsletter__info{
+//                   margin: 0;
+//                   font-size: 14px;
+//               }
+
+//               .footer__signup{
+//                   margin: 25px 0;
+
+//                   .newsletter-input{
+//                       border-radius: 0px;
+//                   }::placeholder{
+//                       color: grey;
+//                   }
+
+//                   .newsletter-btn{
+//                       background: $primaryColorBold;
+//                       color: $primaryTextColor;
+//                       border-radius: 0px;  
+//                       padding: 6px 8px;
+//                   }
+
+//                   .form-check{
+//                       margin-top: 15px;
+//                       label{
+//                           font-size: 13px;
+//                           color: $primaryTextColor;
+//                           font-style: italic;
+//                       }
+//                   }
+//               }
+
+//               .footer__socials{
+//                   margin: 20px 0;
+
+//                   .footer__social__item{
+//                       font-size: 28px;
+//                       margin-right: 30px;
+//                       cursor: pointer;
+//                       &:hover{
+//                           color: $primaryTextColor;
+//                       }
+//                   }
+//                   #instagram-logo:hover{
+//                       color: #833AB4;
+//                   }
+//                   #pinterest-logo:hover{
+//                       color: #E60023;
+//                   }
+//                   #snapchat-logo:hover{
+//                       color: #FFFC00;
+//                   }
+//                   #facebook-logo:hover{
+//                       color: #4267B2;
+//                   }
+//               }
+//           }
+//       }
+
+//       hr{
+//           color: $primaryTextColor;
+//       }
+
+//       .footer__bottom{
+//           color: $primaryTextColor;
+//           .footer__copyright{
+//               font-size: 12px;
+//               font-weight: 100px;
+//           }
+
+//           .footer__payments{
+              
+//               .payments__list{
+//                   display: flex;
+//                   flex-direction: row;
+//                   font-size: 36px;
+
+//                   .payment__item{
+//                       color: $muteIconColors;
+//                       margin: -20px 10px 0;
+//                       cursor: pointer;
+//                       &:hover{
+//                           color: $primaryTextColor;
+//                       }
+//                   }
+//               }
+//           }
+//       }
+//   }
+// }
+
+
+// /**** MEDIA QUERIES ****/
+
+// @media all and (max-width: 1200px){
+  
+//   .footer__content{
+//       padding-top: 50px !important;
+
+//       .footer__menu{
+//           margin-top: 10px;
+//       }
+//   }
+//   .footer__signup{
+//       .newsletter-input{
+//           width: 75% !important;
+//       }
+//   }
+// }
+// @media all and (max-width: 992px){
+//    .footer-wrapper{
+
+//       .footer__socials{
+//           .footer__social__item{
+//               font-size: 20px !important;
+//           }
+//       }
+
+//       .footer__bottom{
+//           .footer__copyright{
+//               max-width: 65%;
+//           }
+//       }
+//   }
+// }
+
+// @media all and (max-width: 768px){
+//   .footer__bottom{
+//       .footer__copyright{
+//           font-size: 10px !important;
+//       }
+
+//       .payments__list{
+//           font-size: 18px !important;
+//           margin-top: 10px;
+//       }
+//   }
+// }
+
+// @media all and (max-width: 576px){
+//   .footer__signup{
+//       .newsletter-input{
+//           width: 75%;
+//       }
+//   }
+// }
