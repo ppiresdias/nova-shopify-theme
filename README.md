@@ -6,8 +6,10 @@
 2. Upload the archive to Shopify store
 3. Clone the repository
 3. Create config.yml and paste the following information:
+    ```
     development:
        password: [your_password]
        theme_id: "[theme-id]"
        store: [your_store_name].myshopify.com
+    ```
 4. Run 'theme watch' in the terminal
