@@ -40,8 +40,16 @@ jQuery(function () {
 
 
   // GO TO TOP BUTTON
+  let topButton = document.getElementById("topButton");
+
+  topButton.addEventListener("click", function() {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	});
+
   function scrollFunction() {
-    let topButton = document.getElementById("topButton");
     if (topButton !== null) {
       if(document.documentElement.scrollTop > 20) {
         topButton.classList.add("active");

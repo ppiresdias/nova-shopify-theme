@@ -875,9 +875,9 @@ $p5: $spacer*3;
   display: block !important;
 }
 
-.hidden{
-  display: none !important;
-}
+// .hidden{
+//   display: none !important;
+// }
 
 .offset-margin-top{
   margin-top: 142px;
@@ -890,6 +890,54 @@ $p5: $spacer*3;
 .mar_bottom_20{
   margin-bottom: 20px;
 }
+
+// GO TO TOP BUTTON
+$p3: 1rem;
+$p1: $p3*.25;
+$p2: $p3*.5;
+$p4: $p3*1.5;
+$p5: $p3*2;
+.top-button {
+  background-color: $color_top_button_bg;
+  border: none;
+  bottom: $p5;
+  cursor: pointer;
+  display: inline-block;
+  opacity: 0;
+  visibility: hidden;
+  padding: 2px 11px 6px;
+  right: $p3*1.8;
+  position: fixed;
+  z-index: 100;
+
+  &:hover, &.scrolling {
+    opacity: .9;
+    transition: opacity .1s ease-in-out;
+  }
+
+  &.active {
+    cursor: pointer;
+    opacity: 1;
+    transition: all .25s ease-in-out;
+    visibility: visible;
+  }
+
+  .top-button__icon {
+    font-size: 11px;
+    color: $color-white;
+  }  
+
+  .top-button--bottom {
+    background-color: $color-white;
+    transition: all .1s ease-in-out;
+    .top-button {
+      .top-button__icon {
+        color: $color_top_button_bg;
+      }
+    }
+  }
+}
+
 
 /**** MEDIA QUERIES ****/
 

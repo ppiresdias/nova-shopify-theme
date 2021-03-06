@@ -13,3 +13,6 @@
        store: [your_store_name].myshopify.com
     ```
 4. Run 'theme watch' in the terminal
+
+
+[https://87nova.myshopify.com/collections/adidas](https://87nova.myshopify.com/collections/adidas)

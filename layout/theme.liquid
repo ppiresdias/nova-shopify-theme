@@ -52,6 +52,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossOrigin="anonymous"/>
         {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
         {{ 'style.scss.css' | asset_url | stylesheet_tag }}
+        {{ 'collections.scss.css' | asset_url | stylesheet_tag }}
 
         <script>
             var theme = {
@@ -130,8 +131,8 @@
             {% include 'cart-popup' %}
         {%- endif -%}
 
+        <button onclick="topFunction()" title="Back to top" id="topButton" class="top-button"><i class="fa fa-chevron-up top-button__icon" aria-hidden="true"></i></button>
         {% section 'header' %}
-
         {{ content_for_layout }}
 
 
