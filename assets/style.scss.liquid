@@ -1113,10 +1113,12 @@ $p5: $p3 * 2;
   }
 }
 
-/* Jumbo 
+/*============================================================================
+  JUMBO
+
   url('https://source.unsplash.com/dhD_FiNkuzw/600x880');
   url('https://source.unsplash.com/dhD_FiNkuzw/1920x1080');
-*/
+==============================================================================*/
 
 .new__collection {
   font-family: $primaryFont;
@@ -1149,6 +1151,46 @@ $p5: $p3 * 2;
     @media screen and (min-width: 720px) {
       font-size: 5rem;
     }
+  }
+}
+
+/*============================================================================
+  THREE COLUMNS - FEATURED COLLECTION
+==============================================================================*/
+
+.feature__products {
+  margin: 0 1rem;
+  .card {
+    border: none;
+  }
+
+  .row {
+    a:hover {
+      text-decoration: none;
+    }
+    a img {
+      object-position: center;
+      cursor: pointer;
+    }
+  }
+
+  h5,
+  p {
+    color: black;
+  }
+
+  .previous__price {
+    text-decoration: line-through;
+    color: gray;
+    margin-right: 1rem;
+  }
+  h2 {
+    letter-spacing: 0;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5rem 0;
+    font-weight: bold;
+    font-size: 2.5rem;
   }
 }
 
