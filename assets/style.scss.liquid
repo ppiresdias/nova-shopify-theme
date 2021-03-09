@@ -1195,6 +1195,61 @@ $p5: $p3 * 2;
 }
 
 /*============================================================================
+  TWO COLUMNS - FOR HIM-HER SECTION
+==============================================================================*/
+
+.himher {
+  @media screen and (min-width: 1950px) {
+    margin: 10rem auto;
+    width: 50%;
+  }
+  margin: 10rem 0;
+
+  .for__her,
+  .for__him {
+    &::before {
+      background-color: rgba(0, 0, 0, 0.35);
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+
+  h3,
+  a {
+    z-index: 2;
+  }
+
+  .for__her__content,
+  .for__him__content {
+    height: 35rem;
+  }
+  h3, a {
+    font-family: $primaryFont;
+  }
+  h3 {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 4rem;
+    color: white;
+  }
+
+  .for__him__content {
+    background: center / cover no-repeat
+      url('https://source.unsplash.com/GwcXIzetYqM/');
+  }
+
+  .for__her__content {
+    background: center / cover no-repeat
+        url('https://source.unsplash.com/JfbpNdj4KAs/1920x1080'),
+      rgba(0, 0, 0, 0.5);
+  }
+}
+
+/*============================================================================
   FOOTER
 ==============================================================================*/
 
