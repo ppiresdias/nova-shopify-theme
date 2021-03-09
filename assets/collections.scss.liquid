@@ -1,3 +1,18 @@
+$primaryColor: rgb(59, 59, 59);
+
+$spacer: 1rem;
+$p1: $spacer*.25;
+$p2: $spacer*.5;
+$p3: $spacer;
+$p4: $spacer*1.5;
+$p5: $spacer*3;
+
+@mixin flex_center() {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 // TOP, BREADCRUMBS NAV
 .breadcrumbs {
   margin: 0 0 2em;
@@ -12,22 +27,33 @@
 
 .breadcrumbs__item {
   display: inline-block;
+  vertical-align: middle;
+
+  &:first-child {
+    .breadcrumbs__link {
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+
+  &:not(:first-child) {
+    .breadcrumbs__link {    
+      font-weight: normal;
+      text-decoration: none;
+    }
+  }
 }
 
 .breadcrumbs__item:not(:last-child):after {
-  content: '/';
+  content: '>';
   display: inline-block;
   margin: 0 .5em;
 }
 
+
+
 .breadcrumbs__link:hover {
   text-decoration: underline;
-}
-
-.breadcrumbs__link[aria-current="page"] {
-  color: inherit;
-  font-weight: normal;
-  text-decoration: none;
 }
 
 .breadcrumbs__link[aria-current="page"]:hover {
@@ -35,26 +61,66 @@
 }
 
 
-// products section
+// COLLECITONS
 .section-header {
   margin-bottom: 50px;
 }
 
-.collection-header {
-  // background-color: pink;
+// COLLECTIONS SECTION
+.collections {
+  color: $primaryColor;
 }
 
+.collections__header {
+  font-weight: 600;
+  margin-bottom: $p3*2.5;
+  text-align: center;
+}
+
+.collections__description {
+  margin: 0 auto $p3;
+  width: 50%;
+}
 
 // SORTING BAR
-.filters-toolbar__item-wrapper {
-  justify-content: space-between;
+.filters-toolbar-wrapper {
+  border: none;
 }
 
-.filters-toolbar__item-child {
-  // background-color: red;
+.filters-toolbar {
+  @include flex_center();
 }
 
 .sort-options {
   display: flex;
   // background-color: pink;
+}
+
+.filters-toolbar__product-count {
+  font-style: normal;
+}
+
+.filters-toolbar__item-child {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  &:first-child {
+    margin: 0;
+  }
+  // background-color: red;
+  // border: 1px solid black;
+}
+
+.filters-toolbar__item-wrapper {
+  justify-content: space-between;
+}
+
+.filters-toolbar__input-wrapper {
+  // padding: 0 10px;
+}
+
+.filters-toolbar__input {
+  border: 1px solid black;
+  height: 45px;
+  text-transform: uppercase;
 }

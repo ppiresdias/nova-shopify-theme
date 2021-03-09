@@ -30,7 +30,7 @@ https://shopify.github.io/liquid-code-examples/example/breadcrumb-navigation
             </li>
           {%- else -%}
             <li class="breadcrumbs__item">
-              <a class="breadcrumbs__link" href="{{ collection.url }}" aria-current="page">{{ collection.title }}</a>
+              {{ collection.title }}
             </li>
           {%- endif -%}
         {%- when 'blog' -%}
