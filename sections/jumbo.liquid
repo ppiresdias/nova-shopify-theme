@@ -1,0 +1,44 @@
+<section class="new__collection d-flex flex-column justify-content-center align-items-center"
+  style="background: center/cover url('{{ section.settings.jumbo_image | img_url: 'master'}}') no-repeat;">
+  <h1 class="new__collection__title" style="color: {{section.settings.jumbo_text_color}}">{{section.settings.jumbo_text}}</h1>
+  <a class="button--outline" href="#">{{section.settings.jumbo_button}}</a>
+</section>
+
+{% schema %}
+{
+  "name": "Jumbo",
+  "settings": [
+    {
+      "id": "jumbo_image",
+      "type": "image_picker",
+      "label": "Background Image"
+    },
+    {
+      "id":        "jumbo_text_color",
+      "type":      "color",
+      "label":     "Title color",
+      "default":   "#333",
+      "info":      "text"
+    },
+    {
+      "id": "jumbo_text",
+      "type": "text",
+      "label": "Title Text",
+      "default": "New collection"
+    },
+    {
+      "id": "jumbo_button",
+      "type": "text",
+      "label": "Button Text",
+      "default": "Shop now"
+    }
+  ],
+  "presets":
+  [
+      {
+        "name": "Jumbo",
+        "category": "Collection"
+      }
+  ]
+}
+{% endschema %}
