@@ -7,6 +7,16 @@ $p3: $spacer;
 $p4: $spacer*1.5;
 $p5: $spacer*3;
 
+// RIGHT SIDE
+$color-white: #ffffff;
+$color_product_discount: rgb(227, 44, 43);
+$color_product_title: #53585f;
+$color_product_price: #53585f;
+$color-swatch-border: #cacaca;
+$color-photo-border: #edeff0;
+$size-swatch-outer-border: 4px;
+$size-swatch: 18px;
+
 @mixin flex_center() {
   align-items: center;
   display: flex;
@@ -45,7 +55,9 @@ $p5: $spacer*3;
 }
 
 .breadcrumbs__item:not(:last-child):after {
-  content: '>';
+  font-family: FontAwesome;
+  content: "\f054"; // fa-chrevon-right
+  font-size: 12px;
   display: inline-block;
   margin: 0 .5em;
 }
@@ -123,4 +135,48 @@ $p5: $spacer*3;
   border: 1px solid black;
   height: 45px;
   text-transform: uppercase;
+}
+
+.swatch {
+  $size: 18px;
+  box-shadow: inset 0 0 0 1px $color-swatch-border;
+  border-radius: 50%;
+  cursor: pointer;
+  height: $size;
+  width: $size;
+}
+
+.swatch--first {
+  margin-left: 4px;
+}
+.swatch--active {
+  box-shadow: inset 0 0 0 1px rgb(119, 119, 119), 0 0 0 1px $color-white, 0 0 0 $size-swatch-outer-border $color-swatch-border;
+}
+
+
+.bag-button {
+  @include flex_center();
+  background-color: black;
+  border: 1px solid black;
+  display: block;
+  color: white;
+  padding: $p2 0;
+  width: 100%;
+
+  &:hover {
+    background-color: #eeeff0;
+    color: $primaryColor;
+    transition: all .1s ease-in-out;
+  }
+}
+
+.bag-button__text {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.bag-button__icon {
+  font-size: 12px;
+  margin-left: 6px;
 }

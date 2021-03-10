@@ -17,27 +17,31 @@
 
 {% paginate collection.products by limit %}
 
-<div data-section-id="{{ section.id }}" data-section-type="collection-template" class="collections">
-  {% render 'breadcrumbs' %}
-  <header class="collection-header collections__top">
+<section data-section-id="{{ section.id }}" data-section-type="collection-template" class="collections" id="collections">
+  <div className="container-fluid collections__container">
+  <div className="container-fluid collections__modal" id="collections__modal">
+
+  </div>
+  <header class="collections__top">
+    {% render 'breadcrumbs' %}
     {%- assign is_filter_by_available = false -%}
     {%- if section.settings.tags_enable and collection.all_tags.size > 0 -%}
       {%- assign is_filter_by_available = true -%}
     {%- endif -%}
-
-    <div class="container-fluid">
-      <div class="section-header text-center">
-        <h1 class="collections__header">
-            <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
-            {{ collection.title }}
-        </h1>
-        {% if collection.description != blank %}
-          <div class="rte collections__description">
-            {{ collection.description }}
-          </div>
-        {% endif %}
+    <h1 class="collections__header text-center">
+      <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
+      {{ collection.title }}
+    </h1>
+    {% if collection.description != blank %}
+      <div class="rte collections__description text-center">
+        {{ collection.description }}
       </div>
-    </div>
+    {% endif %}
+
+    <!-- <div class="container-fluid">
+      <div class="section-header text-center">
+      </div>
+    </div> -->
 
     {% if is_filter_by_available or section.settings.sort_enable %}
       <div class="filters-toolbar-wrapper{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
@@ -218,7 +222,8 @@
       {% include 'pagination', paginate: paginate %}
     {%- endif -%}
   </div>
-</div>
+  </div>
+</section>
 
 {% endpaginate %}
 
