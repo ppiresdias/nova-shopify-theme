@@ -75,7 +75,7 @@
 
             <ul class="list--inline article__meta-buttons">
               <li>
-                <a href="{{ article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
+                <a href="{{ article.url }}" class="button--outline--p7" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
                   {{ 'blogs.article.read_more' | t }}
                 </a>
               </li>
@@ -97,6 +97,7 @@
       {% for i in (1..section.settings.post_limit) %}
         <div class="grid__item medium-up--one-third">
           <div class="article__grid-meta">
+          <img src="{{ article.image | img_url: 'master' }}" />
             <h3 class="article__title">
               <a href="#">{{ 'homepage.onboarding.blog_title' | t }}</a>
             </h3>
@@ -111,7 +112,7 @@
 
             <ul class="list--inline article__meta-buttons">
               <li>
-                <a href="{{ article.url }}" class="btn btn--tertiary btn--small">
+                <a href="{{ article.url }}" class="button--outline--p7">
                   {{ 'blogs.article.read_more' | t }}
                 </a>
               </li>
@@ -125,7 +126,7 @@
   {% if section.settings.show_view_all %}
     <hr class="hr--invisible" aria-hidden="true"></hr>
     <div class="text-center">
-      <a href="{{ blog.url }}" class="btn" aria-label="{{ 'blogs.article.view_all_blogs' | t }}">
+      <a href="{{ blog.url }}" class="button--dark" aria-label="{{ 'blogs.article.view_all_blogs' | t }}">
         {{ 'blogs.article.view_all' | t }}
       </a>
     </div>
@@ -139,7 +140,7 @@
   "name": {
     "da": "Blogopslag",
     "de": "Blogposts",
-    "en": "Blog posts",
+    "en": "Latest posts",
     "es": "Entradas del blog",
     "fi": "Blogijulkaisut",
     "fr": "Articles de blog",
@@ -156,7 +157,6 @@
     "zh-CN": "博客文章",
     "zh-TW": "部落格文章"
   },
-  "class": "index-section",
   "settings": [
     {
       "type": "text",
@@ -184,7 +184,7 @@
       "default": {
         "da": "Blogopslag",
         "de": "Blogposts",
-        "en": "Blog posts",
+        "en": "Latest posts",
         "es": "Entradas del blog",
         "fi": "Blogijulkaisut",
         "fr": "Articles de blog",
@@ -335,7 +335,7 @@
       "name": {
         "da": "Blogopslag",
         "de": "Blogposts",
-        "en": "Blog posts",
+        "en": "Latest posts",
         "es": "Entradas del blog",
         "fi": "Blogijulkaisut",
         "fr": "Articles de blog",
