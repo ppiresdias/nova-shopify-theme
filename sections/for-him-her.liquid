@@ -1,49 +1,39 @@
+{%- assign collection1 = collections[section.settings.collection1] -%}
+{%- assign collection2 = collections[section.settings.collection2] -%}
+
 <section class="himher row no-gutters">
   <div class="for__him col-12 col-md-6">
-    <div
-      style="background: center/cover no-repeat url('{{ section.settings.for_him | img_url: 'master'}}'), rgba(0, 0, 0, 0.5);"
-      class="for__him__content d-flex flex-column justify-content-center items-center align-items-center"
-    >
-      <h3>{{section.settings.left_text}}</h3>
-      <a href="#" class="button--black">{{section.settings.btn_text}}</a>
+    <div class="for__him__content d-flex flex-column justify-content-center items-center align-items-center" style="background: center/cover no-repeat url('{{
+                collection1.image | img_url: 'master'
+              }}'), rgba(0, 0, 0, 0.5);">
+      <h3>{{ collection1.title }}</h3>
+      <a class="button--black" href="{{ collection1.url }}">{{ section.settings.btn_text }}</a>
     </div>
   </div>
   <div class="for__her col-12 col-md-6">
-    <div
-      style="background: center/cover no-repeat url('{{ section.settings.for_her | img_url: 'master'}}') rgba(0, 0, 0, 0.5);"
-      class="for__her__content d-flex flex-column justify-content-center items-center align-items-center"
-    >
-      <h3>{{section.settings.right_text}}</h3>
-      <a href="#" class="button--black">{{section.settings.btn_text}}</a>
+    <div class="for__her__content d-flex flex-column justify-content-center items-center align-items-center" style="background: center/cover no-repeat url('{{
+                collection2.image | img_url: 'master'
+              }}') rgba(0, 0, 0, 0.5);">
+      <h3>{{ collection2.title }}</h3>
+      <a class="button--black" href="{{ collection2.url }}">{{ section.settings.btn_text }}</a>
     </div>
   </div>
 </section>
 
-{% schema %} 
+{% schema %}
+
 {
   "name": "Two Colum Collection",
   "settings": [
     {
-      "id": "for_him",
-      "type": "image_picker",
+      "id": "collection1",
+      "type": "collection",
       "label": "Left Image"
     },
     {
-      "id": "for_her",
-      "type": "image_picker",
+      "id": "collection2",
+      "type": "collection",
       "label": "Right Image"
-    },
-    {
-      "id": "left_text",
-      "type": "text",
-      "label": "Left Side Text",
-      "default": "For him"
-    },
-    {
-      "id": "right_text",
-      "type": "text",
-      "label": "Right Side Text",
-      "default": "For her"
     },
     {
       "id": "btn_text",
@@ -52,12 +42,12 @@
       "default": "Shop now"
     }
   ],
-  "presets":
-  [
-      {
-        "name": "Two Colum Collection",
-        "category": "Collection"
-      }
+  "presets": [
+    {
+      "name": "Two Colum Collection",
+      "category": "Collection"
+    }
   ]
 }
+
 {% endschema %}
