@@ -1154,9 +1154,50 @@ $p5: $p3 * 2;
   }
 }
 
-/*============================================================================
-  THREE COLUMNS - FEATURED COLLECTION
-==============================================================================*/
+/*===================.blog {
+  margin: 50px 0;
+  &__pagination {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    hr {
+      margin: auto;
+      padding: 8px;
+    }
+
+    ul {
+      li {
+        margin: 0 10px;
+        border: 1px solid gray;
+        padding: 4px 12px;
+        display: inline-block;
+        cursor: pointer;
+
+        a {
+          color: black;
+          text-decoration: none;
+        }
+
+        &:hover {
+          border-color: lightblue;
+        }
+      }
+    }
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    span {
+      font-family: "Karla", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      letter-spacing: 0.5px;
+    }
+  }
+}=========================================================*/
 
 .feature__products {
   margin: 0 1rem;
@@ -1282,6 +1323,181 @@ $p5: $p3 * 2;
     text-align: center;
     font-weight: bold;
     font-size: 2.5rem;
+  }
+}
+
+// blog
+.blog {
+  margin: 50px 0;
+  .blog__pagination {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    hr {
+      margin: auto;
+      padding: 8px;
+    }
+
+    ul {
+      li {
+        margin: 0 10px;
+        border: 1px solid gray;
+        padding: 4px 12px;
+        display: inline-block;
+        cursor: pointer;
+
+        a {
+          color: black;
+          text-decoration: none;
+        }
+
+        &:hover {
+          border-color: lightblue;
+        }
+      }
+    }
+  }
+
+  .blog__header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    span {
+      font-family: "Karla", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+.cards {
+  display: flex;
+
+  @media screen and(max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cards__row {
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    min-width: 300px;
+    margin-right: 5px;
+
+    @media screen and(max-width: 700px) {
+      margin-right: 0;
+    }
+
+    h4 {
+      font-weight: 700;
+      font-family: "Karla", sans-serif;
+    }
+
+    .search {
+      border: 1px solid black;
+      height: fit-content;
+      width: 300px;
+
+      :first-child {
+        margin-left: 5px;
+      }
+
+      input {
+        border: none;
+        padding: 2px 0;
+
+        ::placeholder {
+          color: black;
+        }
+      }
+    }
+
+    .recent {
+      text-align: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgb(241, 241, 241);
+
+      a {
+        display: block;
+        color: black;
+        text-decoration: none;
+        margin: 5px 0;
+      }
+    }
+
+    .tags {
+      text-align: center;
+
+      margin: 1.5rem 0;
+
+      a {
+        text-decoration: none;
+        float: left;
+        padding: 5px;
+        color: black;
+        border: 0.5px solid lightgray;
+        margin: 4px;
+      }
+    }
+  }
+}
+
+.card {
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border: none;
+
+  a {
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .card__title {
+    font-family: "Prata", serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1.4rem;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .card__content {
+    font-family: "Karla", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    word-break: break-word;
+    text-align: left;
+    color: gray;
+
+    a {
+      color: #212529;
+
+      &:hover {
+        color: blue;
+      }
+    }
+  }
+
+  .card__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 290px;
+  }
+
+  .card__date {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 5px;
   }
 }
 
