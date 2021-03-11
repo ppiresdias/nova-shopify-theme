@@ -5,11 +5,7 @@
   <div class="row">
     {% for product in collection.products limit: 6 %}
       <a href="{{product.url}}" class="card col-12 col-sm-6 col-lg-4">
-        <img
-          loading="lazy"
-          class="card-img-top"
-          src="{{product.featured_image | img_url: 'master' }}"
-        />
+        <img loading="lazy" class="card-img-top" src="{{product.featured_image | img_url: 'master' }}"/>
         <div class="card-body">
           <h5 class="card-title text-center">{{product.title}}</h5>
           <div class="card__body__price d-flex justify-content-center">
@@ -21,7 +17,6 @@
     {% endfor %}
   </div>
 </section>
-
 
 
 {% schema %}
