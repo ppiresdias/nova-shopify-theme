@@ -1,152 +1,89 @@
+
 <div class="blog">
     <div class="blog__header-wrapper">
         <header class="blog__header">
-            <span>Blog</span>
+            <span>{{ section.settings.title }}</span>
         </header>
     </div>
 
     <div class="cards-wrapper">
         <div class="cards container">
             <div class="row flex-column left-column">
-
                 <div class="recent">
                     <h4>RECENT ARTICLES</h4>
+                    {% for article in blog.articles limit:4%}
 
-                    <a href="/blogpage">
-                        Outfit of the day</a>
-
-
-                    <a href="/blogPage">Clothing Paradise</a>
-
-
-                    <a href="/blogpage">Style beyond Imagination</a>
+                    <a href="{{ article.url }}">
+                        {{ article.title }}</a>
+                    {%endfor%}
 
                 </div>
                 <div class="tags">
+                    {% if blog.tags.size > 0 %}
                     <h4>Tags</h4>
+                    {% for tag in blog.all_tags %}
                     <Link href="#">
-                        <a>Awesome</a>
+                        <a href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ tag }}</a>
                     </Link>
-                    <Link href="#">
-                        <a>Summer</a>
-                    </Link>
-                    <Link href="#">
-                        <a>Winter</a>
-                    </Link>
-                    <Link href="#">
-                        <a>Vintage</a>
-                    </Link>
+                    {%endfor%}
+                    {% endif %}
                 </div>
             </div>
+          
 
-            <div class="cards__row row">
+
+ <div class="cards__row row">
+    
+              {% comment%}
+              {%endcomment%}
+              {% for article in blog.articles %}
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <div class="card">
-                        <img alt="fashion" class="card__img" src="{{ 'hair.jpg' | asset_img_url: '1024x768' }}"/>
-                        <span class="card__date">06 FEB, 2021</span>
-                        <h1 class="card__title">Clothing Paradise</h1>
-                        <p class="card__content">
-                            eiusmod tempor incididunt ut labore et dolore Lorem
-                                            ipsumadipisicing elit, sed do magna aliqua dolor sit amet
-                                            conse ctetur...
+                        {% if article.image %}
+                        {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                        <img alt="fashion" class="card__img" src="{{ article.image | img_url: '1024x768' }}"/>
+                        {%endif%}
+                        <span class="card__date">{{ article.published_at | time_tag: format:"date" }}</span>
+                        <h1 class="card__title">{{ article.title | escape }}</h1>
 
-                            <a href="/blogPage">
-                                Read More
+                        {%- assign content = article.content -%}
+                        <p class="card__content" >
+                            {{ content }}
+                            <a href="{{ article.url }}">
+                             Read more
                             </a>
-
                         </p>
-                    </div>
+                    </div>           
                 </div>
+                {%endfor%}
+
+                {% for block in section.blocks %}
                 <div class="col-sm-12 col-md-12 col-lg-6">
+          
                     <div class="card">
-                        <img alt="dark hair" class="card__img" src="{{ 'fashion.jpg' | asset_img_url: '1024x768' }}"/>
-                        <span class="card__date">10 JUN, 2021</span>
-                        <h1 class="card__title">Outfit of the day</h1>
-                        <p class="card__content">
-                            eiusmod tempor incididunt ut labore et dolore Lorem
-                                            ipsumadipisicing elit, sed do magna aliqua dolor sit amet
-                                            conse ctetur...
-
+                        <img alt="fashion" class="card__img" src="{{ block.settings.article_image | img_url: '1024x768' }}"/>
+                        <span class="card__date">{{ block.settings.article_date }}</span>
+                        <h1 class="card__title">{{ block.settings.article_title }}</h1>
+                        <p class="card__content" maxlength="10">
+                            {{ block.settings.article_content }}
+                          
+          
                             <a href="/blogPage">
-                                Read More
+                               {{ block.settings.article_link_name }}
                             </a>
-
+          
                         </p>
                     </div>
+                   
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                    <div class="card">
-                        <img alt="young female" class="card__img" src="{{ 'young-female.jpg' | asset_img_url: '1024x768' }}"/>
-                        <span class="card__date">10 NOV, 2020</span>
-                        <h1 class="card__title">Brands You Should Know</h1>
-                        <p class="card__content">
-                            eiusmod tempor incididunt ut labore et dolore Lorem
-                                            ipsumadipisicing elit, sed do magna aliqua dolor sit amet
-                                            conse ctetur...
-                            <a href="/blogPage">
-                                Read More
-                            </a>
-
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                    <div class="card">
-                        <img alt="fashion" class="card__img" src="{{ 'group.jpg' | asset_img_url: '1024x768' }}"/>
-                        <span class="card__date">23 DEC, 2020</span>
-                        <h1 class="card__title">Style beyond Imagination</h1>
-                        <p class="card__content">
-                            eiusmod tempor incididunt ut labore et dolore Lorem
-                                            ipsumadipisicing elit, sed do magna aliqua dolor sit amet
-                                            conse ctetur...
-
-                            <a href="/blogPage">
-                                Read More
-                            </a>
-
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                    <div class="card">
-                        <img alt="dark hair" class="card__img" src="{{ 'dark.jpg' | asset_img_url: '1024x768' }}"/>
-                        <span class="card__date">29 DEC, 2020</span>
-                        <h1 class="card__title">Glam Life</h1>
-                        <p class="card__content">
-                            eiusmod tempor incididunt ut labore et dolore Lorem
-                                            ipsumadipisicing elit, sed do magna aliqua dolor sit amet
-                                            conse ctetur...
-
-                            <a href="/blogPage">
-                                Read More
-                            </a>
-
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-6">
-                    <div class="card">
-                        <img alt="warm weather" class="card__img" src="{{ 'warm-weather.jpg' | asset_img_url: '1024x768' }}"/>
-                        <span class="card__date">29 JUL, 2020</span>
-                        <h1 class="card__title">Warm Weather Collection</h1>
-                        <p class="card__content">
-                            eiusmod tempor incididunt ut labore et dolore Lorem
-                                            ipsumadipisicing elit, sed do magna aliqua dolor sit amet
-                                            conse ctetur...
-
-                            <a href="/blogPage">
-                                Read More
-                            </a>
-
-                        </p>
-                    </div>
-                </div>
+                {%endfor%}
+            
             </div>
+           
         </div>
         <div class="blog__pagination container">
             <hr/>
             <ul>
-
                 <li>
                     <a href="#">1</a>
                 </li>
@@ -156,9 +93,74 @@
                 <li>
                     <a href="#">3</a>
                 </li>
-
             </ul>
             <hr/>
         </div>
     </div>
 </div>
+
+
+{% schema %}
+  {
+    "name": "Blog",
+    "class": "section-blog",
+    "tag": "section",
+    "settings": [
+      {
+        "id": "title",
+        "type": "text",
+        "label": "Title",
+        "default": "Blog"
+      }
+      
+    ],
+    "blocks": [
+        {
+          "type": "Article",
+          "name": "Article",
+          "limit": 6,
+          "settings": [
+          {
+            "id": "article_image",
+            "type": "image_picker",
+            "label": "Article image"
+             
+          },
+          {
+              "id": "article_date",
+              "type": "text",
+              "label": "Article date",
+              "placeholder": "06 FEB, 2021"
+              
+          },
+            {
+              "id": "article_title",
+              "type": "text",
+              "label": "Article title",
+              "default": "Add a title"
+            },
+            {
+              "id": "article_content",
+              "type": "textarea",
+              "label": "Article content",
+              "default": "Add content"
+            },
+            {
+                "id": "article_link_name",
+                "type": "text",
+                "label": "Article link name",
+                "default": "Read more"
+            },
+            {
+             "id": "article_button_link",
+              "type": "text",
+              "label": "Article Link URL",
+              "default": "#"
+            }
+           
+          ]
+        }
+    ]
+    
+  }
+{% endschema %}
