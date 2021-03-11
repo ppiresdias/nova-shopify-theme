@@ -197,9 +197,9 @@ select {
    */
 
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
 }
 
@@ -208,9 +208,9 @@ button,
    */
 
 button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -220,9 +220,9 @@ button::-moz-focus-inner,
    */
 
 button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -275,8 +275,8 @@ textarea {
    * 2. Remove the padding in IE 10.
    */
 
-[type='checkbox'],
-[type='radio'] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -285,8 +285,8 @@ textarea {
    * Correct the cursor style of increment and decrement buttons in Chrome.
    */
 
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -295,7 +295,7 @@ textarea {
    * 2. Correct the outline style in Safari.
    */
 
-[type='search'] {
+[type="search"] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
@@ -304,7 +304,7 @@ textarea {
    * Remove the inner padding in Chrome and Safari on macOS.
    */
 
-[type='search']::-webkit-search-decoration {
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -373,7 +373,7 @@ $color_top_button_bg: #444444;
 $muteIconColors: rgb(173, 173, 173);
 
 // fonts
-$primaryFont: 'Montserrat';
+$primaryFont: "Montserrat";
 
 //sizes
 $primaryFontSize: 16px;
@@ -393,7 +393,7 @@ $navJumboMenuTextHoverColor: rgb(141, 141, 141);
 $navJumboMenuShadowColor: rgba(41, 41, 41, 0.25);
 
 //CONTACT VARIABLES
-$contact_font: 'Montserrat', sans-serif;
+$contact_font: "Montserrat", sans-serif;
 $heading_light: 90px Montserrat, sans-serif;
 $heading_weight: 800;
 $contact_btnBackground: rgb(0, 0, 0);
@@ -477,7 +477,7 @@ $p5: $spacer * 3;
     text-align: center;
 
     .navbar-brand {
-      font-family: 'Bebas Neue';
+      font-family: "Bebas Neue";
       font-size: 40px;
       color: $primaryTextColor !important;
       &:hover {
@@ -819,7 +819,7 @@ $p5: $spacer * 3;
 
       .jumbo-menu-link {
         color: $navJumboMenuTextColor;
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-size: 14px;
         text-transform: capitalize;
         &:hover {
@@ -1167,7 +1167,7 @@ $p5: $p3 * 2;
     margin: 0 auto;
   }
   .new__collection__title {
-		font-family: $primaryFont;
+    font-family: $primaryFont;
     text-transform: uppercase;
     font-weight: 900;
     font-size: 3rem;
@@ -1178,9 +1178,50 @@ $p5: $p3 * 2;
   }
 }
 
-/*============================================================================
-  THREE COLUMNS - FEATURED COLLECTION
-==============================================================================*/
+/*===================.blog {
+  margin: 50px 0;
+  &__pagination {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    hr {
+      margin: auto;
+      padding: 8px;
+    }
+
+    ul {
+      li {
+        margin: 0 10px;
+        border: 1px solid gray;
+        padding: 4px 12px;
+        display: inline-block;
+        cursor: pointer;
+
+        a {
+          color: black;
+          text-decoration: none;
+        }
+
+        &:hover {
+          border-color: lightblue;
+        }
+      }
+    }
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    span {
+      font-family: "Karla", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      letter-spacing: 0.5px;
+    }
+  }
+}=========================================================*/
 
 .feature__products {
   margin: 0 1rem;
@@ -1233,7 +1274,7 @@ $p5: $p3 * 2;
   .for__him {
     &::before {
       background-color: rgba(0, 0, 0, 0.35);
-      content: '';
+      content: "";
       display: block;
       height: 100%;
       position: absolute;
@@ -1251,7 +1292,8 @@ $p5: $p3 * 2;
   .for__him__content {
     height: 35rem;
   }
-  h3, a {
+  h3,
+  a {
     font-family: $primaryFont;
   }
   h3 {
@@ -1264,12 +1306,12 @@ $p5: $p3 * 2;
 
   .for__him__content {
     background: center / cover no-repeat
-      url('https://source.unsplash.com/GwcXIzetYqM/');
+      url("https://source.unsplash.com/GwcXIzetYqM/");
   }
 
   .for__her__content {
     background: center / cover no-repeat
-        url('https://source.unsplash.com/JfbpNdj4KAs/1920x1080'),
+        url("https://source.unsplash.com/JfbpNdj4KAs/1920x1080"),
       rgba(0, 0, 0, 0.5);
   }
 }
@@ -1296,6 +1338,179 @@ $p5: $p3 * 2;
 
   div {
     font-family: $primaryFont;
+=======
+// blog
+.blog {
+  margin: 50px 0;
+  .blog__pagination {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    hr {
+      margin: auto;
+      padding: 8px;
+    }
+
+    ul {
+      li {
+        margin: 0 10px;
+        border: 1px solid gray;
+        padding: 4px 12px;
+        display: inline-block;
+        cursor: pointer;
+
+        a {
+          color: black;
+          text-decoration: none;
+        }
+
+        &:hover {
+          border-color: lightblue;
+        }
+      }
+    }
+  }
+
+  .blog__header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    span {
+      font-family: "Karla", sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+.cards {
+  display: flex;
+
+  @media screen and(max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cards__row {
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    min-width: 300px;
+    margin-right: 5px;
+
+    @media screen and(max-width: 700px) {
+      margin-right: 0;
+    }
+
+    h4 {
+      font-weight: 700;
+      font-family: "Karla", sans-serif;
+    }
+
+    .search {
+      border: 1px solid black;
+      height: fit-content;
+      width: 300px;
+
+      :first-child {
+        margin-left: 5px;
+      }
+
+      input {
+        border: none;
+        padding: 2px 0;
+
+        ::placeholder {
+          color: black;
+        }
+      }
+    }
+
+    .recent {
+      text-align: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgb(241, 241, 241);
+
+      a {
+        display: block;
+        color: black;
+        text-decoration: none;
+        margin: 5px 0;
+      }
+    }
+
+    .tags {
+      text-align: center;
+
+      margin: 1.5rem 0;
+
+      a {
+        text-decoration: none;
+        float: left;
+        padding: 5px;
+        color: black;
+        border: 0.5px solid lightgray;
+        margin: 4px;
+      }
+    }
+  }
+}
+
+.card {
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border: none;
+
+  a {
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .card__title {
+    font-family: "Prata", serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1.4rem;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .card__content {
+    font-family: "Karla", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    word-break: break-word;
+    text-align: left;
+    color: gray;
+
+    a {
+      color: #212529;
+
+      &:hover {
+        color: blue;
+      }
+    }
+  }
+
+  .card__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 290px;
+  }
+
+  .card__date {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 5px;
   }
 }
 /*============================================================================
@@ -1545,3 +1760,5 @@ $p5: $p3 * 2;
 //       }
 //   }
 // }
+
+// BLOG STYLES //
