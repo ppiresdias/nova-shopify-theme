@@ -1227,6 +1227,11 @@ $p5: $p3 * 2;
   margin: 0 1rem;
   .card {
     border: none;
+    .card-img-top {
+      height: 30rem;
+      object-fit: cover;
+      object-position: center;
+    }
   }
 
   .row {
@@ -1338,7 +1343,9 @@ $p5: $p3 * 2;
 
   div {
     font-family: $primaryFont;
-=======
+  }
+}
+
 // blog
 .blog {
   margin: 50px 0;
@@ -1541,6 +1548,8 @@ $p5: $p3 * 2;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 400px;
+
       svg,
       a {
         display: none;
