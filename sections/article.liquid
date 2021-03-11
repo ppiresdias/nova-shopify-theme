@@ -1,0 +1,44 @@
+<div class="blog-page">
+  <div class="blog-page__container container">
+    <div class="blog-page__row row">
+      <div class="blog-page__col col-sm-12">
+        {% if article.image %} {%- assign img_url = article.image | img_url:
+        '1x1' | replace: '_1x1.', '_{width}x.' -%}
+        <img
+          alt="fashion"
+          class="card__img"
+          src="{{ article.image | img_url: '1024x768' }}"
+        />
+        {%endif%}
+        <div class="blog-page__content">
+          <span class="date"> {{ article.date }}</span>
+          <h1 class="title">{{ article.title }}</h1>
+          <p class="content">
+            {{ article.content }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="blog-page__row row">
+      <div class="col-sm-12 col-md-12">
+        <div class="blog-page__buttons">
+          <button class="button">PREVIOUS</button>
+          <button class="button">NEXT</button>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-12">
+        <div class="blog-page__comment">
+          <h2>Leave a comment</h2>
+          <label>Name</label>
+          <input placeholder="Your name" />
+          <label>Email Address</label>
+          <input placeholder="your@example.com" />
+          <label>Comment</label>
+          <textarea></textarea>
+          <button>Post comment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

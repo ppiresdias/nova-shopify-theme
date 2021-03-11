@@ -7,9 +7,25 @@
 
     Usage:
     {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+
+
+    old div below
+    <div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
 {% endcomment %}
-<div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
+
+<div class="grid-view-item product-card">
   <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
+{%- comment -%}
+    {%- assign splitTitle = product.title | split: ' ' -%}
+    {%- assign title = '' -%}
+    {%- for word in splitTitle -%}
+      {%- assign w = word | downcase -%}
+      {%- assign w = w | capitalize -%}
+      {%- assign w = w | concat: ' ' -%}
+      {%- assign title = title | concat: w -%}
+      {{ title }}
+    {%- endfor -%}
+{%- endcomment -%}
     <span class="visually-hidden">{{ product.title }}</span>
   </a>
 
@@ -40,11 +56,64 @@
 
   <noscript>
     {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+
     <img class="grid-view-item__image" src="{{ preview_image | img_url: image_size, scale: 2 }}" alt="{{ preview_image.alt }}" style="max-width: {{ max_height | times: preview_image.aspect_ratio }}px;">
+    {%- comment -%}
+    <img class="grid-view-item__image" src="{{ preview_image | img_url: x300 }}" alt="{{ preview_image.alt }}" style="max-width: {{ max_height | times: preview_image.aspect_ratio }}px;">
+    {%- endcomment -%}
+
   </noscript>
 
   <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
 
+  {%- comment -%}
   {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
+  {%- endcomment -%}
 
+</div>
+
+{%- comment -%}
+CUSTOMIZED FORM TO ADD TO CART
+{%- endcomment -%}
+<div class="product-card-grid-form-container">
+  <form method="POST" class="product-card-grid-form">
+    {%- assign current_variant = product.selected_or_first_available_variant -%}
+    {%- assign price = current_variant.price | money -%}
+    {% if current_variant.available %}
+      <input type="hidden" class="item-quantity" name="quantity" min="1" value="1" max="1">
+      {%- assign className = className | append: " active" -%}
+    {% else %}
+      <input type="hidden" class="item-quantity" name="quantity" min="0" max="0" value="0">
+      <!-- {%- assign price = "&nbsp;" -%} -->
+    {% endif %}
+    <div class="product-card-grid-form__price">{{ price }}</div>
+    <div class="form__option">
+      {% assign colors = "" %}
+      {% for variant in product.variants %}
+        {% if colors != "" %}
+          {% assign colors = colors | append: "," | append: variant["option2"] %}
+        {% else %}
+          {% assign colors = variant["option2"] %}  
+        {% endif %}
+      {% endfor %}
+      {% assign colors = colors | split: "," | uniq %}
+      {% for color in colors %}
+        <div class="swatch{% if colors.first == color %} swatch--first swatch--active{% endif %}" style="{{ "background-color: " | append: color }}"></div>
+      {% endfor %}
+      <!-- {% assign colors = colors | split: "," | uniq | join: "," %}
+      {{ colors }} -->
+      <select name="selected" {% if product.has_only_default_variant %} single-variant {% endif %}>
+        {% for variant in product.variants %}
+          <!-- {%- assign max = variant.inventory_quantity -%} -->
+          {%- assign max = 1 -%}
+          <option value={{ variant.id }} {% unless variant.inventory_quantity > 0 %} disabled {% else %} max="{{ variant.inventory_quantity }}" {% endunless %}>{{ variant.options | join: " / " }} {{ max }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    {%- assign className = "product-card-grid-form__submit bag-button" -%}
+    <button type="submit" name="add" class="{{ className }}" {% unless current_variant.available %} disabled {% endunless %}>
+      <span class="bag-button__text">Add to Bag</span>
+      <i class="fa fa-chevron-down bag-button__icon" aria-hidden="true"></i>
+    </button>
+  </form>
 </div>
