@@ -1513,6 +1513,68 @@ $p5: $p3 * 2;
     margin-bottom: 5px;
   }
 }
+/*============================================================================
+  INSTAGRAM OUTFITS SECTION
+==============================================================================*/
+
+.instagram__posts {
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: 1950px) {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  h2 {
+    margin: 9rem 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5rem;
+  }
+  .row {
+    cursor: pointer;
+    .instagram__posts__card {
+      margin: 0 0.5rem 0.5rem 0.5rem !important;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      svg,
+      a {
+        display: none;
+        position: absolute;
+        z-index: 2;
+      }
+      a {
+        top: 60%;
+        padding: 0.7rem 2rem;
+        text-transform: uppercase;
+      }
+
+      img {
+        object-fit: cover;
+      }
+    }
+    div {
+      &:hover {
+        .instagram__posts__card__item {
+          display: block;
+        }
+        &::before {
+          background-color: rgba(0, 0, 0, 0.35);
+          content: '';
+          display: block;
+          height: 100%;
+          position: absolute;
+          width: 100%;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
 
 /*============================================================================
   FOOTER
