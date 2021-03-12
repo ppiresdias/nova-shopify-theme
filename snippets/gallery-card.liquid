@@ -1,0 +1,32 @@
+<div class="col-6 col-md-6 col-lg-4 col-xl-3 gallery__column">
+  <div class="card gallery__container h-100">
+    <div class="gallery__image-container gallery__image-container--right card-img-top">
+      <div class="gallery__carousel">
+        <div class="gallery__image">
+          <img class="" src="{{ image1 | asset_url }}" alt="">
+        </div>
+        <div class="gallery__image">
+          <img class="" src="{{ image2 | asset_url }}" alt="">
+        </div>
+      </div>
+      <div class="gallery__icon gallery__icon--heart">
+        <i class="fa fa-heart-o" aria-hidden="true"></i>
+      </div>
+      <div class="gallery__icon gallery__icon--arrow gallery__icon--arrow--left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      </div>
+      <div class="gallery__icon gallery__icon--arrow gallery__icon--arrow--right">
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="card-body product-info">
+      <div class="product-info__discount">{{ discount }}</div>
+      <div class="product-info__title">{{ title }}</div>
+      <div class="product-info__price">$19.99 USD</div>
+      <button class="product-info__button bag-button">
+        <span class="bag-button__text">Add to Bag</span>
+        <i class="fa fa-chevron-down bag-button__icon" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>
