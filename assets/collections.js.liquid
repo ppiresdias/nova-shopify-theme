@@ -9,6 +9,16 @@ function c() {
 
 $(window).on("load", function() { 
 
+  // SORT OPTIONS REDIRECT
+  // https://stackoverflow.com/questions/5150363/onchange-open-url-via-select-jquery
+  $('#gallery__dropdown').on('change', function () {
+    let url = $(this).val();
+    if(url) {
+      window.location = url; 
+    }
+    // return false;
+  });
+
   // GALLERY HOVER
   $(".gallery__image-container").on({
     mouseenter: function() {

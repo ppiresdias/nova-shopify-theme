@@ -9,9 +9,10 @@
       {% render 'gallery-filter' %}
     </div>
     <div class="collections__top">
-      <h1 class="collections__header">Spring Collections</h1>
-      <p class="collections__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti odio eos culpa dignissimos, laborum fuga, maxime enim recusandae, perferendis consectetur nam!</p>
+      <h1 class="collections__header">{{ collection.title }}</h1>
+      <p class="collections__description">{{ collection.description }}</p>
       <p class="collections__read-more">Read more</p>
+      <p class="res text-center">Words To Test</p>
     </div>
     <div class="row">
       {%- comment -%}
@@ -28,7 +29,7 @@
       <div class="col-12 col-md-9 gallery">
         <div class="container">
           <div class="row gallery__sorting">
-            <div class="gallery__sorting-found col-12 col-md-6 order-1 order-md-0">100 results</div>
+            <div class="gallery__sorting-found col-12 col-md-6 order-1 order-md-0">{{ collection.products_count }} {{ collection.products_count | pluralize: 'result', 'results' }}</div>
             <div class="gallery__sorting-options sorting-options col-12 col-md-6 order-0 order-md-1">
               <div class="row sorting-options__row">
                 <div class="col-6 col-md-0 col-lg-4 col-xl-6">
@@ -38,12 +39,10 @@
                   </div>
                 </div>
                 <div class="col-6 col-md-12 col-lg-8 col-xl-6 gallery__dropdown-container">
-                  <select class="gallery__dropdown" id="gallery__dropdown" name="sortBy">
-                    <option htmlFor="gallery__dropdown" value="descending" selected>Featured</option>
-                    <option htmlFor="gallery__dropdown" value="descending">Best Sellers</option>
-                    <option htmlFor="gallery__dropdown" value="descending">Newest Arrivals</option>
-                    <option htmlFor="gallery__dropdown" value="descending">Price: High to Low</option>
-                    <option htmlFor="gallery__dropdown" value="ascending">Price: Low to High</option>
+                  <select class="gallery__dropdown" id="gallery__dropdown" name="sort_by">
+                    {% for option in collection.sort_options %}
+                      <option value="{{ shop.url }}{{ collection.url }}?sort_by={{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>{{ option.name }}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div>

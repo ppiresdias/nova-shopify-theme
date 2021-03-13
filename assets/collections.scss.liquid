@@ -133,7 +133,11 @@ $p4: $spacer*1.5;
 $p5: $spacer*3;
 
 // https://getbootstrap.com/docs/4.5/layout/overview/#responsive-breakpoints
-// $breakpoint: (lg: 1199.98px, md: 991.98px, sm: 767.98px, xs: 575.98px);
+// $breakpoint: ("lg": 1199.98px, "md": 991.98px, "sm": 767.98px, "xs": 575.98px);
+$breakpoint-lg: 1199.98px;
+$breakpoint-md: 991.98px;
+$breakpoint-sm: 767.98px;
+$breakpoint-xs: 575.98px;
 
 $color-white: #ffffff;
 $color-black: #000000;
@@ -174,7 +178,7 @@ $size-icon-div: 40px;
 }
 
 .container-fluid--collections {
-  padding: 0;
+  // padding: 0;
 }
 
 // COLLECTIONS SECTION
@@ -260,6 +264,53 @@ $size-icon-div: 40px;
 
   .collections__search-filter {
     padding: 0;
+  }
+
+
+
+  .bag-modal {
+    padding: $p2 $p4;
+    // background-color: grey;
+
+    &.bag-modal--active {
+
+    }
+
+    .bag-modal__header-container {
+      // background-color: yellowgreen;
+      padding: $p3 0 $p2;
+      position: relative;
+
+      .bag-modal__close-icon {
+        cursor: pointer;
+        font-size: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      .bag-modal__header {}
+    }
+
+    .bag-modal__options {
+      text-transform: uppercase;
+
+      &.bag-modal__options--titles {
+        font-weight: bold;
+        padding: 0 0 $p2;
+      }
+
+      &.bag-modal__options--selections {
+        border-top: 1px solid gray;
+        cursor: pointer;
+        padding: $p3 0;
+
+        &.bag-modal__options--selections--active {
+          background-color: yellowgreen;
+          border: 2px solid red;
+        }
+      }
+    } //.bag-modal__options
   }
 } // #collections
 
@@ -533,36 +584,39 @@ $size-icon-div: 40px;
   }
   
   .product-info__button {
-    @include flex_center();
-    background-color: $color-black;
-    border: 1px solid $color-black;
-    display: block;
-    color: $color-white;
-    padding: $p2 0;
 
-    &:hover {
-      background-color: #eeeff0;
-      color: $color-black;
-      transition: all .1s ease-in-out;
-    }
   }
 
-  .bag-button {
-    .bag-button__text {
-      @include ff();
-      font-weight: 400;
-      font-size: 14px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    .bag-button__icon {
-      font-size: 12px;
-      margin-left: 6px;
-    }
-  }
-
+  
 } // .product-info
 
+.bag-button {
+  @include flex_center();
+  background-color: $color-black;
+  border: 1px solid $color-black;
+  display: block;
+  color: $color-white;
+  padding: $p2 0;
+  width: 100%;
+
+  &:hover {
+    background-color: #eeeff0;
+    color: $color-black;
+    transition: all .1s ease-in-out;
+  }
+
+  .bag-button__text {
+    @include ff();
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .bag-button__icon {
+    font-size: 12px;
+    margin-left: 6px;
+  }
+}
 
 // $size_carousel_font: 20px;
 // $size_carousel_header_margin_bottom: 5px;
@@ -723,254 +777,224 @@ $size-icon-div: 40px;
 
 
 
-// .res {color: red;}
+.res {color: red;}
 
-// // https://www.sitepoint.com/using-sass-maps/
-// // Large devices (desktops, less than 1200px)
-// @media (min-width: 0) and (max-width: #{map-get($breakpoint, lg)}) {
-//   .res {
-//     color: purple;
-//   }
-//   .collections {
-//     &__description {
-//       width: 75%;
-//     }
-//   }
-
-//   .gallery {
-//     &__row {
-//     }
-//   }
-// }
+// https://www.sitepoint.com/using-sass-maps/
+// Large devices (desktops, less than 1200px)
+@media (min-width: 0) and (max-width: $breakpoint-lg) {
+  .res {
+    color: purple;
+  }
+  .collections {
+    .collections__description {
+      width: 75%;
+    }
+  }
+}
 
 // // Medium devices (tablets, less than 992px)
-// @media (min-width: 0) and (max-width: #{map-get($breakpoint, md)}) {
-//   .res {
-//     color: green;
-//   }
+@media (min-width: 0) and (max-width: $breakpoint-md) {
+  .res {
+    color: green;
+  }
 
+  .collections {
+    position: relative;
+    .collections__description {
+      width: 85%;
+    }
+  }
 
-//   .collections {
-//     position: relative;
-//     &__description {
-//       width: 85%;
-//     }
+  //   // PRODUCT INFO DIV
+  .product-info {
+    .product-info__title {
+      min-height: 70px;
+      max-height: 70px;
+      margin-bottom: .3em;
+      // margin-bottom: 0;
+      -webkit-line-clamp: 3;
+    }
+    .product-info__price {
+    }
+  }
+}
 
-//   }
+// Small devices (landscape phones, less than 768px)
+// @media (min-width: #{map-get($breakpoint, xs)}) and (max-width: #{map-get($breakpoint, sm)}) {
+@media (min-width: 0) and (max-width: $breakpoint-sm) {
+  .res {
+    color: orange;
+  }
 
-//   //   // PRODUCT INFO DIV
-//   .product-info {
-//     &__title {
-//       min-height: 70px;
-//       max-height: 70px;
-//       margin-bottom: .3em;
-//       // margin-bottom: 0;
-//       -webkit-line-clamp: 3;
-//     }
-//     &__price {
-//     }
-//   }
+  #collections {
+    position: relative;
+    .collections__description {
+      width: 85%;
+    }
 
-//   .gallery {
-//     &__dropdown-container {
-//       // width: 100%;
-//     }
-//     // &__row {
-//     //   // margin-left: 0;
-//     //   // margin-right: 0;
-//     //   & > .col,
-//     //   & > [class*="col-"] {
-//     //     $spacing: $p2;
-//     //     &:nth-child(odd) {
-//     //       padding-right: $spacing;
-//     //     }
-//     //     &:nth-child(even) {
-//     //       padding-left: $spacing;
-//     //     }
-//     //   }
-//     // }
-//   }
-// }
+    .collections__container {
+      // padding: $p3 0;
+    }
 
-// // Small devices (landscape phones, less than 768px)
-// // @media (min-width: #{map-get($breakpoint, xs)}) and (max-width: #{map-get($breakpoint, sm)}) {
-// @media (min-width: 0) and (max-width: #{map-get($breakpoint, sm)}) {
-//   .res {
-//     color: orange;
-//   }
-
-//   .collections {
-//     position: relative;
-//     &__description {
-//       width: 85%;
-//     }
-
-//     &__container {
-//       // padding: $p3 0;
-//     }
-
-//     &__modal {
+    .collections__modal {
+      background-color: rgba(0, 0, 0, .75);
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: scroll !important;
+      overscroll-behavior: contain;
+      height: auto;
       
-//       background-color: rgba(0, 0, 0, .75);
-//       display: flex;
-//       flex-direction: column;
-//       overflow-x: hidden;
-//       overflow-y: scroll !important;
-//       // overflow-y: hidden;
-//       overscroll-behavior: contain;
-//       height: auto;
-      
-//       padding: $p3 0;
-//       position: fixed;
-//       left: 0;
-//       top: 0;
-//       right: 0;
-//       bottom: 0;
-//       transform: translateX(-100%);
-//       transition: transform .5s ease-in-out;
-//       z-index: 100;
+      padding: $p3 0;
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      transform: translateX(-100%);
+      transition: transform .5s ease-in-out;
+      z-index: 100;
 
-//       // HIDE SCROLLBAR
-//       // https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp
-//       -ms-overflow-style: none;  /* IE and Edge */
-//       scrollbar-width: none;  /* Firefox */
+      // HIDE SCROLLBAR
+      // https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
 
-//       &::-webkit-scrollbar {
-//         display: none;
-//       }
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
-//       &--active {
-//         box-shadow: -12px 10px 30px -25px rgba(0, 0, 0, .75);
-//         transform: translateX(0);
-//       }
+      &.collections__modal--active {
+        box-shadow: -12px 10px 30px -25px rgba(0, 0, 0, .75);
+        transform: translateX(0);
+      }
 
-//       .filter {
-//         background-color: $color-white;
-//         padding: $p3 $p4;
-//         height: auto;
-//         width: 75vw;
-//       }
-//     }
-//     &__modal-close {
-//       align-self: flex-end;
-//       color: $color-white;
-//       cursor: pointer;
-//       font-size: 28px;
-//       padding-right: 8px;
-//     }
-//   }
+      .filter {
+        background-color: $color-white;
+        padding: $p3 $p4;
+        height: auto;
+        width: 75vw;
+      }
+    }
+    .collections__modal-close {
+      align-self: flex-end;
+      color: $color-white;
+      cursor: pointer;
+      font-size: 28px;
+      padding-right: 8px;
+    }
+  }
 
+  .gallery {
+    .gallery__sorting {
+      padding-bottom: $p1;
+    }
 
-//   .gallery {
-//     &__sorting {
-//       padding-bottom: $p1;
-//     }
-
-//     &__sorting-found {
-//       padding-top: $p3;
-//     }
-//     &__filter {
-//       display: flex;
-//     }
-
-//     &__dropdown {
-//       // appearance: none;
-//       // $padding: 4px;
-//       // padding-top: $padding;
-//       // padding-bottom: $padding;
-//       // text-transform: uppercase;
-//       // height: 100%;
-//       // width: 100%;
-//     }
-  
-//   }
-
-//   .sorting-options {
-//     &__row {
-//       margin-left: 0;
-//       margin-right: 0;
-//       & > .col,
-//       & > [class*="col-"] {
-//         $spacing: 2.5px;
-//         $size_row: 2;
-
-//         &:nth-child(#{$size_row}n+1) {
-//           padding-right: $spacing;
-//         }
-//         &:nth-child(#{$size_row}n+#{$size_row}) {
-//           padding-left: $spacing;
-//         }
-//         &:not(:nth-child(#{$size_row}n+1)):not(:nth-child(#{$size_row}n+#{$size_row})) {
-//           padding-left: $spacing;
-//           padding-right: $spacing;
-//         }
-//       }
-//     }
-//   }
-
-//   .tns-controls {
-//     $size: 40px;
-  
-//     button {
-//       height: $size;
-//       width: $size;
-
-//       &:hover {
-//         background-color: $primary_hover;
+    .gallery__sorting-found {
+      padding-top: $p3;
+    }
+    .gallery__filter {
+      display: flex;
+    }
     
-//         i {
-//           font-size: 26px;
-//           transition: all .1s ease-in-out;
-//         }
-//       }
-      
-//       i {
-//         font-size: 25px;
-//       }
-//     }
+    $padding: 4px;
+    .gallery__dropdown {
+      appearance: none;
+      padding-top: $padding;
+      padding-bottom: $padding;
+      text-transform: uppercase;
+      height: 100%;
+      width: 100%;
+    }
   
-//     $margin: -$size - 4px;
-//     button[data-controls="prev"] {
-//       left: $margin;
-//     }
-//     button[data-controls="next"] {
-//       right: $margin;
-//     }
-//   }
+  }
 
-//   .tns-nav { 
-//     // align-items: center;
-//     // display: flex;
-//     // background-color: pink;
-//     padding: $p1 0 $p2;
-//     :not(:first-child) {
-//       margin-left: 16px;
-//     }
-//   }
+  // .sorting-options {
+  //   .sorting-options__row {
+  //     margin-left: 0;
+  //     margin-right: 0;
+  //     & > .col,
+  //     & > [class*="col-"] {
+  //       $spacing: 2.5px;
+  //       $size_row: 2;
 
-//   .load-more {
-//     // background-color: honeydew;
-//     padding: $p5 0 $p4;
+  //       &:nth-child(#{$size_row}n+1) {
+  //         padding-right: $spacing;
+  //       }
+  //       &:nth-child(#{$size_row}n+#{$size_row}) {
+  //         padding-left: $spacing;
+  //       }
+  //       &:not(:nth-child(#{$size_row}n+1)):not(:nth-child(#{$size_row}n+#{$size_row})) {
+  //         padding-left: $spacing;
+  //         padding-right: $spacing;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // .tns-controls {
+  //   $size: 40px;
+  
+  //   button {
+  //     height: $size;
+  //     width: $size;
+
+  //     &:hover {
+  //       background-color: $primary_hover;
     
-//     &__text {
-//     }
+  //       i {
+  //         font-size: 26px;
+  //         transition: all .1s ease-in-out;
+  //       }
+  //     }
+      
+  //     i {
+  //       font-size: 25px;
+  //     }
+  //   }
   
-//     &__progress {
-//       .progress-bar {
-//       }
-//     }
+  //   $margin: -$size - 4px;
+  //   button[data-controls="prev"] {
+  //     left: $margin;
+  //   }
+  //   button[data-controls="next"] {
+  //     right: $margin;
+  //   }
+  // }
+
+  // .tns-nav { 
+  //   // align-items: center;
+  //   // display: flex;
+  //   // background-color: pink;
+  //   padding: $p1 0 $p2;
+  //   &:not(:first-child) {
+  //     margin-left: 16px;
+  //   }
+  // }
+
+  // .load-more {
+  //   // background-color: honeydew;
+  //   padding: $p5 0 $p4;
+    
+  //   &__text {
+  //   }
   
-//     &__button {
+  //   &__progress {
+  //     .progress-bar {
+  //     }
+  //   }
+  
+  //   &__button {
 
-//       &:hover, &:active, &:focus {
-//       }
-//     }
-//   }
-// }
+  //     &:hover, &:active, &:focus {
+  //     }
+  //   }
+  // }
+}
 
-// // Extra small
-// @media (min-width: 0) and (max-width: #{map-get($breakpoint, xs)}) {
-//   .res {
-//     color: blue;
-//   }
-// }
+// Extra small
+@media (min-width: 0) and (max-width: $breakpoint-xs) {
+  .res {
+    color: yellowgreen;
+  }
+}
