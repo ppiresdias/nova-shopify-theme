@@ -887,6 +887,7 @@ $p1: $p3 * 0.25;
 $p2: $p3 * 0.5;
 $p4: $p3 * 1.5;
 $p5: $p3 * 2;
+
 .top-button {
   background-color: $color_top_button_bg;
   border: none;
@@ -894,10 +895,9 @@ $p5: $p3 * 2;
   cursor: pointer;
   display: inline-block;
   opacity: 0;
-  visibility: hidden;
-  padding: 2px 11px 6px;
-  right: $p3 * 1.8;
   position: fixed;
+  right: $p3 * 1.8;
+  visibility: hidden;
   z-index: 100;
 
   &:hover,
@@ -918,13 +918,11 @@ $p5: $p3 * 2;
     color: $color-white;
   }
 
-  .top-button--bottom {
+  &.top-button--bottom {
     background-color: $color-white;
     transition: all 0.1s ease-in-out;
-    .top-button {
-      .top-button__icon {
-        color: $color_top_button_bg;
-      }
+    .top-button__icon {
+      color: $color_top_button_bg;
     }
   }
 }
