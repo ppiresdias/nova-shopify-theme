@@ -139,6 +139,8 @@ $breakpoint-md: 991.98px;
 $breakpoint-sm: 767.98px;
 $breakpoint-xs: 575.98px;
 
+$color-light: #f7f7f7;
+
 $color-white: #ffffff;
 $color-black: #000000;
 $color_top_button_bg: #444444;
@@ -177,8 +179,28 @@ $size-icon-div: 40px;
   @return $size / $p3 * 16px;
 }
 
-.container-fluid--collections {
-  // padding: 0;
+@mixin bag_button_text() {
+  @include ff();
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@mixin bag_button_hover() {
+  background-color: #eeeff0;
+  color: $color-black;
+  transition: all .1s ease-in-out;
+}
+
+@mixin bag_button() {
+  @include flex_center();
+  background-color: $color-black;
+  border: 1px solid $color-black;
+  display: block;
+  color: $color-white;
+  padding: $p2 0;
+  width: 100%;
 }
 
 // COLLECTIONS SECTION
@@ -267,13 +289,30 @@ $size-icon-div: 40px;
   }
 
 
+  $padding-y-bagModal: $p2;
+  $padding-x-bagModal: $p3;
 
   .bag-modal {
-    padding: $p2 $p4;
-    // background-color: grey;
+    background-color: $color-white;
+    border: 1px solid $color-photo-border;
+    bottom: -$padding-y-bagModal;
+    display: flex;
+    flex-direction: column;
+    left: -$padding-x-bagModal;
+    max-height: 100%;
+    opacity: 0;
+    padding: $padding-y-bagModal $padding-x-bagModal;
+    position: absolute;
+    // transform: translateY(100%);
+    transition: all .5s ease-in-out;
+    visibility: hidden;
+    width: calc(100% + 2*#{$padding-x-bagModal});
+    z-index: 100;
 
     &.bag-modal--active {
-
+      opacity: 1;
+      // transform: translateY(0);
+      visibility: visible;
     }
 
     .bag-modal__header-container {
@@ -292,26 +331,75 @@ $size-icon-div: 40px;
       .bag-modal__header {}
     }
 
+    .bag-modal__options-container {
+      flex-grow: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
     .bag-modal__options {
+      flex-grow: 1;
       text-transform: uppercase;
 
       &.bag-modal__options--titles {
         font-weight: bold;
         padding: 0 0 $p2;
+        &:after {
+          border-bottom: 1px solid $color-photo-border;
+          content: "";
+          margin-left: $padding-x-bagModal;
+          padding-bottom: $p2;
+          width: calc(100% - 2*#{$padding-x-bagModal});
+        }
       }
 
       &.bag-modal__options--selections {
-        border-top: 1px solid gray;
+        &:not(:first-child):before {
+          border-top: 1px solid $color-photo-border;
+          content: "";
+          margin-left: $padding-x-bagModal;
+          padding-top: $p3;
+          width: calc(100% - 2*#{$padding-x-bagModal});
+        }
+        &:last-child {
+          // padding-bottom: $p3;
+          &:after {
+            border-bottom: 1px solid $color-photo-border;
+            content: "";
+            margin-left: $padding-x-bagModal;
+            margin-left: 0;
+            padding-top: $p3;
+            width: calc(100% - 2*#{$padding-x-bagModal});
+          }
+        }
         cursor: pointer;
-        padding: $p3 0;
+        padding-top: $p3;
+        // padding-bottom: $p3;
+
+        &:hover {
+          color: red;
+        }
 
         &.bag-modal__options--selections--active {
-          background-color: yellowgreen;
-          border: 2px solid red;
+          // background-color: yellowgreen;
+          // border: 2px solid red;
         }
       }
     } //.bag-modal__options
-  }
+
+    .bag-button {
+      cursor: not-allowed;
+      flex-grow: 1;
+      @include bag_button_hover();
+      &.bag-button--active {
+        cursor: pointer;
+        @include bag_button();
+        @include bag_button_text();
+        &:hover {
+          @include bag_button_hover();
+        }   
+      }  
+    }
+  } // .bag-modal
 } // #collections
 
 .gallery {
@@ -366,13 +454,15 @@ $size-icon-div: 40px;
   .gallery__row {
     .gallery__column {
       margin-bottom: $p5;
-
+      
       // PRODUCT CONTAINER
       .gallery__container {
         border: none !important;
+        position: relative;
 
         // CAROUSEL, IMAGES, ICONS
         .gallery__image-container {
+          border: 1px solid $color-photo-border;
           position: relative;
           overflow: hidden;
           width: 100%;
@@ -414,7 +504,6 @@ $size-icon-div: 40px;
             transition: transform .35s ease-in-out;
 
             .gallery__image {
-              border: 1px solid $color-photo-border;
               cursor: pointer;
               width: 50%;
               height: auto;
@@ -591,26 +680,14 @@ $size-icon-div: 40px;
 } // .product-info
 
 .bag-button {
-  @include flex_center();
-  background-color: $color-black;
-  border: 1px solid $color-black;
-  display: block;
-  color: $color-white;
-  padding: $p2 0;
-  width: 100%;
+  @include bag_button();
 
   &:hover {
-    background-color: #eeeff0;
-    color: $color-black;
-    transition: all .1s ease-in-out;
+    @include bag_button_hover();
   }
 
   .bag-button__text {
-    @include ff();
-    font-weight: 400;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    @include bag_button_text();
   }
   .bag-button__icon {
     font-size: 12px;

@@ -1,6 +1,6 @@
 <div class="col-6 col-md-6 col-lg-4 col-xl-3 gallery__column">
-  <div class="card gallery__container h-100">
-    <div class="gallery__image-container gallery__image-container--right card-img-top">
+  <div class="gallery__container h-100">
+    <div class="gallery__image-container gallery__image-container--right">
       <a href="{{ product.url }}">
         <div class="gallery__carousel">
           <div class="gallery__image">
@@ -21,7 +21,7 @@
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </div>
     </div>
-    <div class="card-body product-info">
+    <div class="product-info">
       {%- comment -%}
       <a href="{{ product.url }}">
         <div class="product-info__discount">{{ discount }}</div>
@@ -37,7 +37,7 @@
         <span class="bag-button__text">Add to Bag</span>
         <i class="fa fa-chevron-down bag-button__icon" aria-hidden="true"></i>
       </button>
-      <div class="bag-modal bg-light">
+      <div class="bag-modal">
         <div class="bag-modal__header-container">
           <i class="fa fa-times bag-button__icon bag-modal__close-icon" aria-hidden="true"></i>
           <h4 class="bag-modal__header">Select an option</h4>
@@ -52,19 +52,22 @@
         {% endif %}
         <div class="row bag-modal__options bag-modal__options--titles">
           {% for option in product.options_with_values %}
-            <div class="{{ col }}"font-weight: bold;">{{ option.name }}</div>
+            <div class="{{ col }}">{{ option.name }}</div>
           {% endfor %}
         </div>
+        <div class="bag-modal__options-container">
         {% for variant in product.variants %}
           <div class="row bag-modal__options bag-modal__options--selections">
             {% for option in variant.options %}
-              <div class="{{ col }}">{{ option }}</div>
+              <div class="{{ col }}" {% unless variant.available %}style="color: grey;"{% endunless %}>{{ option }}</div>
             {% endfor %}
             {%- comment -%}{{ variant.id }}{%- endcomment -%}
           </div>
         {% endfor %}
+      </div>
         <button class="product-info__button bag-button">
           <span class="bag-button__text">Add to Bag</span>
+          <i class="fa fa-chevron-up bag-button__icon" aria-hidden="true"></i>
         </button>
       </div> {%- comment -%}bag-modal{%- endcomment -%}
     </div>

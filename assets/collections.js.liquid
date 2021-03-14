@@ -9,6 +9,20 @@ function c() {
 
 $(window).on("load", function() { 
 
+    // COLLECTIONS FILTER MODAL ON MOBILE DEVICES
+    let collections_modal = $("#collections__modal");
+    $("#gallery__filter").on({
+      click: function() {
+        $(collections_modal).addClass("collections__modal--active");
+      }
+    });
+    
+    $("#collections__modal-close").on({
+      click: function() {
+        $(collections_modal).removeClass("collections__modal--active");
+      }
+    });  
+
   // SORT OPTIONS REDIRECT
   // https://stackoverflow.com/questions/5150363/onchange-open-url-via-select-jquery
   $('#gallery__dropdown').on('change', function () {
@@ -79,20 +93,20 @@ $(window).on("load", function() {
     }
   })
 
+  // MAIN BAG BUTTON CLICKED, ACTIVATES BAG MODAL
+  $(".product-info__button").on({
+    click: function() {
+      $($(this).parent()).find(".bag-modal").addClass("bag-modal--active");
+    }
+  });
 
-  // COLLECTIONS FILTER MODAL ON MOBILE DEVICES
-  let collections_modal = $("#collections__modal");
-  $("#gallery__filter").on({
+  // 
+  $(".bag-modal__close-icon").on({
     click: function() {
-      $(collections_modal).addClass("collections__modal--active");
+      $($(this).parent().parent()).removeClass("bag-modal--active");
     }
-  });
-  
-  $("#collections__modal-close").on({
-    click: function() {
-      $(collections_modal).removeClass("collections__modal--active");
-    }
-  });
+  })
+
 
   // // TINY SLIDER
   // let slider = tns({
