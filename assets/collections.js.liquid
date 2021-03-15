@@ -93,19 +93,232 @@ $(window).on("load", function() {
     }
   })
 
+
+
+
+
   // MAIN BAG BUTTON CLICKED, ACTIVATES BAG MODAL
+  let active_bag_modal = {active: false, modal: null, first_clicked: false};
+  let active_option = {active: false, option: null};
+  let active_option_class = "bag-modal__row--option--active";
+
+  function deactivate_bag_modal() {
+    deactivate_bag_button();
+    if(active_bag_modal["active"]) {
+      $(active_bag_modal["modal"]).removeClass("bag-modal--active");
+      active_bag_modal["active"] = false;
+      active_bag_modal["first_clicked"] = false;
+      active_bag_modal["modal"] = null;  
+    }
+  }
+
+  function activate_option(option) {
+    active_option["active"] = true;
+    active_option["option"] = $(option);
+    $(option).addClass(active_option_class);
+  }
+
+
+  function clear_active_option() {
+    if(active_option["active"]) {
+      $(active_option["option"]).removeClass(active_option_class);
+      active_option["active"] = false;
+      active_option["option"] = null;
+    }
+  }
+    
+  function activate_bag_button(option) {
+    let button = $(option).parent().parent().find(".bag-button");
+    $(button).prop("disabled", false);
+    $(button).addClass("bag-button--active")
+  }
+
+  function deactivate_bag_button() {
+    if(active_option["active"]) {
+      let button = $(active_option["option"]).parent().parent().find(".bag-button");
+      $(button).prop("disabled", true);
+      $(button).removeClass("bag-button--active")
+    }
+  }
+  
+  function activate_bag_modal(modal) {
+    active_bag_modal["active"] = true;
+    active_bag_modal["modal"] = modal;
+    $(modal).addClass("bag-modal--active");
+    let delay = 0;
+    let interval = setInterval(increment, 1000);
+
+    function increment() {
+      delay += 1;
+      if (delay >= 1) {
+        clearInterval(interval);
+        active_bag_modal["first_clicked"] = true;
+
+      }
+    }
+  }
+
   $(".product-info__button").on({
     click: function() {
-      $($(this).parent()).find(".bag-modal").addClass("bag-modal--active");
+      // let active = "bag-modal--active";
+      // this < product-info < g_c < col < row
+      // $(this).parent().parent().parent().parent().find(`.${active}`).removeClass(active);
+      
+      deactivate_bag_modal();
+      // if(active_bag_modal["active"]) {
+      //   // $(active_bag_modal["modal"]).removeClass(active);
+      // }
+      let modal = $(this).parent().find(".bag-modal");
+      activate_bag_modal(modal);
+      // active_bag_modal["active"] = true;
+      // active_bag_modal["modal"] = modal;
+      // $(modal).addClass(active);
+      // $(this).parent().find(".bag-modal").addClass(active);
     }
   });
 
-  // 
+  // https://stackoverflow.com/questions/3957017/jquery-if-target-is-child-of-wrapper-then-do-something
+  $(window).on({
+    click: function(e) {
+      if(active_bag_modal["active"]) {
+        if(active_bag_modal["first_clicked"]) {
+          // c('bag modal active')
+          if(!($.contains($(active_bag_modal["modal"])[0], $(e.target)[0]))) {
+            // c('not contained')
+            deactivate_bag_modal();
+            // c('deactivated')
+          }
+          // else {
+          //   c('contained')
+          // }
+        }
+        // else {
+        //   c('bag modal not active')
+        // }
+      }
+    }
+  });
+  // }
+
+  // CLOSE BAG MODAL
   $(".bag-modal__close-icon").on({
     click: function() {
-      $($(this).parent().parent()).removeClass("bag-modal--active");
+      clear_active_option();
+      deactivate_bag_modal();
+      // if(active_bag_modal["active"]) {
+      //   $(active_bag_modal["modal"]).removeClass("bag-modal--active");
+      //   clear_active_bag_modal();
+      // }
+      // $($(this).parent().parent()).removeClass("bag-modal--active");
+    }
+  });
+
+  $(".bag-modal__row--option").on({
+    click: function() {
+      if(!$(this).is('[disabled=disabled]')) {
+
+        if(!$(this).hasClass(active_option_class)) {
+          // clear_active_option();
+          // let selected = $(this).parent().find(`.${active_row}`);
+          // $(selected).removeClass(active_row);
+          // $(active_option["option"]).removeClass(active_option_class);
+          clear_active_option();
+          activate_option($(this));
+          activate_bag_button($(this));
+          // $(button).prop("disabled", false);
+          // $(button).addClass(active_button)
+        } else {
+          // $(this).removeClass(active_option_class);
+          clear_active_option();
+          deactivate_bag_button();
+          // $(button).removeClass(active_button)
+          // $(button).prop("disabled", true);
+        }
+
+
+        // // let active_row = "bag-modal__row--option--active";
+        // if(active_option["active"]) {
+        //   deactivate_bag_button();
+        //   // let button = $(this).parent().parent().find(".bag-button");
+        //   // let active_button = "bag-button--active";
+        //   // $(button).prop("disabled", false);
+        //   // $(button).addClass(active_button)
+
+        //   if(!$(this).hasClass(active_option_class)) {
+        //     // clear_active_option();
+        //     // let selected = $(this).parent().find(`.${active_row}`);
+        //     // $(selected).removeClass(active_row);
+        //     // $(active_option["option"]).removeClass(active_option_class);
+        //     clear_active_option();
+        //     activate_option($(this));
+        //     activate_bag_button($(this));
+        //     // $(button).prop("disabled", false);
+        //     // $(button).addClass(active_button)
+        //   } else {
+        //     // $(this).removeClass(active_option_class);
+        //     clear_active_option();
+        //     deactivate_bag_button();
+        //     // $(button).removeClass(active_button)
+        //     // $(button).prop("disabled", true);
+        //   }
+        // } else {
+        //   activate_option($(this));
+        // }
+        // if(!$(this).hasClass(active_option_class)) {
+        //   let selected = $(this).parent().find(`.${active_row}`);
+        //   $(selected).removeClass(active_row);
+        //   $(this).addClass(active_row);
+        //   $(button).prop("disabled", false);
+        //   $(button).addClass(active_button)
+        // } else {
+        //   $(this).removeClass(active_row);
+        //   $(button).removeClass(active_button)
+        //   $(button).prop("disabled", true);
+        // }
+      }
     }
   })
+
+    /*
+  ADD TO CART IS CLICKED
+  */
+  $(".bag-modal__form .bag-button").on({
+    click: function(e) {
+      e.preventDefault();
+      // let bag_modal = $(this).parent().parent();
+      if(active_bag_modal["active"]) {
+        // let selected = $(active_bag_modal["modal"]).find(`.${active_row}`);
+        if($(active_option["active"])) {
+          $.ajax({
+            type: "POST",
+            url: "/cart/add.js",
+            data: { items: [
+                {
+                  quantity: 1,
+                  id: $(active_option["option"]).attr("value"),
+                }
+            ] },
+            beforeSend: function (x) {
+              if (x && x.overrideMimeType) {
+                  x.overrideMimeType('application/json;charset=UTF-8' );
+              }
+            },
+            success: function(data) {
+              // $(selected).removeClass(active_row);
+              clear_active_option();
+              deactivate_bag_modal();
+              // c("success",data)
+              // $(active_bag_modal["active"]).removeClass("bag-modal--active");
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                c(`jqXHR = ${jqXHR.responseText} Error, status = ${textStatus}, error thrown: ${errorThrown}`); 
+                }
+          });
+        }
+      }
+    },
+  });
+
 
 
   // // TINY SLIDER

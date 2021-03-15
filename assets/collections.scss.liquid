@@ -139,7 +139,9 @@ $breakpoint-md: 991.98px;
 $breakpoint-sm: 767.98px;
 $breakpoint-xs: 575.98px;
 
-$color-light: #f7f7f7;
+$color-light: #f8f9fa;
+$color-secondary: #6c757d;
+// $color-dark: #292b2c;
 
 $color-white: #ffffff;
 $color-black: #000000;
@@ -189,6 +191,7 @@ $size-icon-div: 40px;
 
 @mixin bag_button_hover() {
   background-color: #eeeff0;
+  border: 1px solid $color-black;
   color: $color-black;
   transition: all .1s ease-in-out;
 }
@@ -303,20 +306,18 @@ $size-icon-div: 40px;
     opacity: 0;
     padding: $padding-y-bagModal $padding-x-bagModal;
     position: absolute;
-    // transform: translateY(100%);
     transition: all .5s ease-in-out;
+    transition-property: opacity, visibility;
     visibility: hidden;
     width: calc(100% + 2*#{$padding-x-bagModal});
     z-index: 100;
-
+    
     &.bag-modal--active {
       opacity: 1;
-      // transform: translateY(0);
       visibility: visible;
     }
 
     .bag-modal__header-container {
-      // background-color: yellowgreen;
       padding: $p3 0 $p2;
       position: relative;
 
@@ -331,57 +332,67 @@ $size-icon-div: 40px;
       .bag-modal__header {}
     }
 
-    .bag-modal__options-container {
-      flex-grow: 1;
+    .bag-modal__select {
       overflow-y: auto;
       overflow-x: hidden;
     }
-    .bag-modal__options {
+    
+    .bag-modal__row {
       flex-grow: 1;
       text-transform: uppercase;
 
-      &.bag-modal__options--titles {
+      &.bag-modal__row--titles {
         font-weight: bold;
         padding: 0 0 $p2;
-        &:after {
-          border-bottom: 1px solid $color-photo-border;
-          content: "";
-          margin-left: $padding-x-bagModal;
-          padding-bottom: $p2;
-          width: calc(100% - 2*#{$padding-x-bagModal});
-        }
+        border-bottom: 1px solid $color-photo-border;
       }
 
-      &.bag-modal__options--selections {
-        &:not(:first-child):before {
-          border-top: 1px solid $color-photo-border;
-          content: "";
-          margin-left: $padding-x-bagModal;
-          padding-top: $p3;
-          width: calc(100% - 2*#{$padding-x-bagModal});
+      &.bag-modal__row--option {
+        &.bag-modal__row--option--active {
+          background-color: $color-light;
+          // color: $color-light;
         }
-        &:last-child {
-          // padding-bottom: $p3;
-          &:after {
-            border-bottom: 1px solid $color-photo-border;
-            content: "";
-            margin-left: $padding-x-bagModal;
-            margin-left: 0;
-            padding-top: $p3;
-            width: calc(100% - 2*#{$padding-x-bagModal});
-          }
+
+        &[disabled="disabled"] {
+          // color: $color-secondary;
+          cursor: not-allowed;
+          opacity: .3;
         }
+
+        // &:not(:first-child):before {
+        //   border-top: 1px solid $color-photo-border;
+        //   content: "";
+        //   margin-left: $padding-x-bagModal;
+        //   // padding-top: $p3;
+        //   width: calc(100% - 2*#{$padding-x-bagModal});
+        // }
+        // &:last-child {
+        //   // padding-bottom: $p3;
+        //   &:after {
+        //     border-bottom: 1px solid $color-photo-border;
+        //     content: "";
+        //     margin-left: $padding-x-bagModal;
+        //     margin-left: 0;
+        //     padding-top: $p3;
+        //     width: calc(100% - 2*#{$padding-x-bagModal});
+        //   }
+        // }
+        border-bottom: 1px solid $color-photo-border;
         cursor: pointer;
-        padding-top: $p3;
+        padding: $p3 0;
         // padding-bottom: $p3;
 
-        &:hover {
-          color: red;
-        }
-
-        &.bag-modal__options--selections--active {
-          // background-color: yellowgreen;
-          // border: 2px solid red;
+        &:not([disabled="disabled"]) {
+          &:not([class~="bag-modal__row--option--active"]) {
+            &:hover {
+              color: red;
+            }
+          }
+          &[class~="bag-modal__row--option--active"] {
+            &:hover {
+              color: $color-secondary;
+            }
+          }
         }
       }
     } //.bag-modal__options
@@ -390,13 +401,16 @@ $size-icon-div: 40px;
       cursor: not-allowed;
       flex-grow: 1;
       @include bag_button_hover();
+      .bag-button__text {
+        @include bag_button_text();
+      }
+
       &.bag-button--active {
         cursor: pointer;
         @include bag_button();
-        @include bag_button_text();
-        &:hover {
-          @include bag_button_hover();
-        }   
+        // &:hover {
+        //   @include bag_button_hover();
+        // }   
       }  
     }
   } // .bag-modal
@@ -684,6 +698,12 @@ $size-icon-div: 40px;
 
   &:hover {
     @include bag_button_hover();
+    i {
+      $degrees: 180deg;
+      transform: rotate($degrees);
+      -webkit-transform: rotate($degrees);
+      transition: transform .1s ease-in-out;
+    }
   }
 
   .bag-button__text {

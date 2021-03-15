@@ -50,25 +50,26 @@
         {% else %}
           {% assign col = "col-4" %}
         {% endif %}
-        <div class="row bag-modal__options bag-modal__options--titles">
+        <div class="row bag-modal__row bag-modal__row--titles">
           {% for option in product.options_with_values %}
             <div class="{{ col }}">{{ option.name }}</div>
           {% endfor %}
         </div>
-        <div class="bag-modal__options-container">
+        <div class="bag-modal__select">
         {% for variant in product.variants %}
-          <div class="row bag-modal__options bag-modal__options--selections">
+          <div class="row bag-modal__row bag-modal__row--option" value="{{ variant.id }}" {% unless variant.available %} disabled="disabled"{% endunless %}>
             {% for option in variant.options %}
-              <div class="{{ col }}" {% unless variant.available %}style="color: grey;"{% endunless %}>{{ option }}</div>
+              <div class="{{ col }}">{{ option }}</div>
             {% endfor %}
-            {%- comment -%}{{ variant.id }}{%- endcomment -%}
           </div>
         {% endfor %}
-      </div>
-        <button class="product-info__button bag-button">
-          <span class="bag-button__text">Add to Bag</span>
-          <i class="fa fa-chevron-up bag-button__icon" aria-hidden="true"></i>
-        </button>
+        </div>
+        <form class="bag-modal__form" action="">
+          <button class="bag-button"  name="add" type="submit" disabled="disabled">
+            <span class="bag-button__text">Add to Bag</span>
+            <i class="fa fa-chevron-up bag-button__icon" aria-hidden="true"></i>
+          </button>
+      </form>
       </div> {%- comment -%}bag-modal{%- endcomment -%}
     </div>
   </div>
