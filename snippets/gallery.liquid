@@ -7,10 +7,6 @@ https://shopify.dev/docs/themes/liquid/reference/objects/collection
 {% render 'gallery-card', image1: 'collections-2-1.jpg', image2: 'collections-2-2.jpg', discount: "10% OFF SIDEWIDE! USE CODE: SPRING21", title: "Grind Time Beyond Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti odio eos culpa dignissimos, laborum fuga, maxime enim recusandae, perferendis consectetur nam!", price: "$29.99 USD" %}
 
   FILTER BY TYPE
-  {% for product_type in collection.all_types %}
-  {{ product_type | link_to_type }}
-  {% endfor %}
-  {{ collection.tags }}
   {%- endcomment -%}
   
 {% for product in collection.products %}

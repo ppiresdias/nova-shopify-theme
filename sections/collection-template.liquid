@@ -41,7 +41,7 @@
                 <div class="col-6 col-md-12 col-lg-8 col-xl-6 gallery__dropdown-container">
                   <select class="gallery__dropdown" id="gallery__dropdown" name="sort_by">
                     {% for option in collection.sort_options %}
-                      <option value="{{ shop.url }}{{ collection.url }}?sort_by={{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>{{ option.name }}</option>
+                      <option value="{{ page.url }}?sort_by={{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>{{ option.name }}</option>
                     {% endfor %}
                   </select>
                 </div>

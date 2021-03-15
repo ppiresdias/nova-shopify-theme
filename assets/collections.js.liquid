@@ -149,8 +149,8 @@ $(window).on("load", function() {
     let interval = setInterval(increment, 1000);
 
     function increment() {
-      delay += 1;
-      if (delay >= 1) {
+      delay += .5;
+      if (delay >= .5) {
         clearInterval(interval);
         active_bag_modal["first_clicked"] = true;
 
@@ -279,6 +279,8 @@ $(window).on("load", function() {
     }
   })
 
+
+  let shopping_bag_modal = $("#shopping-bag");
     /*
   ADD TO CART IS CLICKED
   */
@@ -305,6 +307,7 @@ $(window).on("load", function() {
             },
             success: function(data) {
               // $(selected).removeClass(active_row);
+              $(shopping_bag_modal).addClass("show");
               clear_active_option();
               deactivate_bag_modal();
               // c("success",data)

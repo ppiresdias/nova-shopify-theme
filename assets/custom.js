@@ -72,13 +72,13 @@ jQuery(function () {
 
 
 // shopping cart
-let openShoppingBag = document.querySelector('.header-cart');
+// let openShoppingBag = document.querySelector('.header-cart');
 let closeShoppingBag = document.querySelector('#shopping-cart-close-icon');
 let shoppingBag = document.querySelector('#shopping-bag');
 
-openShoppingBag.addEventListener("click", (e) => {
-    shoppingBag.classList.add('show');
-})
+// openShoppingBag.addEventListener("click", (e) => {
+//     shoppingBag.classList.add('show');
+// })
 
 closeShoppingBag.addEventListener("click", (e) => {
   shoppingBag.classList.remove('show');

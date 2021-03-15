@@ -209,6 +209,7 @@ $size-icon-div: 40px;
 // COLLECTIONS SECTION
 #collections {
   color: $primaryColor;
+  padding-bottom: 100px;
 
   .breadcrumbs {
     margin: 0 0 2em;
@@ -605,43 +606,60 @@ $size-icon-div: 40px;
     text-transform: uppercase;
   }
 
-  .filter__checkbox-row {
-    margin-top: 8px;
-    display: flex;
+
+  .filter__row {
     align-items: center;
+    display: flex;
+    margin-top: 8px;
+    text-transform: lowercase;
   }
 
-  .filter__checkbox {
-    border-color: $color_filter_label;
-    margin: 0;
-  }
+  // .filter__checkbox {
+  //   // border-color: $color_filter_label;
+  //   margin: 0 8px 0 0;
 
-  .filter__label {
-    @include ff();
-    cursor: pointer;
-    font-size: 14px;
-    color: $color_filter_label;
-    margin: 0 0 0 8px;
+  //   &:before {
+  //   }
+
+  //   &:after {
+  //   }
+  // }
+
+  .filter__row-span {
     text-transform: capitalize;
   }
+
+
+  // .filter__label {
+  //   @include ff();
+  //   display: flex;
+  //   align-items: center;
+  //   cursor: pointer;
+  //   font-size: 14px;
+  //   color: $color_filter_label;
+  //   text-transform: capitalize;
+  //   // margin: 0 0 0 8px;
+  //   // vertical-align: middle;
+  //   // text-transform: lowercase;
+  // }
 }
 
-.show-more {
-  cursor: pointer;
-  margin-top: 8px;
+// .show-more {
+//   cursor: pointer;
+//   margin-top: 8px;
 
-  .show-more__icon {
-    font-size: 13px;
-  }
+//   .show-more__icon {
+//     font-size: 13px;
+//   }
   
-  .show-more__text {
-    @include ff();
-    font-size: 13px;
-    font-weight: 600;
-    margin: 0 0 0 8px;
-    text-decoration: underline;
-  }
-}
+//   .show-more__text {
+//     @include ff();
+//     font-size: 13px;
+//     font-weight: 600;
+//     margin: 0 0 0 8px;
+//     text-decoration: underline;
+//   }
+// }
 
 // PRODUCT INFO DIV
 .product-info {
@@ -984,11 +1002,12 @@ $size-icon-div: 40px;
 
   .gallery {
     .gallery__sorting {
-      padding-bottom: $p1;
+      padding-bottom: 0;
     }
 
     .gallery__sorting-found {
       padding-top: $p3;
+      padding-bottom: $p2;
     }
     .gallery__filter {
       display: flex;

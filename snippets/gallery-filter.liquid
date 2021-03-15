@@ -1,12 +1,51 @@
 <section class="filter">
   <div class="filter__br filter__br--first"></div>
   <div class="filter__section">
-    <h4 class="filter__title">SIZE</h4>
-    {%- comment -%}ITEMS{%- endcomment -%}
+    <h4 class="filter__title">BRANDS</h4>
+    {% for v in shop.vendors %}
+      <div class="filter__row">
+        <span class="filter__row-span">
+          <a href="{{ shop.url }}/collections/{{ v | handleize }}">{{ v | downcase }}</a>
+      </span>
+      </div>
+    {% endfor %}
   </div>
   <div class="filter__br"></div>
   <div class="filter__section">
-    <h4 class="filter__title">PRICE</h4>
-    {%- comment -%}ITEMS{%- endcomment -%}
+    <h4 class="filter__title">CATEGORIES</h4>
+    {% for tag in collection.all_tags %}
+      <div class="filter__row">
+        <span class="filter__row-span">
+          {{ tag | link_to_tag: tag }}
+        </span>
+      </div>
+    {% endfor %}
   </div>
+  {%- comment -%}
+
+    {% for type in collection.all_types %}
+      <div class="filter__checkbox-row">
+        {{ type | link_to_type
+         }}
+        <label class="filter__label">
+        <input
+          checked
+          class="filter__checkbox"
+          type="checkbox"
+          value="{{ type }}"
+        ></input>{{ type | downcase }}</label>
+      </div>
+    {% endfor %}
+
+
+
+
+
+
+  <div class="filter__br"></div>
+  <div class="filter__section">
+    <h4 class="filter__title">PRICE</h4>
+    ITEMS
+  </div>
+  {%- endcomment -%}
 </section>

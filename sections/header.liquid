@@ -107,10 +107,10 @@
                             <i class="fa fa-heart" aria-hidden="true"></i>
                             <span class="banner-count header-wishlist-count">0</span>
                         </div>
-                        <div class="header-banner-right__item header-cart">
+                        <a class="header-banner-right__item header-cart" href="{{ routes.cart_url }}">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                            <span class="banner-count header-cart-count">0</span>
-                        </div>
+                            <span class="banner-count header-cart-count">{{ cart.item_count }}</span>
+                        </a>
                         <div class="shopping-bag-section" id="shopping-bag">
                             <div class="shopping-cart-close__icon" id="shopping-cart-close-icon">
                                 <i class="fa fa-times" aria-hidden="true"></i>
