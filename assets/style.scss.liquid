@@ -511,7 +511,7 @@ $p5: $spacer * 3;
     }
 
     .shopping-bag-section {
-      display: none;
+      // display: none;
       background: white;
       color: black;
       position: fixed;
@@ -524,6 +524,14 @@ $p5: $spacer * 3;
       overflow: hidden;
       z-index: 110;
       box-shadow: 0 20px 20px -5px $navJumboMenuShadowColor;
+      transition: all .5s ease-in-out;      
+      transform: translateX(100%);
+      visibility: hidden;
+      
+      &.show{
+        transform: translateX(0);
+        visibility: visible;
+      }
 
       .shopping-cart-close__icon {
         display: block !important;
@@ -559,6 +567,10 @@ $p5: $spacer * 3;
         }
         .item_info {
           margin-bottom: 5px;
+
+          .item_info__edit {
+            color:rgb(148, 148, 148);
+          }
         }
 
         .shopping-cart-item__title {
@@ -571,7 +583,7 @@ $p5: $spacer * 3;
 
           .item_original_price {
             color: black;
-            font-style: italic;
+            // font-style: italic;
           }
 
           .item_discount_price {
@@ -582,7 +594,7 @@ $p5: $spacer * 3;
 
         .shopping-cart-item__color {
           .item_color {
-            background: red;
+            // background: red;
             display: inline-block;
             position: relative;
             top: 2px;
@@ -659,6 +671,8 @@ $p5: $spacer * 3;
         .primary-action {
           background: black;
           color: white;
+          display: flex;
+          justify-content: center;
           &:hover {
             background: rgb(82, 80, 80);
           }

@@ -1,0 +1,233 @@
+<div class="shopping-bag-section" id="shopping-bag">
+  <div class="shopping-cart-close__icon" id="shopping-cart-close-icon">
+      <i class="fa fa-times" aria-hidden="true"></i>
+  </div>
+  <div class="shopping-cart-heading">
+      Shopping Cart
+  </div>
+  <hr/>
+  <div class="shopping-cart-items d-flex flex-column">
+    {% for line_item in cart.items %}
+    <div class="row shopping-cart-item">
+      <div class="col-4 shopping-cart-item__img"> 
+        <a href="{{ shop.url }}{{ line_item.url }}" class="shopping-cart-items__link">{{ line_item | img_url: '100x100' | img_tag }}</a>
+      </div>
+      <div class="col shopping-cart-item__info d-flex flex-column">
+          <a href="{{ shop.url }}{{ line_item.url }}" class="shopping-cart-items__link"><div class="shopping-cart-item__title item_info">{{ line_item.product.title }}</div></a>
+          <div class="shopping-cart-item__price item_info">
+            {% if line_item.original_price != line_item.final_price %}                
+              <strike class="item_original_price">{{ line_item.original_price | money }}</strike> 
+              <span class="item_discount_price">{{ line_item.final_price | money }}</span> 
+              (<span class="item_discount_percentage">30%</span> off)
+            {% else %}
+              <div class="item_original_price">{{ line_item.final_price | money }}</div> 
+            {% endif %}
+          </div>
+          {% for option in line_item.options_with_values %}
+            <div class="item_info row ">
+              <div class="col-4">{{ option.name }}:</div>
+              <div class="col-4">{{ option.value }}</div>
+            </div>
+          {% endfor %}
+          <div class="item_info py-3">
+            <a href="{{ routes.cart_url }}" class="item_info__edit">Edit</a>
+        </div>
+      </div>
+  </div>
+  {% endfor %}
+  </div>
+  <div class="shopping-cart-actions">
+      <a href="{{ routes.cart_url }}" class="shopping-cart__buttons primary-action">Go to Cart</a>
+      <div class="shopping-cart__buttons secondary-action">
+          Continue Shopping
+      </div>
+  </div>
+</div>
+
+
+{%- comment -%}
+  <div class="shopping-cart-items d-flex flex-column">
+    {% for line_item in cart.items %}
+      <div class="row shopping-cart-item">
+        <div class="col-4 shopping-cart-item__img"> 
+          <a href="{{ shop.url }}{{ line_item.url }}" class="shopping-cart-items__link">{{ line_item | img_url: '100x100' | img_tag }}</a>
+        </div>
+        <div class="col shopping-cart-item__info d-flex flex-column">
+            <a href="{{ shop.url }}{{ line_item.url }}" class="shopping-cart-items__link"><div class="shopping-cart-item__title item_info">{{ line_item.product.title }}</div></a>
+            <div class="shopping-cart-item__price item_info">
+              {% if line_item.original_price != line_item.final_price %}                
+                <strike class="item_original_price">{{ line_item.original_price | money }}</strike> 
+                <span class="item_discount_price">{{ line_item.final_price | money }}</span> 
+                (<span class="item_discount_percentage">30%</span> off)
+              {% else %}
+                <div class="item_original_price">{{ line_item.final_price | money }}</div> 
+              {% endif %}
+            </div>
+            {% for option in line_item.options_with_values %}
+              <div class="item_info row ">
+                <div class="col-4">{{ option.name }}:</div>
+                <div class="col-4">{{ option.value }}</div>
+              </div>
+            {% endfor %}
+            <div class="item_info py-3">
+              <a href="{{ routes.cart_url }}" class="item_info__edit">Edit</a>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+{%- endcomment -%}
+
+{%- comment -%}
+<div class="shopping-bag-section" id="shopping-bag">
+    <div class="shopping-cart-close__icon" id="shopping-cart-close-icon">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="shopping-cart-heading">
+        Shopping Cart
+    </div>
+    <hr/>
+    <div class="shopping-cart-items d-flex flex-column">
+        <div class="row shopping-cart-item">
+            <div class="col-4 shopping-cart-item__img"> 
+                <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 100px;" />
+            </div>
+            <div class="col shopping-cart-item__info d-flex flex-column">
+                <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                <div class="shopping-cart-item__price item_info">
+                    <strike class="item_original_price">US$19.99</strike> 
+                    <span class="item_discount_price">US$12.99</span> 
+                    (<span class="item_discount_percentage">30%</span> off)
+                </div>
+                <div class="shopping-cart-item__size item_info">
+                    Size: <span class="item_size">6</span>
+                </div>
+                <div class="shopping-cart-item__color item_info">
+                    Color:   
+                    <div class="item_color"></div> 
+                    <span class="item_color-name">red</span>
+                </div>
+                <div class="row item_info shopping-cart-item__functions">
+                    <div class="col item_adjust_count">
+                        <div class="row">
+                            <span class="col item_count_sub"> &minus; </span>
+                            <span class="col item_count">1</span>
+                            <span class="col item_count_add"> &#43; </span>
+                        </div>
+                        
+                    </div>
+                    <div class="col item_remove">remove</div>
+                </div>
+            </div>
+        </div>
+        <div class="row shopping-cart-item">
+            <div class="col-4 shopping-cart-item__img"> 
+                <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 100px;" />
+            </div>
+            <div class="col shopping-cart-item__info d-flex flex-column">
+                <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                <div class="shopping-cart-item__price item_info">
+                    <strike class="item_original_price">US$19.99</strike> 
+                    <span class="item_discount_price">US$12.99</span> 
+                    (<span class="item_discount_percentage">30%</span> off)
+                </div>
+                <div class="shopping-cart-item__size item_info">
+                    Size: <span class="item_size">6</span>
+                </div>
+                <div class="shopping-cart-item__color item_info">
+                    Color:   
+                    <div class="item_color"></div> 
+                    <span class="item_color-name">red</span>
+                </div>
+                <div class="row item_info shopping-cart-item__functions">
+                    <div class="col item_adjust_count">
+                        <div class="row">
+                            <span class="col item_count_sub"> &minus; </span>
+                            <span class="col item_count">1</span>
+                            <span class="col item_count_add"> &#43; </span>
+                        </div>
+                        
+                    </div>
+                    <div class="col item_remove">remove</div>
+                </div>
+            </div>
+        </div>
+        <div class="row shopping-cart-item">
+            <div class="col-4 shopping-cart-item__img"> 
+                <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 100px;" />
+            </div>
+            <div class="col shopping-cart-item__info d-flex flex-column">
+                <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                <div class="shopping-cart-item__price item_info">
+                    <strike class="item_original_price">US$19.99</strike> 
+                    <span class="item_discount_price">US$12.99</span> 
+                    (<span class="item_discount_percentage">30%</span> off)
+                </div>
+                <div class="shopping-cart-item__size item_info">
+                    Size: <span class="item_size">6</span>
+                </div>
+                <div class="shopping-cart-item__color item_info">
+                    Color:   
+                    <div class="item_color"></div> 
+                    <span class="item_color-name">red</span>
+                </div>
+                <div class="row item_info shopping-cart-item__functions">
+                    <div class="col item_adjust_count">
+                        <div class="row">
+                            <span class="col item_count_sub"> &minus; </span>
+                            <span class="col item_count">1</span>
+                            <span class="col item_count_add"> &#43; </span>
+                        </div>
+                        
+                    </div>
+                    <div class="col item_remove">remove</div>
+                </div>
+            </div>
+        </div>
+        <div class="row shopping-cart-item">
+            <div class="col-4 shopping-cart-item__img"> 
+                <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 100px;" />
+            </div>
+            <div class="col shopping-cart-item__info d-flex flex-column">
+                <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                <div class="shopping-cart-item__price item_info">
+                    <strike class="item_original_price">US$19.99</strike> 
+                    <span class="item_discount_price">US$12.99</span> 
+                    (<span class="item_discount_percentage">30%</span> off)
+                </div>
+                <div class="shopping-cart-item__size item_info">
+                    Size: <span class="item_size">6</span>
+                </div>
+                <div class="shopping-cart-item__color item_info">
+                    Color:   
+                    <div class="item_color"></div> 
+                    <span class="item_color-name">red</span>
+                </div>
+                <div class="row item_info shopping-cart-item__functions">
+                    <div class="col item_adjust_count">
+                        <div class="row">
+                            <span class="col item_count_sub"> &minus; </span>
+                            <span class="col item_count">1</span>
+                            <span class="col item_count_add"> &#43; </span>
+                        </div>
+                        
+                    </div>
+                    <div class="col item_remove">remove</div>
+                </div>
+            </div>
+        </div>                                       
+    </div>
+    <div class="shopping-cart-actions">
+        <div class="shopping-cart-total d-flex justify-content-between">
+            <div class="">subtotal:</div>
+            <div class="shopping-cart-subtotal-amount">US$89.99</div>
+        </div>
+        <div class="shopping-cart__buttons primary-action">
+            Checkout
+        </div>
+        <div class="shopping-cart__buttons secondary-action">
+            Continue Shopping
+        </div>
+    </div>
+</div>
+{%- endcomment -%}
