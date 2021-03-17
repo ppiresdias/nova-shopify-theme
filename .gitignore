@@ -1,2 +1,6 @@
 # ignore config file with API keys 
 *.yml
+
+.87nova.code-workspace
+.script.sh
+87nova.code-workspace

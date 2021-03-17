@@ -69,18 +69,6 @@ $(window).on("load", function() {
     }
   })
 
-  // SWATCH HANDLER
-  $(".swatch").on({
-    click: function() {
-      let active = "swatch--active";
-      if($(this).hasClass(active)) {
-        $(this).removeClass(active);
-      } else {
-        $(this).parent().find("." + active).removeClass(active);
-        $(this).addClass(active);
-      }
-    }
-  });
 
   // COLLECTIONS FILTER MODAL ON MOBILE DEVICES
   let collections_modal = $("#collections__modal");
@@ -96,42 +84,42 @@ $(window).on("load", function() {
     }
   });
 
-  // TINY SLIDER
-  let slider = tns({
-    // autoplay: true,
-    container: '.carousel__slider',
-    controls: true,
-    controlsPosition: "top",
-    controlsText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
-    gutter: 20,
-    items: 5,
-    lazyload: false,
-    loop: true,
-    mode: 'carousel',
-    nav: true,
-    navPosition: "top",
-    preventScrollOnTouch: "auto",
-    responsive: {
-      414: {
-        items: 2
-      },
-      640: {
-        items: 2
-      },
-      768: {
-        items: 3
-      },
-      992: {
-        items: 4
-      },
-      1200: {
-        items: 5
-      }},
-    rewind: true,
-    slideBy: 'page',
-    speed: 750,
-    touch: true
-  });
+  // // TINY SLIDER
+  // let slider = tns({
+  //   // autoplay: true,
+  //   container: '.carousel__slider',
+  //   controls: true,
+  //   controlsPosition: "top",
+  //   controlsText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+  //   gutter: 20,
+  //   items: 5,
+  //   lazyload: false,
+  //   loop: true,
+  //   mode: 'carousel',
+  //   nav: true,
+  //   navPosition: "top",
+  //   preventScrollOnTouch: "auto",
+  //   responsive: {
+  //     414: {
+  //       items: 2
+  //     },
+  //     640: {
+  //       items: 2
+  //     },
+  //     768: {
+  //       items: 3
+  //     },
+  //     992: {
+  //       items: 4
+  //     },
+  //     1200: {
+  //       items: 5
+  //     }},
+  //   rewind: true,
+  //   slideBy: 'page',
+  //   speed: 750,
+  //   touch: true
+  // });
   // BOOTSTRAP BREAKPOINTS
   // $breakpoint: (lg: 1199.98px, md: 991.98px, sm: 767.98px, xs: 575.98px);
 });

@@ -1,0 +1,47 @@
+{%- assign collection = collections[section.settings.collection] -%}
+
+<section class="feature__products">
+  <h2>{{ section.settings.section_title }}</h2>
+  <div class="row">
+    {% for product in collection.products limit: 6 %}
+      <a href="{{product.url}}" class="card col-12 col-sm-6 col-lg-4">
+        <img loading="lazy" class="card-img-top" src="{{product.featured_image | img_url: 'master' }}"/>
+        <div class="card-body">
+          <h5 class="card-title text-center">{{product.title}}</h5>
+          <div class="card__body__price d-flex justify-content-center">
+            <p class="card-text previous__price">{{product.price_max | money}}</p>
+            <p class="card-text">{{product.price | money}}</p>
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Three Column Products",
+  "class": "container",
+  "settings": [
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Featured Collection Images"
+    }, 
+    {
+      "id": "section_title",
+      "type": "text",
+      "default": "Feature Collection",
+      "label": "Section Title"
+    }
+  ],
+  "presets":
+  [
+      {
+        "name": "Featured Products",
+        "category": "Collection"
+      }
+  ]
+}
+{% endschema %}

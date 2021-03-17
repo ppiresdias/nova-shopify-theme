@@ -1,0 +1,53 @@
+{%- assign collection1 = collections[section.settings.collection1] -%}
+{%- assign collection2 = collections[section.settings.collection2] -%}
+
+<section class="himher row no-gutters">
+  <div class="for__him col-12 col-md-6">
+    <div class="for__him__content d-flex flex-column justify-content-center items-center align-items-center" style="background: center/cover no-repeat url('{{
+                collection1.image | img_url: 'master'
+              }}'), rgba(0, 0, 0, 0.5);">
+      <h3>{{ collection1.title }}</h3>
+      <a class="button--black" href="{{ collection1.url }}">{{ section.settings.btn_text }}</a>
+    </div>
+  </div>
+  <div class="for__her col-12 col-md-6">
+    <div class="for__her__content d-flex flex-column justify-content-center items-center align-items-center" style="background: center/cover no-repeat url('{{
+                collection2.image | img_url: 'master'
+              }}') rgba(0, 0, 0, 0.5);">
+      <h3>{{ collection2.title }}</h3>
+      <a class="button--black" href="{{ collection2.url }}">{{ section.settings.btn_text }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+
+{
+  "name": "Two Colum Collection",
+  "settings": [
+    {
+      "id": "collection1",
+      "type": "collection",
+      "label": "Left Image"
+    },
+    {
+      "id": "collection2",
+      "type": "collection",
+      "label": "Right Image"
+    },
+    {
+      "id": "btn_text",
+      "type": "text",
+      "label": "Button Text",
+      "default": "Shop now"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two Colum Collection",
+      "category": "Collection"
+    }
+  ]
+}
+
+{% endschema %}
