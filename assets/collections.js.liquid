@@ -9,6 +9,41 @@ function c() {
 
 $(window).on("load", function() { 
 
+  // SHOPPING CART MODAL
+  let shoppingBag = document.querySelector('#shopping-bag');
+
+  $("#shopping-cart-close-icon, .shopping-cart-items__link, .shopping-cart__buttons.primary-action, .shopping-cart__buttons.secondary-action").on({
+    click: function() {
+      shoppingBag.classList.remove('show');
+    }
+  });
+
+  // function handleItemDisplay(id) {
+  //   fetch('/cart.js')
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     let exists = false;
+  //     for(let index = 0; index < data.items.length; ++index) {
+  //       let i = data.items[index].id
+  //       if(i === id) {
+  //         exists = true;
+  //         c('found',i,id)
+  //         break;
+  //       } else {
+  //         c(i,id)
+  //       }
+  //     }
+  //     if(!exists) {
+  //       appendItem(data);
+  //     }
+  //   }).catch(error => {return error;});
+  // }
+
+  // function appendItem(data) {
+  //   c(data)
+  //   alert('asdfasdf')
+  // }
+
     // COLLECTIONS FILTER MODAL ON MOBILE DEVICES
     let collections_modal = $("#collections__modal");
     $("#gallery__filter").on({
@@ -306,7 +341,11 @@ $(window).on("load", function() {
               }
             },
             success: function(data) {
-              // $(selected).removeClass(active_row);
+              c(data["items"][0])
+              // let id = ;
+              // let id = data["items"][0].variant_id
+              // c(id)
+              // handleItemDisplay(id);
               $(shopping_bag_modal).addClass("show");
               clear_active_option();
               deactivate_bag_modal();

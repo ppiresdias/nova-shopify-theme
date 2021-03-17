@@ -54,6 +54,7 @@
         {{ 'style.scss.css' | asset_url | stylesheet_tag }}
         {{ 'collections.scss.css' | asset_url | stylesheet_tag }}
         {{ 'contact_us.scss.css' | asset_url | stylesheet_tag }}
+        {{ 'affiliate.scss.css' | asset_url | stylesheet_tag }}
 
         <script>
             var theme = {
@@ -125,7 +126,6 @@
     </head>
 
     <body class="template-{{ request.page_type | handle }}">
-
         <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
         {%- if settings.enable_ajax -%}
@@ -137,8 +137,6 @@
         {{ content_for_layout }}
         {% section 'footer' %}
         
-
-
         <div id="slideshow-info" class="visually-hidden" aria-hidden="true">
             {{- 'sections.slideshow.navigation_instructions' | t -}}
             </div>
