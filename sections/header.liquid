@@ -288,12 +288,14 @@
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </div>
                         <ul class="menu wrappers d-flex justify-content-around">
+                            {% assign count = 1 %}
+                            
                             {% for link in linklists.main-menu.links %}
                                 {% assign child_list_handle = link.title | handleize%}
                                 {% if linklists[child_list_handle].links != blank %}
                                     <!-- <a href="{{ link.url }}"> {{link.title}} </a>  -->
 
-                                    <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-{{}}" title="new">
+                                    <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-{{count}}" title="new">
                                         {{link.title}}  <i class="fa fa-chevron-down" aria-hidden="true"></i>
                                     
                                     </li>
@@ -301,11 +303,12 @@
                                         <a href="{{ childlink.url }}"> {{childlink.title | escape }} </a> 
                                     {% endfor %}]
                                 {% else %}
-                                    <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-1" title="new">
+                                    <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-{{count}}" title="new">
                                         {{link.title}}  <i class="fa fa-chevron-down" aria-hidden="true"></i>
                                     
                                     </li>
                                 {% endif %}
+                                {% assign count = count | plus: 1 %}
                             {% endfor %}
                             <!-- <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-1" title="new">
                                 new <i class="fa fa-chevron-down" aria-hidden="true"></i>
