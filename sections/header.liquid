@@ -109,9 +109,159 @@
                         </div>
                         <a class="header-banner-right__item header-cart" href="{{ routes.cart_url }}">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                            <span class="banner-count header-cart-count">{{ cart.item_count }}</span>
-                        </a>
-                        {% render 'cart-modal' %}
+                            <span class="banner-count header-cart-count">0</span>
+                        </div>
+                        <div class="shopping-bag-section" id="shopping-bag">
+                            <div class="shopping-cart-close__icon" id="shopping-cart-close-icon">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </div>
+                            <div class="shopping-cart-heading">
+                                Shopping Cart
+                            </div>
+                            <hr/>
+                            <div class="shopping-cart-items d-flex flex-column">
+                                <div class="row shopping-cart-item">
+                                    <div class="col-4 shopping-cart-item__img"> 
+                                        <img src={{'Jumpsuit.jpg' | asset_url}} alt="new jumpsuit" style="width: 100px;" />
+                                    </div>
+                                    <div class="col shopping-cart-item__info d-flex flex-column">
+                                        <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                                        <div class="shopping-cart-item__price item_info">
+                                            <strike class="item_original_price">US$19.99</strike> 
+                                            <span class="item_discount_price">US$12.99</span> 
+                                            (<span class="item_discount_percentage">30%</span> off)
+                                        </div>
+                                        <div class="shopping-cart-item__size item_info">
+                                            Size: <span class="item_size">6</span>
+                                        </div>
+                                        <div class="shopping-cart-item__color item_info">
+                                            Color:   
+                                            <div class="item_color"></div> 
+                                            <span class="item_color-name">red</span>
+                                        </div>
+                                        <div class="row item_info shopping-cart-item__functions">
+                                            <div class="col item_adjust_count">
+                                                <div class="row">
+                                                    <span class="col item_count_sub"> &minus; </span>
+                                                    <span class="col item_count">1</span>
+                                                    <span class="col item_count_add"> &#43; </span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col item_remove">remove</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row shopping-cart-item">
+                                    <div class="col-4 shopping-cart-item__img"> 
+                                        <img src={{'Jumpsuit.jpg' | asset_url}} alt="new jumpsuit" style="width: 100px;" />
+                                    </div>
+                                    <div class="col shopping-cart-item__info d-flex flex-column">
+                                        <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                                        <div class="shopping-cart-item__price item_info">
+                                            <strike class="item_original_price">US$19.99</strike> 
+                                            <span class="item_discount_price">US$12.99</span> 
+                                            (<span class="item_discount_percentage">30%</span> off)
+                                        </div>
+                                        <div class="shopping-cart-item__size item_info">
+                                            Size: <span class="item_size">6</span>
+                                        </div>
+                                        <div class="shopping-cart-item__color item_info">
+                                            Color:   
+                                            <div class="item_color"></div> 
+                                            <span class="item_color-name">red</span>
+                                        </div>
+                                        <div class="row item_info shopping-cart-item__functions">
+                                            <div class="col item_adjust_count">
+                                                <div class="row">
+                                                    <span class="col item_count_sub"> &minus; </span>
+                                                    <span class="col item_count">1</span>
+                                                    <span class="col item_count_add"> &#43; </span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col item_remove">remove</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row shopping-cart-item">
+                                    <div class="col-4 shopping-cart-item__img"> 
+                                        <img src={{'Jumpsuit.jpg' | asset_url}} alt="new jumpsuit" style="width: 100px;" />
+                                    </div>
+                                    <div class="col shopping-cart-item__info d-flex flex-column">
+                                        <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                                        <div class="shopping-cart-item__price item_info">
+                                            <strike class="item_original_price">US$19.99</strike> 
+                                            <span class="item_discount_price">US$12.99</span> 
+                                            (<span class="item_discount_percentage">30%</span> off)
+                                        </div>
+                                        <div class="shopping-cart-item__size item_info">
+                                            Size: <span class="item_size">6</span>
+                                        </div>
+                                        <div class="shopping-cart-item__color item_info">
+                                            Color:   
+                                            <div class="item_color"></div> 
+                                            <span class="item_color-name">red</span>
+                                        </div>
+                                        <div class="row item_info shopping-cart-item__functions">
+                                            <div class="col item_adjust_count">
+                                                <div class="row">
+                                                    <span class="col item_count_sub"> &minus; </span>
+                                                    <span class="col item_count">1</span>
+                                                    <span class="col item_count_add"> &#43; </span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col item_remove">remove</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row shopping-cart-item">
+                                    <div class="col-4 shopping-cart-item__img"> 
+                                        <img src={{'Jumpsuit.jpg' | asset_url}} alt="new jumpsuit" style="width: 100px;" />
+                                    </div>
+                                    <div class="col shopping-cart-item__info d-flex flex-column">
+                                        <div class="shopping-cart-item__title item_info">Rose Red Dress</div>
+                                        <div class="shopping-cart-item__price item_info">
+                                            <strike class="item_original_price">US$19.99</strike> 
+                                            <span class="item_discount_price">US$12.99</span> 
+                                            (<span class="item_discount_percentage">30%</span> off)
+                                        </div>
+                                        <div class="shopping-cart-item__size item_info">
+                                            Size: <span class="item_size">6</span>
+                                        </div>
+                                        <div class="shopping-cart-item__color item_info">
+                                            Color:   
+                                            <div class="item_color"></div> 
+                                            <span class="item_color-name">red</span>
+                                        </div>
+                                        <div class="row item_info shopping-cart-item__functions">
+                                            <div class="col item_adjust_count">
+                                                <div class="row">
+                                                    <span class="col item_count_sub"> &minus; </span>
+                                                    <span class="col item_count">1</span>
+                                                    <span class="col item_count_add"> &#43; </span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col item_remove">remove</div>
+                                        </div>
+                                    </div>
+                                </div>                                       
+                            </div>
+                            <div class="shopping-cart-actions">
+                                <div class="shopping-cart-total d-flex justify-content-between">
+                                    <div class="">subtotal:</div>
+                                    <div class="shopping-cart-subtotal-amount">US$89.99</div>
+                                </div>
+                                <div class="shopping-cart__buttons primary-action">
+                                    Checkout
+                                </div>
+                                <div class="shopping-cart__buttons secondary-action">
+                                    Continue Shopping
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -170,15 +320,15 @@
                                                 <div class="col-8">
                                                     <div class="jumbo-menu-img d-flex flex-row justify-content-around">
                                                         <div>
-                                                            <img src="/img/Jeans.jpg" alt="new jeans" style="width: 200px;" />
+                                                            <img src={{'Jeans.jpg' | asset_url}} alt="new jeans" style="width: 200px;" />
                                                           
                                                         </div>
                                                         <div  class="collapse-img">
-                                                            <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 200px;" />
+                                                            <img src={{'Jumpsuit.jpg' | asset_url}} alt="new jumpsuit" style="width: 200px;" />
                                                             
                                                         </div>
                                                         <div  class="collapse-img collapse-img-primary">
-                                                            <img src="/img/purple__dress.jpg" alt="new purple dress" style="width: 200px;" />
+                                                            <img src={{'Jumpsuit.jpg' | asset_url}} alt="new purple dress" style="width: 200px;" />
                                                            
                                                         </div>                                   
                                                     </div>
@@ -627,7 +777,7 @@
                                                 <div class="col-5">
                                                     <div class="jumbo-menu-img d-flex flex-row justify-content-between">
                                                         <div>
-                                                            <img src="/img/kids_fashion.jpg" alt="kids fashion" style="width: 400px;" />
+                                                            <img src={{'kids_fashion.jpg' | asset_url}} alt="kids fashion" style="width: 400px;" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -675,15 +825,15 @@
                                                 <div class="col-8">
                                                     <div class="jumbo-menu-img d-flex flex-row justify-content-around">
                                                         <div>
-                                                            <img src="/img/accessories_girl.jpg" alt="accessories" style="width: 200px;" />
+                                                            <img src={{'accessories_girl.jpg' | asset_url}} alt="accessories" style="width: 200px;" />
                                                             
                                                         </div>
                                                         <div class="collapse-img">
-                                                            <img src="/img/makeup_girl.jpg" alt="girl with makeup" style="width: 200px;" />
+                                                            <img src={{'makeup_girl.jpg' | asset_url}} alt="girl with makeup" style="width: 200px;" />
                                                            
                                                         </div>
                                                         <div class="collapse-img collapse-img-primary">
-                                                            <img src="/img/facemask.jpg" alt="boy with face mask" style="width: 200px;" />
+                                                            <img src={{'facemask.jpg' | asset_url}} alt="boy with face mask" style="width: 200px;" />
                                                            
                                                         </div>                                   
                                                     </div>
@@ -725,15 +875,15 @@
                                                 <div class="col-8">
                                                     <div class="jumbo-menu-img d-flex flex-row justify-content-around">
                                                         <div>
-                                                            <img src="/img/Jeans.jpg" alt="new jeans" style="width: 200px;" />
+                                                            <img src={{'Jeans.jpg' | asset_url}} alt="new jeans" style="width: 200px;" />
                                                             
                                                         </div>
                                                         <div  class="collapse-img">
-                                                            <img src="/img/Jumpsuit.jpg" alt="new jumpsuit" style="width: 200px;" />
+                                                            <img src={{'Jumpsuit.jpg' | asset_url}} alt="new jumpsuit" style="width: 200px;" />
                                                             
                                                         </div>
                                                         <div  class="collapse-img">
-                                                            <img src="/img/purple__dress.jpg" alt="new purple dress" style="width: 200px;" />
+                                                            <img src={{'purple_dress.jpg' | asset_url}} alt="new purple dress" style="width: 200px;" />
                                                             
                                                         </div>  
                                                     </div>
@@ -750,7 +900,7 @@
                                             <div class="mar_bottom_20">
                                                 <a href="/collections">
                                                     <div class="jumbo-menu-img">
-                                                        <img src="/img/charli_collection.jpg" alt="charli collection" style="width: 200px;" />
+                                                        <img src={{'charli_collection.jpg' | asset_url}} alt="charli collection" style="width: 200px;" />
                                                     </div>
                                                     <div class="collection-title">
                                                         Charli X Nova
@@ -760,7 +910,7 @@
                                             <div class="mar_bottom_20">
                                                 <a href="/collections">
                                                     <div class="jumbo-menu-img">
-                                                        <img src="/img/hawaiian_shirt.jpg" alt="boy with hawaiian shirt" style="width: 200px;" />                                        
+                                                        <img src={{'hawaiian_shirt.jpg' | asset_url}} alt="boy with hawaiian shirt" style="width: 200px;" />                                        
                                                     </div>
                                                     <div class="collection-title">
                                                         Nova Summer Collection
@@ -770,7 +920,7 @@
                                             <div class="mar_bottom_20">
                                                 <a href="/collections">
                                                     <div class="jumbo-menu-img">
-                                                        <img src="/img/Jacket.jpg" alt="girl with winter jacket" style="width: 200px" />
+                                                        <img src={{'Jacket.jpg' | asset_url}} alt="girl with winter jacket" style="width: 200px" />
                                                         
                                                     </div>
                                                     <div class="collection-title">
@@ -781,7 +931,7 @@
                                             <div class="mar_bottom_20">
                                                 <a href="/collections">
                                                     <div class="jumbo-menu-img">
-                                                        <img src="/img/beige__dress.jpg" alt="girl with beige dress" style="width: 200px;" />                                                         
+                                                        <img src={{'beige__dress.jpg' | asset_url}} alt="girl with beige dress" style="width: 200px;" />                                                         
                                                     </div>
                                                     <div class="collection-title">
                                                         As seen on Instagram

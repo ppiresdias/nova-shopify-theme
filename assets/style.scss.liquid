@@ -391,7 +391,9 @@ $navHeaderBgColor: rgb(39, 31, 31);
 $navJumboMenuBgColor: white;
 $navJumboMenuTextColor: black;
 $navJumboMenuTextHoverColor: rgb(141, 141, 141);
-$navJumboMenuShadowColor: rgba(41, 41, 41, 0.25);
+$navJumboMenuShadowColor: rgba(41,41,41,.25);
+$primaryColorBold: blue;
+
 
 //CONTACT VARIABLES
 $contact_font: "Montserrat", sans-serif;
@@ -419,9 +421,19 @@ $p5: $spacer * 3;
   .announcement-text {
     color: $announcementTextColor;
 
-    span {
-      color: $announcementTextColorEmphasis;
-    }
+      span{
+          color: $announcementTextColorEmphasis;
+      }
+      &:hover{
+        text-decoration: none !important;
+        color: $announcementTextColor !important;
+        cursor: pointer;
+      }
+  }
+  &:hover{
+    text-decoration: none !important;
+    color: $announcementTextColor !important;
+    cursor: pointer;
   }
 }
 
@@ -1667,33 +1679,19 @@ $p5: $p3 * 2;
 .footer-wrapper {
   background: $primaryColor;
   font-family: $primaryFont;
-
-  .footer-container {
-    .footer__content {
-      padding-top: 80px;
-
-      .footer__menu {
-        color: $primaryTextColor;
-        .footer__menu__header {
-          font-size: 18px;
-          font-weight: 600;
-          color: $primaryTextColor;
-          text-transform: capitalize;
-          margin-bottom: 20px;
-        }
-
-        .footer__menu__links {
-          .footer__menu__link__item {
-            font-size: 14px;
-            font-weight: 300;
-            text-transform: capitalize;
-            padding-bottom: 10px;
-            cursor: pointer;
+  .footer-container{
+      
+      .footer__content{
+          padding-top: 80px;
 
             a {
               color: $primaryTextColor;
-              &:hover {
-                color: $primaryTextHoverColor;
+              .footer__menu__header{
+                  font-size: 18px;
+                  font-weight: 600;
+                  color: $primaryTextColor;
+                  text-transform: capitalize; 
+                  margin-bottom: 20px;
               }
             }
           }
@@ -1755,7 +1753,6 @@ $p5: $p3 * 2;
             color: #4267b2;
           }
         }
-      }
     }
 
     hr {
@@ -1786,45 +1783,15 @@ $p5: $p3 * 2;
         }
       }
     }
-  } // .footer-container
-} // .footer-wrapper
-.footer-wrapper {
-  background: $primaryColor;
-  font-family: $primaryFont;
-  .footer-container {
-    .footer__content {
-      padding-top: 80px;
 
-      .footer__menu {
-        color: $primaryTextColor;
-        .footer__menu__header {
-          font-size: 18px;
-          font-weight: 600;
-          color: $primaryTextColor;
-          text-transform: capitalize;
-          margin-bottom: 20px;
-        }
 
-        .footer__menu__links {
-          .footer__menu__link__item {
-            font-size: 14px;
-            font-weight: 300;
-            text-transform: capitalize;
-            padding-bottom: 10px;
-            cursor: pointer;
 
-            a {
-              color: $primaryTextColor;
-              &:hover {
-                color: $primaryTextHoverColor;
-              }
-            }
-          }
-        }
+/**** MEDIA QUERIES ****/
 
-        @media all and (max-width: 1200px) {
-          .footer__content {
-            padding-top: 50px !important;
+@media all and (max-width: 1200px){
+  
+  .footer__content{
+      padding-top: 50px !important;
 
             .footer__menu {
               margin-top: 10px;
