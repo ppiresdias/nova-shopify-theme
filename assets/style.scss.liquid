@@ -1676,7 +1676,7 @@ $p5: $p3 * 2;
   FOOTER
 ==============================================================================*/
 
-.footer-wrapper {
+.footer-wrapper{
   background: $primaryColor;
   font-family: $primaryFont;
   .footer-container{
@@ -1684,7 +1684,7 @@ $p5: $p3 * 2;
       .footer__content{
           padding-top: 80px;
 
-            a {
+          .footer__menu{
               color: $primaryTextColor;
               .footer__menu__header{
                   font-size: 18px;
@@ -1693,98 +1693,114 @@ $p5: $p3 * 2;
                   text-transform: capitalize; 
                   margin-bottom: 20px;
               }
-            }
-          }
-        }
 
-        .footer__newsletter__info {
-          margin: 0;
-          font-size: 14px;
-        }
+              .footer__menu__links{
 
-        .footer__signup {
-          margin: 25px 0;
+                  .footer__menu__link__item{
+                      font-size: 14px;
+                      font-weight: 300;
+                      text-transform: capitalize;
+                      padding-bottom: 10px;
+                      cursor: pointer;
 
-          .newsletter-input {
-            border-radius: 0px;
-          }
-          ::placeholder {
-            color: grey;
-          }
+                      a{
+                          color: $primaryTextColor;
+                          &:hover{
+                              color: $primaryTextHoverColor;
+                          }
+                      }
+                  }
+              }
 
-          .newsletter-btn {
-            background: $primaryColorBold;
-            color: $primaryTextColor;
-            border-radius: 0px;
-            padding: 6px 8px;
-          }
+              .footer__newsletter__info{
+                  margin: 0;
+                  font-size: 14px;
+              }
 
-          .form-check {
-            margin-top: 15px;
-            label {
-              font-size: 13px;
-              color: $primaryTextColor;
-              font-style: italic;
-            }
-          }
-        }
+              .footer__signup{
+                  margin: 25px 0;
 
-        .footer__socials {
-          margin: 20px 0;
+                  .newsletter-input{
+                      border-radius: 0px;
+                  }::placeholder{
+                      color: grey;
+                  }
 
-          .footer__social__item {
-            font-size: 28px;
-            margin-right: 30px;
-            cursor: pointer;
-            &:hover {
-              color: $primaryTextColor;
-            }
-          }
-          #instagram-logo:hover {
-            color: #833ab4;
-          }
-          #pinterest-logo:hover {
-            color: #e60023;
-          }
-          #snapchat-logo:hover {
-            color: #fffc00;
-          }
-          #facebook-logo:hover {
-            color: #4267b2;
-          }
-        }
-    }
+                  .newsletter-btn{
+                      background: blue;
+                      color: $primaryTextColor;
+                      border-radius: 0px;  
+                      padding: 6px 8px;
+                  }
 
-    hr {
-      color: $primaryTextColor;
-    }
+                  .form-check{
+                      margin-top: 15px;
+                      label{
+                          font-size: 13px;
+                          color: $primaryTextColor;
+                          font-style: italic;
+                      }
+                  }
+              }
 
-    .footer__bottom {
-      color: $primaryTextColor;
-      .footer__copyright {
-        font-size: 12px;
-        font-weight: 100px;
+              .footer__socials{
+                  margin: 20px 0;
+
+                  .footer__social__item{
+                      font-size: 28px;
+                      margin-right: 30px;
+                      cursor: pointer;
+                      &:hover{
+                          color: $primaryTextColor;
+                      }
+                  }
+                  #instagram-logo:hover{
+                      color: #833AB4;
+                  }
+                  #pinterest-logo:hover{
+                      color: #E60023;
+                  }
+                  #snapchat-logo:hover{
+                      color: #FFFC00;
+                  }
+                  #facebook-logo:hover{
+                      color: #4267B2;
+                  }
+              }
+          }
       }
 
-      .footer__payments {
-        .payments__list {
-          display: flex;
-          flex-direction: row;
-          font-size: 36px;
-
-          .payment__item {
-            color: $muteIconColors;
-            margin: -20px 10px 0;
-            cursor: pointer;
-            &:hover {
-              color: $primaryTextColor;
-            }
-          }
-        }
+      hr{
+          color: $primaryTextColor;
       }
-    }
 
+      .footer__bottom{
+          color: $primaryTextColor;
+          .footer__copyright{
+              font-size: 12px;
+              font-weight: 100px;
+          }
 
+          .footer__payments{
+              
+              .payments__list{
+                  display: flex;
+                  flex-direction: row;
+                  font-size: 36px;
+
+                  .payment__item{
+                      color: $muteIconColors;
+                      margin: -20px 10px 0;
+                      cursor: pointer;
+                      &:hover{
+                          color: $primaryTextColor;
+                      }
+                  }
+              }
+          }
+      }
+  }
+}
 
 /**** MEDIA QUERIES ****/
 
