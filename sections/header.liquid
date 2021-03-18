@@ -107,10 +107,10 @@
                             <i class="fa fa-heart" aria-hidden="true"></i>
                             <span class="banner-count header-wishlist-count">0</span>
                         </div>
-                        <div class="header-banner-right__item header-cart">
+                        <a href="{{ routes.cart_url }}" class="header-banner-right__item header-cart">
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                             <span class="banner-count header-cart-count">0</span>
-                        </div>
+                        </a>
                         <div class="shopping-bag-section" id="shopping-bag">
                             <div class="shopping-cart-close__icon" id="shopping-cart-close-icon">
                                 <i class="fa fa-times" aria-hidden="true"></i>
@@ -254,9 +254,9 @@
                                     <div class="">subtotal:</div>
                                     <div class="shopping-cart-subtotal-amount">US$89.99</div>
                                 </div>
-                                <div class="shopping-cart__buttons primary-action">
-                                    Checkout
-                                </div>
+                                <a href="{{ routes.cart_url }}" class="shopping-cart__buttons primary-action">
+                                    Go to Cart
+                                </a>
                                 <div class="shopping-cart__buttons secondary-action">
                                     Continue Shopping
                                 </div>
