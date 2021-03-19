@@ -573,8 +573,17 @@ $p5: $spacer * 3;
         height: 100%;
         padding-bottom: 250px;
 
+        .shopping-cart-items__link {
+          color: $primaryTextColor;
+
+          &:hover {
+            color: $primaryTextHoverColor;
+          }
+        }
+
         .shopping-cart-item {
           border-bottom: 1px solid $muteIconColors;
+          color: $primaryTextColor;
           margin: 5px 0;
         }
         .item_info {

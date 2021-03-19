@@ -18,26 +18,14 @@ $(window).on("load", function() {
     }
   });
 
-  // function handleItemDisplay(id) {
-  //   fetch('/cart.js')
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     let exists = false;
-  //     for(let index = 0; index < data.items.length; ++index) {
-  //       let i = data.items[index].id
-  //       if(i === id) {
-  //         exists = true;
-  //         c('found',i,id)
-  //         break;
-  //       } else {
-  //         c(i,id)
-  //       }
-  //     }
-  //     if(!exists) {
-  //       appendItem(data);
-  //     }
-  //   }).catch(error => {return error;});
-  // }
+  function getCartItems(callback) {
+    fetch('/cart.js')
+    .then(response => response.json())
+    .then(data => {
+      callback(data)
+      // return data;
+    }).catch(error => {c(error);});
+  }
 
   // function appendItem(data) {
   //   c(data)
@@ -315,7 +303,7 @@ $(window).on("load", function() {
   })
 
 
-  let shopping_bag_modal = $("#shopping-bag");
+  // let shopping_bag_modal = $("#shopping-bag");
     /*
   ADD TO CART IS CLICKED
   */
@@ -341,14 +329,13 @@ $(window).on("load", function() {
               }
             },
             success: function(data) {
-              c(data["items"][0])
               // let id = ;
               // let id = data["items"][0].variant_id
               // c(id)
               // handleItemDisplay(id);
-              $(shopping_bag_modal).addClass("show");
               clear_active_option();
               deactivate_bag_modal();
+              getCartItems(showShoppingBag);
               // c("success",data)
               // $(active_bag_modal["active"]).removeClass("bag-modal--active");
             },
@@ -361,6 +348,31 @@ $(window).on("load", function() {
     },
   });
 
+  function showShoppingBag(data) {
+    let first = $("#shopping-bag .row.shopping-cart-item").clone().prop("hidden", false);
+    let container = $("#shopping-bag .shopping-cart-items");
+    let items = data.items;
+    container.empty();
+    for(let i = 0; i < items.length; ++i) {
+      let item = items[i];
+      // c(item.final_price, typeof(item.final_price))
+      let dup = $(first).clone().prop("hidden", false);
+      let img = $("<img>");
+      img.attr("src", item.featured_image["url"]);
+      img.attr("alt", item.featured_image["alt"]);
+      $(dup).find(".shopping-cart-item__img .shopping-cart-items__link").append(img)
+      let end = `${item.final_price % 100}`.padEnd(2, 0);
+      $(dup).find(".shopping-cart-item__price .item_original_price").text(`$${item.final_price / 100}.${end}`);
+      $(dup).find(".shopping-cart-item__title").text(item.title);
+      $(dup).find(".shopping-cart-items__link").attr("href", item.url)
+      $(container).append(dup);
+    }
+    $(shoppingBag).addClass("show");
+  }
+
+
+
+  // $(".row.shopping-cart-item")
 
 
   // // TINY SLIDER

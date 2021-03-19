@@ -111,6 +111,8 @@
                             <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                             <span class="banner-count header-cart-count">0</span>
                         </a>
+                        {% render 'cart-modal' %}
+                        {%- comment -%}
                         <div class="shopping-bag-section" id="shopping-bag">
                             <div class="shopping-cart-close__icon" id="shopping-cart-close-icon">
                                 <i class="fa fa-times" aria-hidden="true"></i>
@@ -262,6 +264,7 @@
                                 </div>
                             </div>
                         </div>
+                        {%- endcomment -%}
                     </div>
                 </div>
             </div>
