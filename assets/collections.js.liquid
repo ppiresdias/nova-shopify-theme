@@ -1,5 +1,3 @@
-// import { tns } from "tiny-slider/dist/tiny-slider";
-
 // simple print function
 function c() {
   for (let i = 0; i < arguments.length; i++) {
@@ -8,29 +6,15 @@ function c() {
 }
 
 $(window).on("load", function() { 
-
   // SHOPPING CART MODAL
   let shoppingBag = document.querySelector('#shopping-bag');
 
   $("#shopping-cart-close-icon, .shopping-cart-items__link, .shopping-cart__buttons.primary-action, .shopping-cart__buttons.secondary-action").on({
     click: function() {
-      shoppingBag.classList.remove('show');
+      deactivate_shopping_cart_modal();
+      // shoppingBag.classList.remove('show');
     }
   });
-
-  function getCartItems(callback) {
-    fetch('/cart.js')
-    .then(response => response.json())
-    .then(data => {
-      callback(data)
-      // return data;
-    }).catch(error => {c(error);});
-  }
-
-  // function appendItem(data) {
-  //   c(data)
-  //   alert('asdfasdf')
-  // }
 
     // COLLECTIONS FILTER MODAL ON MOBILE DEVICES
     let collections_modal = $("#collections__modal");
@@ -116,12 +100,9 @@ $(window).on("load", function() {
     }
   })
 
-
-
-
-
-  // MAIN BAG BUTTON CLICKED, ACTIVATES BAG MODAL
+  // IF MAIN BAG BUTTON CLICKED, ACTIVATE BAG MODAL
   let active_bag_modal = {active: false, modal: null, first_clicked: false};
+  let active_shopping_cart = false;
   let active_option = {active: false, option: null};
   let active_option_class = "bag-modal__row--option--active";
 
@@ -183,136 +164,39 @@ $(window).on("load", function() {
 
   $(".product-info__button").on({
     click: function() {
-      // let active = "bag-modal--active";
-      // this < product-info < g_c < col < row
-      // $(this).parent().parent().parent().parent().find(`.${active}`).removeClass(active);
-      
       deactivate_bag_modal();
-      // if(active_bag_modal["active"]) {
-      //   // $(active_bag_modal["modal"]).removeClass(active);
-      // }
-      let modal = $(this).parent().find(".bag-modal");
-      activate_bag_modal(modal);
-      // active_bag_modal["active"] = true;
-      // active_bag_modal["modal"] = modal;
-      // $(modal).addClass(active);
-      // $(this).parent().find(".bag-modal").addClass(active);
+      activate_bag_modal($(this).parent().find(".bag-modal"));
     }
   });
-
-  // https://stackoverflow.com/questions/3957017/jquery-if-target-is-child-of-wrapper-then-do-something
-  $(window).on({
-    click: function(e) {
-      if(active_bag_modal["active"]) {
-        if(active_bag_modal["first_clicked"]) {
-          // c('bag modal active')
-          if(!($.contains($(active_bag_modal["modal"])[0], $(e.target)[0]))) {
-            // c('not contained')
-            deactivate_bag_modal();
-            // c('deactivated')
-          }
-          // else {
-          //   c('contained')
-          // }
-        }
-        // else {
-        //   c('bag modal not active')
-        // }
-      }
-    }
-  });
-  // }
 
   // CLOSE BAG MODAL
   $(".bag-modal__close-icon").on({
     click: function() {
       clear_active_option();
       deactivate_bag_modal();
-      // if(active_bag_modal["active"]) {
-      //   $(active_bag_modal["modal"]).removeClass("bag-modal--active");
-      //   clear_active_bag_modal();
-      // }
-      // $($(this).parent().parent()).removeClass("bag-modal--active");
     }
   });
 
   $(".bag-modal__row--option").on({
     click: function() {
       if(!$(this).is('[disabled=disabled]')) {
-
         if(!$(this).hasClass(active_option_class)) {
-          // clear_active_option();
-          // let selected = $(this).parent().find(`.${active_row}`);
-          // $(selected).removeClass(active_row);
-          // $(active_option["option"]).removeClass(active_option_class);
           clear_active_option();
           activate_option($(this));
           activate_bag_button($(this));
-          // $(button).prop("disabled", false);
-          // $(button).addClass(active_button)
         } else {
-          // $(this).removeClass(active_option_class);
           clear_active_option();
           deactivate_bag_button();
-          // $(button).removeClass(active_button)
-          // $(button).prop("disabled", true);
         }
-
-
-        // // let active_row = "bag-modal__row--option--active";
-        // if(active_option["active"]) {
-        //   deactivate_bag_button();
-        //   // let button = $(this).parent().parent().find(".bag-button");
-        //   // let active_button = "bag-button--active";
-        //   // $(button).prop("disabled", false);
-        //   // $(button).addClass(active_button)
-
-        //   if(!$(this).hasClass(active_option_class)) {
-        //     // clear_active_option();
-        //     // let selected = $(this).parent().find(`.${active_row}`);
-        //     // $(selected).removeClass(active_row);
-        //     // $(active_option["option"]).removeClass(active_option_class);
-        //     clear_active_option();
-        //     activate_option($(this));
-        //     activate_bag_button($(this));
-        //     // $(button).prop("disabled", false);
-        //     // $(button).addClass(active_button)
-        //   } else {
-        //     // $(this).removeClass(active_option_class);
-        //     clear_active_option();
-        //     deactivate_bag_button();
-        //     // $(button).removeClass(active_button)
-        //     // $(button).prop("disabled", true);
-        //   }
-        // } else {
-        //   activate_option($(this));
-        // }
-        // if(!$(this).hasClass(active_option_class)) {
-        //   let selected = $(this).parent().find(`.${active_row}`);
-        //   $(selected).removeClass(active_row);
-        //   $(this).addClass(active_row);
-        //   $(button).prop("disabled", false);
-        //   $(button).addClass(active_button)
-        // } else {
-        //   $(this).removeClass(active_row);
-        //   $(button).removeClass(active_button)
-        //   $(button).prop("disabled", true);
-        // }
       }
     }
   })
 
-
-  // let shopping_bag_modal = $("#shopping-bag");
-    /*
-  ADD TO CART IS CLICKED
-  */
+  // ADD TO CART IS CLICKED
   $(".bag-modal__form .bag-button").on({
     click: function(e) {
       e.preventDefault();
-      // let bag_modal = $(this).parent().parent();
       if(active_bag_modal["active"]) {
-        // let selected = $(active_bag_modal["modal"]).find(`.${active_row}`);
         if($(active_option["active"])) {
           $.ajax({
             type: "POST",
@@ -328,16 +212,10 @@ $(window).on("load", function() {
                   x.overrideMimeType('application/json;charset=UTF-8' );
               }
             },
-            success: function(data) {
-              // let id = ;
-              // let id = data["items"][0].variant_id
-              // c(id)
-              // handleItemDisplay(id);
+            success: function() {
               clear_active_option();
               deactivate_bag_modal();
               getCartItems(showShoppingBag);
-              // c("success",data)
-              // $(active_bag_modal["active"]).removeClass("bag-modal--active");
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 c(`jqXHR = ${jqXHR.responseText} Error, status = ${textStatus}, error thrown: ${errorThrown}`); 
@@ -348,31 +226,70 @@ $(window).on("load", function() {
     },
   });
 
+  function getCartItems(callbackFunction) {
+    fetch('/cart.js')
+    .then(response => response.json())
+    .then(data => {
+      c(data)
+      callbackFunction(data);
+    }).catch(error => {
+      c(error);
+    });
+  }
+
   function showShoppingBag(data) {
-    let first = $("#shopping-bag .row.shopping-cart-item").clone().prop("hidden", false);
+    let first = $("#shopping-bag #shopping-cart-item").clone().prop("hidden", false).removeAttr("id");
     let container = $("#shopping-bag .shopping-cart-items");
     let items = data.items;
     container.empty();
     for(let i = 0; i < items.length; ++i) {
       let item = items[i];
-      // c(item.final_price, typeof(item.final_price))
       let dup = $(first).clone().prop("hidden", false);
       let img = $("<img>");
+      let end = `${item.final_price % 100}`.padEnd(2, 0);
       img.attr("src", item.featured_image["url"]);
       img.attr("alt", item.featured_image["alt"]);
       $(dup).find(".shopping-cart-item__img .shopping-cart-items__link").append(img)
-      let end = `${item.final_price % 100}`.padEnd(2, 0);
       $(dup).find(".shopping-cart-item__price .item_original_price").text(`$${item.final_price / 100}.${end}`);
+      $(dup).find(".shopping-cart-item__quantity").text(`Qty: ${item.quantity}`);
       $(dup).find(".shopping-cart-item__title").text(item.title);
       $(dup).find(".shopping-cart-items__link").attr("href", item.url)
       $(container).append(dup);
     }
-    $(shoppingBag).addClass("show");
+    activate_shopping_cart_modal();
   }
 
+  function activate_shopping_cart_modal() {
+    active_shopping_cart = true;
+    $(shoppingBag).addClass("show");
+    $("body").addClass("modal-open");
+  }
 
+  function deactivate_shopping_cart_modal() {
+    active_shopping_cart = false;
+    $(shoppingBag).removeClass("show");
+    $("body").removeClass("modal-open");
+  }
 
-  // $(".row.shopping-cart-item")
+    // CLOSE MODALS WHEN CLICKED OUTSIDE THEIR WINDOWS
+  // https://stackoverflow.com/questions/3957017/jquery-if-target-is-child-of-wrapper-then-do-something
+  $(window).on({
+    click: function(e) {
+      if(active_bag_modal["active"]) {
+        if(active_bag_modal["first_clicked"]) {
+          if(!($.contains($(active_bag_modal["modal"])[0], $(e.target)[0]))) {
+            deactivate_bag_modal();
+          }
+        }
+      }
+      if(active_shopping_cart) {
+        if(!($.contains($(shoppingBag)[0], $(e.target)[0]))) {
+          deactivate_shopping_cart_modal();
+        }
+      }
+    }
+  });
+
 
 
   // // TINY SLIDER
