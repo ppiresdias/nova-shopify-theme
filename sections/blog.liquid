@@ -21,7 +21,7 @@
                 <div class="tags">
                     {% if blog.tags.size > 0 %}
                     <h4>Tags</h4>
-                    {% for tag in blog.all_tags %}
+                    {% for tag in blog.all_tags limit:8%}
                     <Link href="#">
                         <a href="{{ blog.url }}/tagged/{{ tag | handleize }}">{{ tag }}</a>
                     </Link>
