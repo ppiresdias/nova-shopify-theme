@@ -6,21 +6,22 @@
       Shopping Cart
   </div>
   <hr/>
-  <div class="shopping-cart-items d-flex flex-column">
-    <div class="row shopping-cart-item" hidden>
-      <div class="col-4 shopping-cart-item__img"> 
-        <a href="{{ shop.url }}" class="shopping-cart-items__link"></a>
-      </div>
-      <div class="col shopping-cart-item__info d-flex flex-column">
-          <a href="{{ shop.url }}" class="shopping-cart-items__link"><div class="shopping-cart-item__title item_info"></div></a>
-          <div class="shopping-cart-item__price item_info">
-            <div class="item_original_price"></div> 
-          </div>
-          <div class="item_info py-3">
-            <a href="{{ routes.cart_url }}" class="item_info__edit">Edit</a>
+  <div class="row shopping-cart-item" hidden id="shopping-cart-item">
+    <div class="col-4 shopping-cart-item__img"> 
+      <a href="{{ shop.url }}" class="shopping-cart-items__link"></a>
+    </div>
+    <div class="col shopping-cart-item__info d-flex flex-column">
+        <a href="{{ shop.url }}" class="shopping-cart-items__link"><div class="shopping-cart-item__title item_info"></div></a>
+        <div class="shopping-cart-item__price item_info">
+          <div class="item_original_price"></div> 
         </div>
+        <div class="shopping-cart-item__quantity item_info"></div>
+        <div class="item_info py-3">
+          <a href="{{ routes.cart_url }}" class="item_info__edit">Edit</a>
       </div>
     </div>
+  </div>
+  <div class="shopping-cart-items d-flex flex-column">
   </div>
   <div class="shopping-cart-actions">
       <a href="{{ routes.cart_url }}" class="shopping-cart__buttons primary-action">Go to Cart</a>
