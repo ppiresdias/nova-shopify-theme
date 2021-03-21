@@ -48,9 +48,21 @@
               </div>
             </div>
           </div>
-          <div class="row gallery__row">
-            {% render 'gallery' %}
-          </div>
+
+          {%- comment -%}
+          https://community.shopify.com/c/Shopify-Discussion/Results-per-page-User-selected/td-p/42782
+          {%- endcomment -%}
+          {% paginate collection.products by 5 %}
+            <div class="row gallery__row">
+              {% for product in collection.products %}
+                {% render 'gallery-card', product: product %}
+              {% endfor %}
+            </div>
+            {% if paginate.next.is_link or paginate.previous.is_link %}
+              {% render 'pagination', paginate: paginate %}
+            {% endif %}
+          {% endpaginate %}
+
         </div>
       </div>
       {%- comment -%}

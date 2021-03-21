@@ -21,31 +21,4 @@
       </div>
     {% endfor %}
   </div>
-  {%- comment -%}
-
-    {% for type in collection.all_types %}
-      <div class="filter__checkbox-row">
-        {{ type | link_to_type
-         }}
-        <label class="filter__label">
-        <input
-          checked
-          class="filter__checkbox"
-          type="checkbox"
-          value="{{ type }}"
-        ></input>{{ type | downcase }}</label>
-      </div>
-    {% endfor %}
-
-
-
-
-
-
-  <div class="filter__br"></div>
-  <div class="filter__section">
-    <h4 class="filter__title">PRICE</h4>
-    ITEMS
-  </div>
-  {%- endcomment -%}
 </section>

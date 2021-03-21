@@ -613,6 +613,113 @@ body.modal-open {
   }
 }
 
+// $color_pagination: #5A4181;
+$color_pagination: black;
+$color_pagination_font_active: white;
+$margin_pagination_icon: $p2;
+
+.pagination {
+  .page-item {
+    &:not(:first-child) {
+      padding-left: $p3;
+    }
+
+    &.page-item--prev {
+      i {
+        margin-right: $margin_pagination_icon;
+      }
+    }
+    &.page-item--next {
+      i {
+        margin-left: $margin_pagination_icon;
+      }
+    }
+
+    .page-link {
+      &:link, &:visited, &:hover, &:active {
+        color: $color_pagination;
+      }
+
+      &:focus {
+        outline: 0;
+        box-shadow: 0 0 0 .2rem rgba($color_pagination, .65);
+      }
+    }
+
+    &.active {
+      .page-link {
+        border-color: $color_pagination;
+        &:link,  &:visited, &:hover, &:active {
+          background-color: $color_pagination;
+          color: $color_pagination_font_active;
+        }
+      }
+    }
+    
+    &.disabled {
+      cursor: not-allowed;
+      .page-link {
+        color: grey;
+        opacity: .4;
+      }
+    }
+  }
+}
+
+// .pagination > li > a,
+// .pagination > li > span {
+//     color: $color_pagination; // use your own color here
+// }
+
+// .pagination > .active > a,
+// .pagination > .active > a:focus,
+// .pagination > .active > a:visited,
+// .pagination > .active > a:hover,
+// .pagination > .active > a:active,
+// .pagination > .active > span,
+// .pagination > .active > span:focus,
+// .pagination > .active > span:visited,
+// .pagination > .active > span:hover,
+// .pagination > .active > span:active {
+//     background-color: $color_pagination;
+//     border-color: $color_pagination;
+// }
+
+// .pagination > li > a
+// {
+//     background-color: white;
+//     color: $color_pagination;
+// }
+
+// .pagination > li > a:focus,
+// .pagination > li > a:hover,
+// .pagination > li > span:focus,
+// .pagination > li > span:hover
+// {
+//     color: $color_pagination;
+//     background-color: #eee;
+//     border-color: #ddd;
+// }
+
+// .pagination > .active > a
+// {
+//     color: white;
+//     background-color: $color_pagination !Important;
+//     border: solid 1px $color_pagination !Important;
+// }
+
+// .pagination > .active > a:hover
+// {
+//   background-color: $color_pagination !Important;
+//   border: solid 1px $color_pagination;
+// }
+// .pagination > .active > a:active {
+//   outline: pink solid 10px;
+// }
+
+
+
+
 // $size_carousel_font: 20px;
 // $size_carousel_header_margin_bottom: 5px;
 // $size_carousel_height: 285px;
