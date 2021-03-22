@@ -1,3 +1,54 @@
+<style>
+	.footer-wrapper{
+		background: {{ section.settings.color_footer_bg }}
+	}
+
+	.footer__menu__header{
+		color: {{ section.settings.color_footer_menu_title }}
+	}
+
+	.footer__menu__link__item a{
+		color: {{ section.settings.color_footer_menu_links }}
+	}
+
+	.footer__menu__link__item a:hover{
+		color: {{ section.settings.color_footer_menu_links_hover }}
+	}
+
+	.footer__newsletter__info{
+		color: {{ section.settings.color_footer_text }}
+	}
+
+	.newsletter-btn{
+		background: {{ section.settings.color_footer_bg_button }};
+		color: {{ section.settings.color_footer_button_text }}
+	}
+
+	.newsletter-btn:hover{
+		background: {{ section.settings.color_footer_bg_button_hover }};
+	}
+
+	.footer__signup{
+		color: {{ section.settings.color_footer_text }}
+	}
+
+	.footer__social__item{
+		color: {{ section.settings.color_footer_social_icons }}
+	}
+
+	hr{
+		color: {{ section.settings.color_footer_text }}
+	}
+
+	.footer__copyright{
+		color: {{ section.settings.color_footer_text }}
+	}
+
+	.payment__item{
+		color: {{ section.settings.color_footer_payment }}
+	}
+</style>
+
 <div class='footer-wrapper'>
 	<div class="container footer-container">
 		<div class="row footer__content">
@@ -118,584 +169,410 @@
 
 {% schema %}
 {
-	"name": {
-	  "da": "Sidefod",
-	  "de": "Fußzeile",
-	  "en": "Footer",
-	  "es": "Pie de página",
-	  "fi": "Alatunniste",
-	  "fr": "Pied de page",
-	  "hi": "फुटर",
-	  "it": "Footer",
-	  "ja": "フッター",
-	  "ko": "바닥글",
-	  "nb": "Footer",
-	  "nl": "Voettekst",
-	  "pt-BR": "Rodapé",
-	  "pt-PT": "Rodapé",
-	  "sv": "Sidfot",
-	  "th": "ส่วนท้าย",
-	  "zh-CN": "页脚",
-	  "zh-TW": "頁尾"
-	},
-	"max_blocks": 4,
-	"settings": [
-	  {
-		"type": "header",
-		"content": {
-		  "da": "Betalingsmetoder",
-		  "de": "Zahlungsmethoden",
-		  "en": "Payment methods",
-		  "es": "Métodos de pago",
-		  "fi": "Maksutavat",
-		  "fr": "Moyens de paiement",
-		  "hi": "भुगतान की विधियां",
-		  "it": "Metodi di pagamento",
-		  "ja": "決済方法",
-		  "ko": "결제 방법",
-		  "nb": "Betalingsmetoder",
-		  "nl": "Betaalmethoden",
-		  "pt-BR": "Formas de pagamento",
-		  "pt-PT": "Métodos de Pagamento",
-		  "sv": "Betalningsmetoder",
-		  "th": "วิธีการชำระเงิน",
-		  "zh-CN": "支付方式",
-		  "zh-TW": "付款方式"
-		}
-	  },
-	  {
-		"type": "checkbox",
-		"id": "show_payment_icons",
-		"label": {
-		  "da": "Vis betalingsikoner",
-		  "de": "Zahlungs-Buttons anzeigen",
-		  "en": "Show payment icons",
-		  "es": "Mostrar iconos de pago",
-		  "fi": "Näytä maksukuvakkeet",
-		  "fr": "Afficher les icônes de paiement",
-		  "hi": "भुगतान आइकन दिखाएं",
-		  "it": "Mostra le icone di pagamento",
-		  "ja": "支払いアイコンを表示する",
-		  "ko": "결제 아이콘 표시",
-		  "nb": "Vis betalingsikoner",
-		  "nl": "Betalingspictogrammen weergeven",
-		  "pt-BR": "Exibir ícones de pagamento",
-		  "pt-PT": "Mostrar ícones de pagamento",
-		  "sv": "Visa betalningsikoner",
-		  "th": "แสดงไอคอนการชำระเงิน",
-		  "zh-CN": "显示付款图标",
-		  "zh-TW": "顯示付款圖示"
-		},
-		"default": false
-	  },
-	  {
-		"type": "header",
-		"content": {
-		  "da": "Farve",
-		  "de": "Farbe",
-		  "en": "Color",
-		  "es": "Color",
-		  "fi": "Väri",
-		  "fr": "Couleur",
-		  "hi": "रंग",
-		  "it": "Colore",
-		  "ja": "色",
-		  "ko": "색상",
-		  "nb": "Farge",
-		  "nl": "Kleur",
-		  "pt-BR": "Cor",
-		  "pt-PT": "Cor",
-		  "sv": "Färg",
-		  "th": "สี",
-		  "zh-CN": "颜色",
-		  "zh-TW": "顏色"
-		}
-	  },
-	  {
-		"type": "color",
-		"id": "color_footer_bg",
-		"label": {
-		  "da": "Baggrund",
-		  "de": "Hintergrund",
-		  "en": "Background",
-		  "es": "Fondo",
-		  "fi": "Tausta",
-		  "fr": "Couleur de fond",
-		  "hi": "पृष्ठभूमि",
-		  "it": "Sfondo",
-		  "ja": "背景",
-		  "ko": "배경",
-		  "nb": "Bakgrunn",
-		  "nl": "Achtergrond",
-		  "pt-BR": "Plano de fundo",
-		  "pt-PT": "Fundo",
-		  "sv": "Bakgrund",
-		  "th": "พื้นหลัง",
-		  "zh-CN": "背景",
-		  "zh-TW": "背景"
-		},
-		"default": "#f6f6f6"
-	  },
-	  {
-		"type": "color",
-		"id": "color_footer_text",
-		"label": {
-		  "da": "Tekst",
-		  "de": "Text",
-		  "en": "Text",
-		  "es": "Texto",
-		  "fi": "Teksti",
-		  "fr": "Texte",
-		  "hi": "टेक्स्ट",
-		  "it": "Testo",
-		  "ja": "テキスト",
-		  "ko": "텍스트",
-		  "nb": "Tekst",
-		  "nl": "Tekst",
-		  "pt-BR": "Texto",
-		  "pt-PT": "Texto",
-		  "sv": "Text",
-		  "th": "ข้อความ",
-		  "zh-CN": "文本",
-		  "zh-TW": "文字"
-		},
-		"default": "#333232"
-	  },
-	  {
-		"type": "header",
-		"content": {
-		  "da": "Sprogvælger",
-		  "de": "Sprachauswahl",
-		  "en": "Language Selector",
-		  "es": "Selector de idioma",
-		  "fi": "Kielenvalitsin",
-		  "fr": "Sélecteur de langue",
-		  "hi": "भाषा चयनकर्ता",
-		  "it": "Selettore lingua",
-		  "ja": "言語セレクター",
-		  "ko": "언어 선택기",
-		  "nb": "Språkvelger",
-		  "nl": "Taalkiezer",
-		  "pt-BR": "Seletor de idiomas",
-		  "pt-PT": "Seletor de Idioma",
-		  "sv": "Språkväljare",
-		  "th": "ตัวเลือกภาษา",
-		  "zh-CN": "语言选择器",
-		  "zh-TW": "語言選擇器"
-		},
-		"info": {
-		  "da": "Du kan tilføje et sprog ved at gå til dine [sprogindstillinger.](/admin/settings/languages)",
-		  "de": "Gehen Sie zu Ihren [Spracheinstellungen](/admin/settings/languages), um eine Sprache hinzuzufügen.",
-		  "en": "To add a language, go to your [language settings.](/admin/settings/languages)",
-		  "es": "Para agregar un idioma, ve a tu[configuración de idioma](/admin/settings/languages)",
-		  "fi": "Lisää kieli siirtymällä [kieliasetuksiin.](/admin/settings/languages)",
-		  "fr": "Pour ajouter une langue, allez dans vos [paramètres de langue.](/admin/settings/languages).",
-		  "hi": "भाषा जोड़ने के लिए, अपने [language settings.](/admin/settings/languages) पर जाएं",
-		  "it": "Per aggiungere una lingua, vai su [impostazioni della lingua.](/admin/settings/languages)",
-		  "ja": "言語を追加するには、[言語設定](/admin/settings/languages) に移動します。",
-		  "ko": "언어를 추가하려면 [언어 설정.](/admin/settings/languages)(으)로 이동하십시오.",
-		  "nb": "For å legge til et språk, går du til dine [språkinnstillinger.](/admin/settings/languages)",
-		  "nl": "Ga naar je [taalinstellingen.](/admin/settings/languages) om een taal toe te voegen.",
-		  "pt-BR": "Para adicionar um idioma, acesse suas [configurações de idioma. ](/admin/settings/languages)",
-		  "pt-PT": "Para adicionar um idioma, aceda a [definições de idioma.](/admin/settings/languages)",
-		  "sv": "För att lägga till ett språk, gå till dina [språkinställningar.](/admin/settings/languages)",
-		  "th": "หากต้องการเพิ่มภาษา ให้ไปที่ [การตั้งค่าภาษา ](/admin/settings/languages) ของคุณ",
-		  "zh-CN": "若要添加语言，请转到您的 [语言设置。](/admin/settings/languages)",
-		  "zh-TW": "若要新增語言，請前往 [語言設定。](/admin/settings/languages)"
-		}
-	  },
-	  {
-		"type": "checkbox",
-		"id": "show_locale_selector",
-		"label": {
-		  "da": "Vis sprogvælger",
-		  "de": "Sprachauswahl anzeigen",
-		  "en": "Show language selector",
-		  "es": "Mostrar el selector de idioma",
-		  "fi": "Näytä kielenvalitsin",
-		  "fr": "Afficher le sélecteur de langue",
-		  "hi": "मात्रा चयनकर्ता दिखाएं",
-		  "it": "Mostra selettore lingua",
-		  "ja": "言語セレクターを表示する",
-		  "ko": "언어 선택기 표시",
-		  "nb": "Vis språkvelger",
-		  "nl": "Taalkiezer weergeven",
-		  "pt-BR": "Mostrar seletor de idioma",
-		  "pt-PT": "Mostrar seletor de idioma",
-		  "sv": "Visa språkväljare",
-		  "th": "แสดงตัวเลือกภาษา",
-		  "zh-CN": "显示语言选择器",
-		  "zh-TW": "顯示語言選擇器"
-		},
-		"default": true
-	  },
-	  {
-		"type": "header",
-		"content": {
-		  "da": "Valutavælger",
-		  "de": "Währungsauswahl",
-		  "en": "Currency Selector",
-		  "es": "Selector de moneda",
-		  "fi": "Valuutanvalitsin",
-		  "fr": "Sélecteur de devise",
-		  "hi": "मुद्रा चयनकर्ता",
-		  "it": "Selettore di valuta",
-		  "ja": "通貨セレクター",
-		  "ko": "통화 선택기",
-		  "nb": "Valutavelger",
-		  "nl": "Valutakiezer",
-		  "pt-BR": "Seletor de moeda",
-		  "pt-PT": "Seletor de Moeda",
-		  "sv": "Valutaväljare",
-		  "th": "เครื่องมือเลือกสกุลเงิน",
-		  "zh-CN": "货币选择器",
-		  "zh-TW": "幣別選擇器"
-		},
-		"info": {
-		  "da": "Du kan tilføje en valuta ved at gå til dine [betalingsindstillinger.](/admin/settings/payments)",
-		  "de": "Gehen Sie zu Ihren [Zahlungseinstellungen](/admin/settings/payments), um eine Währung hinzuzufügen.",
-		  "en": "To add a currency, go to your [payment settings.](/admin/settings/payments)",
-		  "es": "Para agregar una moneda, ve a tu [configuración de pago.](/admin/settings/payments)",
-		  "fi": "Lisää valuutta siirtymällä [maksuasetuksiisi.](/admin/settings/payments)",
-		  "fr": "Pour ajouter une devise, allez dans vos [paramètres de paiement.](/admin/settings/payments)",
-		  "hi": "कोई मुद्रा जोड़ने के लिए, अपनी [payment settings.](/admin/settings/payments) में जाएं",
-		  "it": "Per aggiungere una valuta, vai su [impostazioni pagamento.](/admin/settings/payments)",
-		  "ja": "通貨を追加するには、[決済設定](/admin/settings/payments) に移動します。",
-		  "ko": "통화를 추가하려면 [결제 설정](/admin/settings/payments)(으)로 이동하십시오.",
-		  "nb": "For å legge til en valuta, går du til [betalingsinnstillingene.](/admin/settings/payments)",
-		  "nl": "Ga naar je [betaalinstellingen.](/admin/settings/payments) om een valuta toe te voegen.",
-		  "pt-BR": "Para adicionar uma moeda, acesse as [configurações de pagamento.](/admin/settings/payments)",
-		  "pt-PT": "Para adicionar uma moeda, aceda às suas [definições de pagamento.](/admin/settings/payments)",
-		  "sv": "Gå till [payment settings ](/admin/settings/payments) för att lägga till en valuta.",
-		  "th": "หากต้องการเพิ่มสกุลเงิน ให้ไปที่ [การตั้งค่าการชำระเงิน ](/admin/settings/payments)",
-		  "zh-CN": "若要添加货币，请转到 [支付设置。](/admin/settings/payments)",
-		  "zh-TW": "若要新增幣別，請前往 [付款設定。](/admin/settings/payments)"
-		}
-	  },
-	  {
-		"type": "checkbox",
-		"id": "show_currency_selector",
-		"label": {
-		  "da": "Vis valutavælger",
-		  "de": "Währungsauswahl anzeigen",
-		  "en": "Show currency selector",
-		  "es": "Mostrar el selector de moneda",
-		  "fi": "Näytä valuutanvalitsin",
-		  "fr": "Afficher le sélecteur de devise",
-		  "hi": "मुद्रा चयनकर्ता दिखाएं",
-		  "it": "Mostra selettore valuta",
-		  "ja": "通貨セレクターを表示する",
-		  "ko": "통화 선택기 표시",
-		  "nb": "Vis valutavelger",
-		  "nl": "Valutakiezer weergeven",
-		  "pt-BR": "Mostrar seletor de moeda",
-		  "pt-PT": "Mostrar seletor de moeda",
-		  "sv": "Visa valutaväljare",
-		  "th": "แสดงเครื่องมือเลือกสกุลเงิน",
-		  "zh-CN": "货币选择器显示",
-		  "zh-TW": "顯示幣別選擇器"
-		},
-		"default": true
-	  }
-	],
-	"blocks": [
-	  {
-		"type": "link_list",
-		"name": {
-		  "da": "Menu",
-		  "de": "Menü",
-		  "en": "Menu",
-		  "es": "Menú",
-		  "fi": "Valikko",
-		  "fr": "Menu",
-		  "hi": "मेनू",
-		  "it": "Menu",
-		  "ja": "メニュー",
-		  "ko": "메뉴",
-		  "nb": "Meny",
-		  "nl": "Menu",
-		  "pt-BR": "Menu",
-		  "pt-PT": "Menu",
-		  "sv": "Meny",
-		  "th": "เมนู",
-		  "zh-CN": "菜单",
-		  "zh-TW": "選單"
-		},
-		"settings": [
-		  {
-			"type": "text",
-			"id": "title",
-			"label": {
-			  "da": "Overskrift",
-			  "de": "Überschrift",
-			  "en": "Heading",
-			  "es": "Título",
-			  "fi": "Otsake",
-			  "fr": "Titre",
-			  "hi": "शीर्षक",
-			  "it": "Heading",
-			  "ja": "見出し",
-			  "ko": "제목",
-			  "nb": "Overskrift",
-			  "nl": "Kop",
-			  "pt-BR": "Título",
-			  "pt-PT": "Título",
-			  "sv": "Rubrik",
-			  "th": "ส่วนหัว",
-			  "zh-CN": "标题",
-			  "zh-TW": "標題"
-			},
-			"default": {
-			  "da": "Hurtige links",
-			  "de": "Quick-Links",
-			  "en": "Quick links",
-			  "es": "Enlaces rápidos",
-			  "fi": "Pikalinkit",
-			  "fr": "Liens rapides",
-			  "hi": "त्वरित लिंक",
-			  "it": "Link rapidi",
-			  "ja": "クイックリンク",
-			  "ko": "빠른 링크",
-			  "nb": "Hurtigkoblinger",
-			  "nl": "Snelle links",
-			  "pt-BR": "Links rápidos",
-			  "pt-PT": "Ligações rápidas",
-			  "sv": "Snabblänkar",
-			  "th": "ลิงก์ด่วน",
-			  "zh-CN": "快速链接",
-			  "zh-TW": "快速連結"
-			}
-		  },
-		  {
-			"type": "link_list",
-			"id": "menu",
-			"label": {
-			  "da": "Menu",
-			  "de": "Menü",
-			  "en": "Menu",
-			  "es": "Menú",
-			  "fi": "Valikko",
-			  "fr": "Menu",
-			  "hi": "मेनू",
-			  "it": "Menu",
-			  "ja": "メニュー",
-			  "ko": "메뉴",
-			  "nb": "Meny",
-			  "nl": "Menu",
-			  "pt-BR": "Menu",
-			  "pt-PT": "Menu",
-			  "sv": "Meny",
-			  "th": "เมนู",
-			  "zh-CN": "菜单",
-			  "zh-TW": "選單"
-			},
-			"default": "footer"
-		  }
-		]
-	  },
-	  {
-		"type": "text",
-		"name": {
-		  "da": "Tekst",
-		  "de": "Text",
-		  "en": "Text",
-		  "es": "Texto",
-		  "fi": "Teksti",
-		  "fr": "Texte",
-		  "hi": "टेक्स्ट",
-		  "it": "Testo",
-		  "ja": "テキスト",
-		  "ko": "텍스트",
-		  "nb": "Tekst",
-		  "nl": "Tekst",
-		  "pt-BR": "Texto",
-		  "pt-PT": "Texto",
-		  "sv": "Text",
-		  "th": "ข้อความ",
-		  "zh-CN": "文本",
-		  "zh-TW": "文字"
-		},
-		"settings": [
-		  {
-			"type": "text",
-			"id": "title",
-			"label": {
-			  "da": "Overskrift",
-			  "de": "Überschrift",
-			  "en": "Heading",
-			  "es": "Título",
-			  "fi": "Otsake",
-			  "fr": "Titre",
-			  "hi": "शीर्षक",
-			  "it": "Heading",
-			  "ja": "見出し",
-			  "ko": "제목",
-			  "nb": "Overskrift",
-			  "nl": "Kop",
-			  "pt-BR": "Título",
-			  "pt-PT": "Título",
-			  "sv": "Rubrik",
-			  "th": "ส่วนหัว",
-			  "zh-CN": "标题",
-			  "zh-TW": "標題"
-			},
-			"default": {
-			  "da": "Fortæl om din virksomhed",
-			  "de": "Reden Sie über Ihr Unternehmen",
-			  "en": "Talk about your business",
-			  "es": "Habla sobre tu negocio",
-			  "fi": "Kerro yrityksestäsi",
-			  "fr": "Parlez de votre entreprise",
-			  "hi": "अपने व्यवसाय के बारे में बात करें",
-			  "it": "Parla della tua attività commerciale",
-			  "ja": "あなたのビジネスについて語る",
-			  "ko": "비즈니스에 대한 이야기하기",
-			  "nb": "Snakk om bedriften din",
-			  "nl": "Vertel over je bedrijf",
-			  "pt-BR": "Fale sobre o seu negócio",
-			  "pt-PT": "Fale sobre o seu negócio",
-			  "sv": "Prata om ditt företag",
-			  "th": "พูดถึงธุรกิจของคุณ",
-			  "zh-CN": "介绍您的业务",
-			  "zh-TW": "描述您的商家"
-			}
-		  },
-		  {
-			"type": "richtext",
-			"id": "text",
-			"label": {
-			  "da": "Tekst",
-			  "de": "Text",
-			  "en": "Text",
-			  "es": "Texto",
-			  "fi": "Teksti",
-			  "fr": "Texte",
-			  "hi": "टेक्स्ट",
-			  "it": "Testo",
-			  "ja": "テキスト",
-			  "ko": "텍스트",
-			  "nb": "Tekst",
-			  "nl": "Tekst",
-			  "pt-BR": "Texto",
-			  "pt-PT": "Texto",
-			  "sv": "Text",
-			  "th": "ข้อความ",
-			  "zh-CN": "文本",
-			  "zh-TW": "文字"
-			},
-			"default": {
-			  "da": "<p>Del butiksoplysninger, reklamer eller brandindhold med dine kunder.</p>",
-			  "de": "<p>Teilen Sie Ihre Shop-Details, Werbeaktionen oder Markeninhalte mit Ihren Kunden.</p>",
-			  "en": "<p>Share store details, promotions, or brand content with your customers.</p>",
-			  "es": "<p>Comparte detalles de la tienda, promociones o contenido de la marca con tus clientes.</p>",
-			  "fi": "<p>Jaa myymälän tiedot, tarjoukset tai brändin sisältö asiakkaittesi kanssa.</p>",
-			  "fr": "<p>Partagez les détails de la boutique, les promotions ou le contenu de la marque avec vos clients.</p>",
-			  "hi": "<p>अपने ग्राहकों के साथ स्टोर विवरण, प्रचार या ब्रांड सामग्री साझा करें.</p>",
-			  "it": "<p>Condividi dettagli del negozio, promozioni o contenuti del brand con i clienti.</p>",
-			  "ja": "<p>ストア詳細、プロモーション、ブランドのコンテンツをお客様と共有する。</p>",
-			  "ko": "<p>스토어 세부 정보, 프로모션 또는 브랜드 콘텐츠를 고객과 공유하십시오.</p>",
-			  "nb": "<p>Del butikkdetaljer, kampanjer eller merkevareinnhold med kundene dine.</p>",
-			  "nl": "<p>Deel winkeldetails, promoties of merkcontent met je klanten.</p>",
-			  "pt-BR": "<p>Compartilhe informações da loja, promoções ou conteúdo da marca com seus clientes.</p>",
-			  "pt-PT": "<p>Partilhe detalhes da loja, promoções ou conteúdo de marca com os seus clientes.</p>",
-			  "sv": "<p>Dela butikens detaljer, kampanjer eller varumärkesinnehåll med dina kunder.</p>",
-			  "th": "<p>แชร์รายละเอียดร้านค้า โปรโมชัน หรือเนื้อหาแบรนด์กับลูกค้าของคุณ</p>",
-			  "zh-CN": "<p>与您的客户共享商店详细信息、促销信息或品牌内容。</p>",
-			  "zh-TW": "<p>與顧客分享商店的詳細資訊、宣傳活動或品牌內容。</p>"
-			}
-		  }
-		]
-	  },
-	  {
-		"type": "newsletter",
-		"limit": 1,
-		"name": {
-		  "da": "Tilmelding til nyhedsbrev",
-		  "de": "Newsletter-Anmeldung",
-		  "en": "Newsletter signup",
-		  "es": "Suscripción al boletín",
-		  "fi": "Uutiskirjeen tilaus",
-		  "fr": "Inscription",
-		  "hi": "न्यूज़लेटर साइनअप",
-		  "it": "Iscriviti alla Newsletter",
-		  "ja": "ニュースレターの登録",
-		  "ko": "뉴스레터 신청",
-		  "nb": "Registrering for nyhetsbrev",
-		  "nl": "Nieuwsbriefaanmelding",
-		  "pt-BR": "Assinatura da newsletter",
-		  "pt-PT": "Registo na newsletter",
-		  "sv": "Nyhetsbrevsregistrering",
-		  "th": "การสมัครรับจดหมายข่าว",
-		  "zh-CN": "新闻通讯注册",
-		  "zh-TW": "訂閱電子報"
-		},
-		"settings": [
-		  {
-			"type": "text",
-			"id": "title",
-			"label": {
-			  "da": "Overskrift",
-			  "de": "Überschrift",
-			  "en": "Heading",
-			  "es": "Título",
-			  "fi": "Otsake",
-			  "fr": "Titre",
-			  "hi": "शीर्षक",
-			  "it": "Heading",
-			  "ja": "見出し",
-			  "ko": "제목",
-			  "nb": "Overskrift",
-			  "nl": "Kop",
-			  "pt-BR": "Título",
-			  "pt-PT": "Título",
-			  "sv": "Rubrik",
-			  "th": "ส่วนหัว",
-			  "zh-CN": "标题",
-			  "zh-TW": "標題"
-			},
-			"info": {
-			  "da": "Abonnenter bliver føjet til [kundelisten](/admin/customers?query=&accepts_marketing=1) for \"accepterer markedsføring\".",
-			  "de": "Abonnenten werden zu Ihrer Liste „akzeptiert Marketingmaterial“ hinzugefügt [Kundenliste.](/admin/customers?query=&accepts_marketing=1)",
-			  "en": "Subscribers will be added to your “accepts marketing” [customer list.](/admin/customers?query=&accepts_marketing=1)",
-			  "es": "Se añadirá los suscriptores a tu [lista de clientes.](/admin/customers?query=&accepts_marketing=1) \"acepta marketing\".",
-			  "fi": "Tilaajat lisätään \"hyväksyy markkinointi\" [-asiakasluetteloosi. ](/admin/customers?query=&accepts_marketing=1)",
-			  "fr": "Les abonnés seront ajoutés à votre [liste de clients](/admin/customers?query=&accepts_marketing=1) « Accepte le marketing ».",
-			  "hi": "सदस्यों को आपकी “मार्केटिंग स्वीकार करता है” [customer list.](/admin/customers?query=&accepts_marketing=1) में जोड़ दिया जाएगा",
-			  "it": "Gli iscritti verranno aggiunti al tuo [elenco clienti.](/admin/customers?query=&accepts_marketing=1) «accetta marketing»",
-			  "ja": "購読者は「マーケティングを受け入れる」[顧客リスト](/admin/customers?query=&accepts_marketing=1) に追加されます。",
-			  "ko": "가입자가 \"마케팅 수락\" [고객 목록.](/admin/customers?query=&accepts_marketing=1)에 추가됩니다.",
-			  "nb": "Abonnenter vil bli lagt til i «aksepterer markedsføring» [kundeliste.](/admin/customers?query=&accepts_marketing=1)",
-			  "nl": "Abonnees worden toegevoegd aan je \"accepteert marketing\" [klantenlijst.](/admin/customers?query=&accepts_marketing=1)",
-			  "pt-BR": "Os assinantes serão adicionados à “aceita marketing” [lista de clientes. ](/admin/customers?query=&accepts_marketing=1)",
-			  "pt-PT": "Os subscritores serão adicionados à sua lista de \"aceitam marketing\" [lista de clientes.](/admin/customers?query=&accepts_marketing=1)",
-			  "sv": "Prenumeranter läggs till i din \"accepterar marknadsföring\" [kundlista. ](/admin/customers?query=&accepts_marketing=1)",
-			  "th": "ระบบจะเพิ่มผู้สมัครใช้งานไปยังส่วน “ยอมรับการตลาด” ของคุณ [รายชื่อลูกค้า](/admin/customers?query=&accepts_marketing=1)",
-			  "zh-CN": "订阅者将被添加到您的“接受营销”[客户列表](/admin/customers?query=&accepts_marketing=1)中。",
-			  "zh-TW": "系統會將訂閱者新增至您的「接受行銷」[客戶清單。](/admin/customers?query=&accepts_marketing=1)"
-			},
-			"default": {
-			  "da": "Nyhedsbrev",
-			  "de": "Newsletter",
-			  "en": "Newsletter",
-			  "es": "Boletín",
-			  "fi": "Uutiskirje",
-			  "fr": "Newsletter",
-			  "hi": "न्यूज़लेटर",
-			  "it": "Newsletter",
-			  "ja": "ニュースレター",
-			  "ko": "뉴스레터",
-			  "nb": "Nyhetsbrev",
-			  "nl": "Nieuwsbrief",
-			  "pt-BR": "Newsletter",
-			  "pt-PT": "Newsletter",
-			  "sv": "Nyhetsbrev",
-			  "th": "จดหมายข่าว",
-			  "zh-CN": "新闻通讯",
-			  "zh-TW": "電子報"
-			}
-		  }
-		]
-	  }
-	]
-  }
+  "name": {
+    "da": "Sidefod",
+    "de": "Fußzeile",
+    "en": "Footer",
+    "es": "Pie de página",
+    "fi": "Alatunniste",
+    "fr": "Pied de page",
+    "hi": "फुटर",
+    "it": "Footer",
+    "ja": "フッター",
+    "ko": "바닥글",
+    "nb": "Footer",
+    "nl": "Voettekst",
+    "pt-BR": "Rodapé",
+    "pt-PT": "Rodapé",
+    "sv": "Sidfot",
+    "th": "ส่วนท้าย",
+    "zh-CN": "页脚",
+    "zh-TW": "頁尾"
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": {
+        "da": "Farve",
+        "de": "Farbe",
+        "en": "Color",
+        "es": "Color",
+        "fi": "Väri",
+        "fr": "Couleur",
+        "hi": "रंग",
+        "it": "Colore",
+        "ja": "色",
+        "ko": "색상",
+        "nb": "Farge",
+        "nl": "Kleur",
+        "pt-BR": "Cor",
+        "pt-PT": "Cor",
+        "sv": "Färg",
+        "th": "สี",
+        "zh-CN": "颜色",
+        "zh-TW": "顏色"
+      }
+    },
+    {
+      "type": "color",
+      "id": "color_footer_bg",
+      "label": "Footer Background",
+      "default": "#3b3b3b"
+    },
+    {
+      "type": "color",
+      "id": "color_footer_menu_title",
+      "label": "Footer Menu Title",
+      "default": "#ffffff"
+    },
+	{
+      "type": "color",
+      "id": "color_footer_menu_links",
+      "label": "Footer Menu Links",
+      "default": "#ffffff"
+    },
+	{
+      "type": "color",
+      "id": "color_footer_menu_links_hover",
+      "label": "Footer Menu Links Hover",
+      "default": "rgb(141, 141, 141)"
+    },
+	{
+      "type": "color",
+      "id": "color_footer_text",
+      "label": "Footer Text",
+      "default": "#ffffff"
+    },
+	{
+      "type": "color",
+      "id": "color_footer_bg_button",
+      "label": "Footer Button Background",
+      "default": "#2580BE"
+    },
+	{
+      "type": "color",
+      "id": "color_footer_bg_button_hover",
+      "label": "Footer Button Background Hover",
+      "default": "#1A689C"
+    },
+	{
+      "type": "color",
+      "id": "color_footer_button_text",
+      "label": "Footer Button Text",
+      "default": "#ffffff"
+    },
+	{
+      "type": "color",
+      "id": "color_footer_social_icons",
+      "label": "Footer Social Media Icons",
+      "default": "#ffffff"
+    },
+	{
+      "type": "color",
+      "id": "color_footer_payment",
+      "label": "Footer Payment Icons",
+      "default": "#adadad"
+    }
+  ],
+   "max_blocks": 4,
+  	"blocks": [
+    {
+      "type": "link_list",
+      "name": {
+        "da": "Menu",
+        "de": "Menü",
+        "en": "Menu",
+        "es": "Menú",
+        "fi": "Valikko",
+        "fr": "Menu",
+        "hi": "मेनू",
+        "it": "Menu",
+        "ja": "メニュー",
+        "ko": "메뉴",
+        "nb": "Meny",
+        "nl": "Menu",
+        "pt-BR": "Menu",
+        "pt-PT": "Menu",
+        "sv": "Meny",
+        "th": "เมนู",
+        "zh-CN": "菜单",
+        "zh-TW": "選單"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "da": "Overskrift",
+            "de": "Überschrift",
+            "en": "Heading",
+            "es": "Título",
+            "fi": "Otsake",
+            "fr": "Titre",
+            "hi": "शीर्षक",
+            "it": "Heading",
+            "ja": "見出し",
+            "ko": "제목",
+            "nb": "Overskrift",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "pt-PT": "Título",
+            "sv": "Rubrik",
+            "th": "ส่วนหัว",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+          },
+          "default": {
+            "da": "Hurtige links",
+            "de": "Quick-Links",
+            "en": "Quick links",
+            "es": "Enlaces rápidos",
+            "fi": "Pikalinkit",
+            "fr": "Liens rapides",
+            "hi": "त्वरित लिंक",
+            "it": "Link rapidi",
+            "ja": "クイックリンク",
+            "ko": "빠른 링크",
+            "nb": "Hurtigkoblinger",
+            "nl": "Snelle links",
+            "pt-BR": "Links rápidos",
+            "pt-PT": "Ligações rápidas",
+            "sv": "Snabblänkar",
+            "th": "ลิงก์ด่วน",
+            "zh-CN": "快速链接",
+            "zh-TW": "快速連結"
+          }
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": {
+            "da": "Menu",
+            "de": "Menü",
+            "en": "Menu",
+            "es": "Menú",
+            "fi": "Valikko",
+            "fr": "Menu",
+            "hi": "मेनू",
+            "it": "Menu",
+            "ja": "メニュー",
+            "ko": "메뉴",
+            "nb": "Meny",
+            "nl": "Menu",
+            "pt-BR": "Menu",
+            "pt-PT": "Menu",
+            "sv": "Meny",
+            "th": "เมนู",
+            "zh-CN": "菜单",
+            "zh-TW": "選單"
+          },
+          "default": "footer"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": {
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "hi": "टेक्स्ट",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "da": "Overskrift",
+            "de": "Überschrift",
+            "en": "Heading",
+            "es": "Título",
+            "fi": "Otsake",
+            "fr": "Titre",
+            "hi": "शीर्षक",
+            "it": "Heading",
+            "ja": "見出し",
+            "ko": "제목",
+            "nb": "Overskrift",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "pt-PT": "Título",
+            "sv": "Rubrik",
+            "th": "ส่วนหัว",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+          },
+          "default": {
+            "da": "Fortæl om din virksomhed",
+            "de": "Reden Sie über Ihr Unternehmen",
+            "en": "Talk about your business",
+            "es": "Habla sobre tu negocio",
+            "fi": "Kerro yrityksestäsi",
+            "fr": "Parlez de votre entreprise",
+            "hi": "अपने व्यवसाय के बारे में बात करें",
+            "it": "Parla della tua attività commerciale",
+            "ja": "あなたのビジネスについて語る",
+            "ko": "비즈니스에 대한 이야기하기",
+            "nb": "Snakk om bedriften din",
+            "nl": "Vertel over je bedrijf",
+            "pt-BR": "Fale sobre o seu negócio",
+            "pt-PT": "Fale sobre o seu negócio",
+            "sv": "Prata om ditt företag",
+            "th": "พูดถึงธุรกิจของคุณ",
+            "zh-CN": "介绍您的业务",
+            "zh-TW": "描述您的商家"
+          }
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": {
+            "da": "Tekst",
+            "de": "Text",
+            "en": "Text",
+            "es": "Texto",
+            "fi": "Teksti",
+            "fr": "Texte",
+            "hi": "टेक्स्ट",
+            "it": "Testo",
+            "ja": "テキスト",
+            "ko": "텍스트",
+            "nb": "Tekst",
+            "nl": "Tekst",
+            "pt-BR": "Texto",
+            "pt-PT": "Texto",
+            "sv": "Text",
+            "th": "ข้อความ",
+            "zh-CN": "文本",
+            "zh-TW": "文字"
+          },
+          "default": {
+            "da": "<p>Del butiksoplysninger, reklamer eller brandindhold med dine kunder.</p>",
+            "de": "<p>Teilen Sie Ihre Shop-Details, Werbeaktionen oder Markeninhalte mit Ihren Kunden.</p>",
+            "en": "<p>Share store details, promotions, or brand content with your customers.</p>",
+            "es": "<p>Comparte detalles de la tienda, promociones o contenido de la marca con tus clientes.</p>",
+            "fi": "<p>Jaa myymälän tiedot, tarjoukset tai brändin sisältö asiakkaittesi kanssa.</p>",
+            "fr": "<p>Partagez les détails de la boutique, les promotions ou le contenu de la marque avec vos clients.</p>",
+            "hi": "<p>अपने ग्राहकों के साथ स्टोर विवरण, प्रचार या ब्रांड सामग्री साझा करें.</p>",
+            "it": "<p>Condividi dettagli del negozio, promozioni o contenuti del brand con i clienti.</p>",
+            "ja": "<p>ストア詳細、プロモーション、ブランドのコンテンツをお客様と共有する。</p>",
+            "ko": "<p>스토어 세부 정보, 프로모션 또는 브랜드 콘텐츠를 고객과 공유하십시오.</p>",
+            "nb": "<p>Del butikkdetaljer, kampanjer eller merkevareinnhold med kundene dine.</p>",
+            "nl": "<p>Deel winkeldetails, promoties of merkcontent met je klanten.</p>",
+            "pt-BR": "<p>Compartilhe informações da loja, promoções ou conteúdo da marca com seus clientes.</p>",
+            "pt-PT": "<p>Partilhe detalhes da loja, promoções ou conteúdo de marca com os seus clientes.</p>",
+            "sv": "<p>Dela butikens detaljer, kampanjer eller varumärkesinnehåll med dina kunder.</p>",
+            "th": "<p>แชร์รายละเอียดร้านค้า โปรโมชัน หรือเนื้อหาแบรนด์กับลูกค้าของคุณ</p>",
+            "zh-CN": "<p>与您的客户共享商店详细信息、促销信息或品牌内容。</p>",
+            "zh-TW": "<p>與顧客分享商店的詳細資訊、宣傳活動或品牌內容。</p>"
+          }
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "limit": 1,
+      "name": {
+        "da": "Tilmelding til nyhedsbrev",
+        "de": "Newsletter-Anmeldung",
+        "en": "Newsletter signup",
+        "es": "Suscripción al boletín",
+        "fi": "Uutiskirjeen tilaus",
+        "fr": "Inscription",
+        "hi": "न्यूज़लेटर साइनअप",
+        "it": "Iscriviti alla Newsletter",
+        "ja": "ニュースレターの登録",
+        "ko": "뉴스레터 신청",
+        "nb": "Registrering for nyhetsbrev",
+        "nl": "Nieuwsbriefaanmelding",
+        "pt-BR": "Assinatura da newsletter",
+        "pt-PT": "Registo na newsletter",
+        "sv": "Nyhetsbrevsregistrering",
+        "th": "การสมัครรับจดหมายข่าว",
+        "zh-CN": "新闻通讯注册",
+        "zh-TW": "訂閱電子報"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "da": "Overskrift",
+            "de": "Überschrift",
+            "en": "Heading",
+            "es": "Título",
+            "fi": "Otsake",
+            "fr": "Titre",
+            "hi": "शीर्षक",
+            "it": "Heading",
+            "ja": "見出し",
+            "ko": "제목",
+            "nb": "Overskrift",
+            "nl": "Kop",
+            "pt-BR": "Título",
+            "pt-PT": "Título",
+            "sv": "Rubrik",
+            "th": "ส่วนหัว",
+            "zh-CN": "标题",
+            "zh-TW": "標題"
+          },
+          "info": {
+            "da": "Abonnenter bliver føjet til [kundelisten](/admin/customers?query=&accepts_marketing=1) for \"accepterer markedsføring\".",
+            "de": "Abonnenten werden zu Ihrer Liste „akzeptiert Marketingmaterial“ hinzugefügt [Kundenliste.](/admin/customers?query=&accepts_marketing=1)",
+            "en": "Subscribers will be added to your “accepts marketing” [customer list.](/admin/customers?query=&accepts_marketing=1)",
+            "es": "Se añadirá los suscriptores a tu [lista de clientes.](/admin/customers?query=&accepts_marketing=1) \"acepta marketing\".",
+            "fi": "Tilaajat lisätään \"hyväksyy markkinointi\" [-asiakasluetteloosi. ](/admin/customers?query=&accepts_marketing=1)",
+            "fr": "Les abonnés seront ajoutés à votre [liste de clients](/admin/customers?query=&accepts_marketing=1) « Accepte le marketing ».",
+            "hi": "सदस्यों को आपकी “मार्केटिंग स्वीकार करता है” [customer list.](/admin/customers?query=&accepts_marketing=1) में जोड़ दिया जाएगा",
+            "it": "Gli iscritti verranno aggiunti al tuo [elenco clienti.](/admin/customers?query=&accepts_marketing=1) «accetta marketing»",
+            "ja": "購読者は「マーケティングを受け入れる」[顧客リスト](/admin/customers?query=&accepts_marketing=1) に追加されます。",
+            "ko": "가입자가 \"마케팅 수락\" [고객 목록.](/admin/customers?query=&accepts_marketing=1)에 추가됩니다.",
+            "nb": "Abonnenter vil bli lagt til i «aksepterer markedsføring» [kundeliste.](/admin/customers?query=&accepts_marketing=1)",
+            "nl": "Abonnees worden toegevoegd aan je \"accepteert marketing\" [klantenlijst.](/admin/customers?query=&accepts_marketing=1)",
+            "pt-BR": "Os assinantes serão adicionados à “aceita marketing” [lista de clientes. ](/admin/customers?query=&accepts_marketing=1)",
+            "pt-PT": "Os subscritores serão adicionados à sua lista de \"aceitam marketing\" [lista de clientes.](/admin/customers?query=&accepts_marketing=1)",
+            "sv": "Prenumeranter läggs till i din \"accepterar marknadsföring\" [kundlista. ](/admin/customers?query=&accepts_marketing=1)",
+            "th": "ระบบจะเพิ่มผู้สมัครใช้งานไปยังส่วน “ยอมรับการตลาด” ของคุณ [รายชื่อลูกค้า](/admin/customers?query=&accepts_marketing=1)",
+            "zh-CN": "订阅者将被添加到您的“接受营销”[客户列表](/admin/customers?query=&accepts_marketing=1)中。",
+            "zh-TW": "系統會將訂閱者新增至您的「接受行銷」[客戶清單。](/admin/customers?query=&accepts_marketing=1)"
+          },
+          "default": {
+            "da": "Nyhedsbrev",
+            "de": "Newsletter",
+            "en": "Newsletter",
+            "es": "Boletín",
+            "fi": "Uutiskirje",
+            "fr": "Newsletter",
+            "hi": "न्यूज़लेटर",
+            "it": "Newsletter",
+            "ja": "ニュースレター",
+            "ko": "뉴스레터",
+            "nb": "Nyhetsbrev",
+            "nl": "Nieuwsbrief",
+            "pt-BR": "Newsletter",
+            "pt-PT": "Newsletter",
+            "sv": "Nyhetsbrev",
+            "th": "จดหมายข่าว",
+            "zh-CN": "新闻通讯",
+            "zh-TW": "電子報"
+          }
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
