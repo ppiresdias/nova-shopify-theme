@@ -19,8 +19,17 @@
     }
 
     .header-nav{
-        background-color: {{ section.settings.Header_bg_color }}
+        background-color: {{ section.settings.nav_background_color }};
     }
+
+    .header-nav-menu-link{
+        color: {{ section.settings.nav_text_color }}
+    }
+
+    .header-nav-menu-link:hover{
+        color: {{ section.settings.nav_text_color_hover }}
+    }
+
 </style>
 
  <div class="header-wrapper">
@@ -1017,6 +1026,28 @@
         "type":      "color",
         "label":     "Shop Name Color",
         "default":   "rgb(247, 247, 247)"
+     },
+     {
+        "type": "header",
+        "content": "Navigation Menu"
+      },
+      {
+        "id":        "nav_background_color",
+        "type":      "color",
+        "label":     "Navigation Menu Background",
+        "default":   "#271f1f"
+     },
+     {
+        "id":        "nav_text_color",
+        "type":      "color",
+        "label":     "Navigation Menu Links",
+        "default":   "#ffffff"
+     },
+     {
+        "id":        "nav_text_color_hover",
+        "type":      "color",
+        "label":     "Navigation Menu Links Hover",
+        "default":   "rgb(141, 141, 141)"
      }
     ]
   }
