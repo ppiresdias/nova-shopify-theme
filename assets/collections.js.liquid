@@ -40,6 +40,13 @@ $(window).on("load", function() {
     // return false;
   });
 
+  $('#pagination').on('change', function () {
+    let url = $(this).val();
+    if(url) {      c('url',url)
+      window.location = url; 
+    }
+  });
+
   // GALLERY HOVER
   $(".gallery__image-container").on({
     mouseenter: function() {
