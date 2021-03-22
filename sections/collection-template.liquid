@@ -28,6 +28,7 @@
       {%- endcomment -%}
       <div class="col-12 col-md-9 gallery">
         <div class="container">
+          {% assign sort_by = "?sort_by=manual" %}
           <div class="row gallery__sorting">
             <div class="gallery__sorting-found col-12 col-md-6 order-1 order-md-0">{{ collection.products_count }} {{ collection.products_count | pluralize: 'result', 'results' }}</div>
             <div class="gallery__sorting-options sorting-options col-12 col-md-6 order-0 order-md-1">
@@ -41,7 +42,7 @@
                 <div class="col-6 col-md-12 col-lg-8 col-xl-6 gallery__dropdown-container">
                   <select class="gallery__dropdown" id="gallery__dropdown" name="sort_by">
                     {% for option in collection.sort_options %}
-                      <option value="{{ page.url }}?sort_by={{ option.value }}" {% if option.value == collection.sort_by %}selected{% endif %}>{{ option.name }}</option>
+                      <option value="?sort_by={{ option.value }}" {% if option.value == collection.sort_by %}selected{% assign sort_by = "?sort_by=" | append: option.value %}{% endif %}>{{ option.name }}</option>
                     {% endfor %}
                   </select>
                 </div>
@@ -51,17 +52,51 @@
 
           {%- comment -%}
           https://community.shopify.com/c/Shopify-Discussion/Results-per-page-User-selected/td-p/42782
+          https://sumankc.com/2018/07/06/show-per-page-dropdown-shopify-product-listing/
           {%- endcomment -%}
-          {% paginate collection.products by 5 %}
+
+          {% assign url = content_for_header | json | split: '\"pageurl\":' | last | split: ',' | first %}
+          {% assign url = url | replace: '\', '' | replace: '"', '' %}
+          {% assign question = url | split: "?" %}
+          {% assign pagination_split = url | split: "pagination=" %}
+          {% assign limit = pagination_split | last | split: '\"' | first | split: "\\u0026" | first | plus: 0 %}
+          {% assign pagination = limit %}
+
+          {% if limit <= 0 or limit > collection.all_products_count %}
+            {% assign limit = collection.all_products_count %}
+          {% endif %}
+
+          {% paginate collection.products by limit %}
             <div class="row gallery__row">
               {% for product in collection.products %}
                 {% render 'gallery-card', product: product %}
               {% endfor %}
             </div>
             {% if paginate.next.is_link or paginate.previous.is_link %}
-              {% render 'pagination', paginate: paginate %}
+              {% if question.size > 1 %}
+                {% assign link = "&pagination=" %}
+              {% else %}
+                {% assign link = "?pagination=" %}
+              {% endif %}
+              {% assign link = link | append: limit %}
+              {% render 'pagination', paginate: paginate, link: link %}
             {% endif %}
-          {% endpaginate %}
+          {% endpaginate %}            
+        {% assign link = sort_by | append: "&pagination=" %}
+
+        <div class="pt-5 d-flex align-items-center justify-content-center">
+          <select class="" id="pagination" name="pagination">
+            {% assign counts = "5,10,25,50,ALL" | split: "," %}
+            {% assign selected = false %}
+            {% for count in counts %}
+             {% assign option = link | append: count %}
+             {% assign test = count | plus: 0 %}
+              <option value="{{ option }}" {% if test == pagination %}selected{% assign selected = true %}{% elsif count == "ALL" and selected == false %}selected
+                {% endif %}>{{ count }}</option>
+            {% endfor %}
+          </select>
+          <span class="ml-2">results per page</span>
+        </div>
 
         </div>
       </div>
