@@ -1,21 +1,27 @@
-<!-- {% if section.settings.message %}
-    <style>
-        {% if section.settings.logo != blank %}
-        .site-header__logo-image {
-            max-width: {{ section.settings.logo_max_width | escape }}px;
-        }
-        {% endif %}
+<style>
+    .header-announcement-bar{
+        background-color: {{ section.settings.Banner_bg_color }}
+    }
+    .announcement-text{
+        color: {{ section.settings.Banner_text_color }}
+    }
 
-        {% if section.settings.align_logo == 'left' %}
-        .site-header__logo-image {
-            margin: 0;
-        }
-        {% endif %}
-    </style>
-{% endif %}
+    .header-banner{
+        background-color: {{ section.settings.Header_bg_color }};
+        color: {{ section.settings.Header_text_color }};
+    }
 
-{% include 'search-drawer' %}
- -->
+    .navbar-toggler{
+        color: {{ section.settings.Header_text_color }}
+    }
+    .header-banner-logo .navbar-brand{
+        color: {{ section.settings.Shop_name_color }}
+    }
+
+    .header-nav{
+        background-color: {{ section.settings.Header_bg_color }}
+    }
+</style>
 
  <div class="header-wrapper">
     <section class="main-header-section" id="header">
@@ -23,7 +29,7 @@
             <div class="container">
                 <div class="d-flex align-items-center justify-content-center">
                     <a class="announcement-text">
-                        <span>Free</span> Shipping on Orders over <span>$50</span>
+                        <span>{{ section.settings.Banner_text}}</span>
                     </a>
                 </div>                        
             </div>
@@ -56,51 +62,13 @@
                         </div>
                     </div>
                     <div class="col header-banner-logo">
-                        <!-- {% if section.settings.logo %}
-                            {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                            <a href="{{ routes.root_url }}" class="site-header__logo-image{% if section.settings.align_logo == 'center' %} site-header__logo-image--centered{% endif %}">
-                            {% capture logo_alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
-                            <img class="lazyload js"
-                                src="{{ section.settings.logo | img_url: '300x300' }}"
-                                data-src="{{ img_url }}"
-                                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-                                data-aspectratio="{{ section.settings.logo.aspect_ratio }}"
-                                data-sizes="auto"
-                                alt="{{ logo_alt | escape }}"
-                                style="max-width: {{ section.settings.logo_max_width }}px">
-                            <noscript>
-                                {% capture image_size %}{{ section.settings.logo_max_width | escape }}x{% endcapture %}
-                                <img src="{{ section.settings.logo | img_url: image_size }}"
-                                    srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-                                    alt="{{ section.settings.logo.alt | default: shop.name }}"
-                                    style="max-width: {{ section.settings.logo_max_width }}px;">
-                            </noscript>
-                            </a>
-                        {% else %}
-                            <a class="site-header__logo-link" href="{{ routes.root_url }}">{{ shop.name }} Lil Billys</a>
-                        {% endif %} -->
-                        <a href="/" class="navbar-brand">nova</a>
+                        <a href="{{ routes.root_url }}" class="navbar-brand">{{shop.name}}</a>
                     </div>
                     <div class="col header-banner-right d-flex justify-content-end">
                         <div class="header-banner-right__item header-banner-settings">
                             <i class="fa fa-globe" aria-hidden="true"></i>
                         </div>
                         <div class="header-banner-right__item header-banner-account">
-                            <!-- {% if shop.customer_accounts_enabled %}
-                                {% if customer %}
-                                hi
-                                <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
-                                    {% include 'icon-login' %}
-                                    <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
-                                </a>
-                                {% else %}
-                                bye
-                                <a href="{{ routes.account_login_url }}" class="site-header__icon site-header__account">
-                                    {% include 'icon-login' %}
-                                    <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
-                                </a>
-                                {% endif %}
-                            {% endif %} -->
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </div>
                         <div class="header-banner-right__item header-wishlist">
@@ -290,7 +258,27 @@
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </div>
                         <ul class="menu wrappers d-flex justify-content-around">
-                            <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-1" title="new" data-target="#header-jumbo-menu-1">
+                            {% assign count = 1 %}
+                            
+                            {% for link in linklists.main-menu.links %}
+                                {% assign child_list_handle = link.title | handleize%}
+                                {% if linklists[child_list_handle].links != blank %}
+                                    <!-- <a href="{{ link.url }}"> {{link.title}} </a>  -->
+
+                                    <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-{{count}}" title="new">
+                                        {{link.title}}  <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                    </li>
+                                    [{% for childlink in linklists[child_list_handle].links %}
+                                        <!-- <a href="{{ childlink.url }}"> {{childlink.title | escape }} </a>  -->
+                                    {% endfor %}]
+                                {% else %}
+                                    <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-{{count}}" title="new">
+                                        {{link.title}}  <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                    </li>
+                                {% endif %}
+                                {% assign count = count | plus: 1 %}
+                            {% endfor %}
+                            <!-- <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-1" title="new">
                                 new <i class="fa fa-chevron-down" aria-hidden="true"></i>
                                     <div id="header-jumbo-menu-1" class="header-jumbo-menu">
                                         <div class="container-lg">
@@ -944,7 +932,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -952,3 +940,84 @@
         </div>
     </section>
 </div>
+
+
+
+{% schema %}
+  {
+    "name": {
+        "da": "Overskrift",
+        "de": "Titel",
+        "en": "Header",
+        "es": "Encabezado",
+        "fi": "Ylätunniste",
+        "fr": "En-tête",
+        "hi": "हैडर",
+        "it": "Header",
+        "ja": "ヘッダー",
+        "ko": "헤더",
+        "nb": "Header",
+        "nl": "Koptekst",
+        "pt-BR": "Cabeçalho",
+        "pt-PT": "Cabeçalho",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "zh-CN": "标头",
+        "zh-TW": "標頭"
+    },
+    "class": "section-header",
+    "tag": "section",
+    "settings": [
+       {
+        "type": "header",
+        "content": "Banner"
+       },
+      {
+        "id": "Banner_text",
+        "type": "text",
+        "label": "Banner Text",
+        "default": "Free Shipping on Orders over $50"
+      },
+      {
+        "id":        "Banner_text_color",
+        "type":      "color",
+        "label":     "Banner Text Color",
+        "default":   "rgb(247, 247, 247)"
+      },
+     {
+       "id":        "Banner_bg_color",
+       "type":      "color",
+       "label":     "Banner Background Color",
+       "default":   "rgb(207, 35, 58)"
+     },
+      {
+        "type": "header",
+        "content": "Main Header"
+       },
+      {
+        "id": "Social_media_count",
+        "type": "text",
+        "label": "Social Media Follower Count",
+        "default": "1.6M"
+      },
+      {
+        "id":        "Header_bg_color",
+        "type":      "color",
+        "label":     "Header Background Color",
+        "default":   "rgb(59, 59, 59)"
+     },
+     {
+        "id":        "Header_text_color",
+        "type":      "color",
+        "label":     "Header Text Color",
+        "default":   "rgb(247, 247, 247)"
+     },
+     {
+        "id":        "Shop_name_color",
+        "type":      "color",
+        "label":     "Shop Name Color",
+        "default":   "rgb(247, 247, 247)"
+     }
+    ]
+  }
+{% endschema %}
