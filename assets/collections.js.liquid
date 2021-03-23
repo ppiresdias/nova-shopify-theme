@@ -30,19 +30,30 @@ $(window).on("load", function() {
       }
     });  
 
+
+    Shopify.queryParams = {};
+
   // SORT OPTIONS REDIRECT
   // https://stackoverflow.com/questions/5150363/onchange-open-url-via-select-jquery
   $('#gallery__dropdown').on('change', function () {
     let url = $(this).val();
+
     if(url) {
+      // let pattern = /\?sort_by=(.+)\?/;
+      // c("url",url)
+      // let match = url.match(pattern);
+      // if(match) {
+      //   c(match[1])
+      //   Shopify.queryParams.sort_by = match[1];
+      //   location.search = jQuery.param(Shopify.queryParams);
+      // }      
       window.location = url; 
     }
-    // return false;
   });
 
   $('#pagination').on('change', function () {
     let url = $(this).val();
-    if(url) {      c('url',url)
+    if(url) {
       window.location = url; 
     }
   });
