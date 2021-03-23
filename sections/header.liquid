@@ -30,6 +30,17 @@
         color: {{ section.settings.nav_text_color_hover }}
     }
 
+    .header-jumbo-menu{
+        background: {{ section.settings.jumbo_background_color }}
+    }
+
+    .jumbo-menu-link{
+        color: {{ section.settings.jumbo_menu_text_color }}
+    }
+
+    .jumbo-menu-link:hover{
+        color: {{ section.settings.jumbo_menu_text_color_hover }}
+    }
 </style>
 
 <div class="header-wrapper">
@@ -264,18 +275,19 @@
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </div>
                         <ul class="menu wrappers d-flex justify-content-around">
-                            {% assign count = 1 %}
+                        
+                            <!-- {% assign count = 1 %}
                             
                             {% for link in linklists.main-menu.links %}
                                 {% assign child_list_handle = link.title | handleize%}
                                 {% if linklists[child_list_handle].links != blank %}
-                                    <!-- <a href="{{ link.url }}"> {{link.title}} </a>  -->
+                                   
 
                                     <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-{{count}}" title="new">
                                         {{link.title}}  <i class="fa fa-chevron-down" aria-hidden="true"></i>
                                     </li>
                                     [{% for childlink in linklists[child_list_handle].links %}
-                                        <!-- <a href="{{ childlink.url }}"> {{childlink.title | escape }} </a>  -->
+                                       
                                     {% endfor %}]
                                 {% else %}
                                     <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-{{count}}" title="new">
@@ -283,8 +295,8 @@
                                     </li>
                                 {% endif %}
                                 {% assign count = count | plus: 1 %}
-                            {% endfor %}
-                            <!-- <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-1" title="new">
+                            {% endfor %} -->
+                            <li class="menu-link header-nav-menu-link hover" id="header-nav-menu-link-1" title="new">
                                 new <i class="fa fa-chevron-down" aria-hidden="true"></i>
                                     <div id="header-jumbo-menu-1" class="header-jumbo-menu">
                                         <div class="container-lg">
@@ -325,7 +337,7 @@
                                                             
                                                         </div>
                                                         <div  class="collapse-img collapse-img-primary">
-                                                            <img src={{'Jumpsuit.jpg' | asset_url}} alt="new purple dress" style="width: 200px;" />
+                                                            <img src={{'purple__dress.jpg' | asset_url}} alt="new purple dress" style="width: 200px;" />
                                                            
                                                         </div>                                   
                                                     </div>
@@ -880,7 +892,7 @@
                                                             
                                                         </div>
                                                         <div  class="collapse-img">
-                                                            <img src={{'purple_dress.jpg' | asset_url}} alt="new purple dress" style="width: 200px;" />
+                                                            <img src={{'purple__dress.jpg' | asset_url}} alt="new purple dress" style="width: 200px;" />
                                                             
                                                         </div>  
                                                     </div>
@@ -938,7 +950,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li> -->
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1044,6 +1056,28 @@
         "id":        "nav_text_color_hover",
         "type":      "color",
         "label":     "Navigation Menu Links Hover",
+        "default":   "rgb(141, 141, 141)"
+     },
+     {
+        "type": "header",
+        "content": "Navigation Jumbo Menu"
+     },
+     {
+        "id":        "jumbo_background_color",
+        "type":      "color",
+        "label":     "Jumbo Menu Background",
+        "default":   "#ffffff"
+     },
+     {
+        "id":        "jumbo_menu_text_color",
+        "type":      "color",
+        "label":     "Jumbo Menu Links",
+        "default":   "#000000"
+     },
+     {
+        "id":        "jumbo_menu_text_color_hover",
+        "type":      "color",
+        "label":     "Jumbo Menu Links Hover",
         "default":   "rgb(141, 141, 141)"
      }
     ]
