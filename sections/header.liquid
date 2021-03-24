@@ -11,6 +11,10 @@
         color: {{ section.settings.Header_text_color }};
     }
 
+    .search-btn{
+        background: {{ section.settings.Header_bg_color }};
+    }
+
     .navbar-toggler{
         color: {{ section.settings.Header_text_color }}
     }
@@ -18,6 +22,9 @@
         color: {{ section.settings.Shop_name_color }}
     }
 
+    .nav-collapse-mobile-close-icon{
+        color: {{ section.settings.nav_text_color }}
+    }
     .header-nav{
         background-color: {{ section.settings.nav_background_color }};
     }
@@ -39,7 +46,7 @@
     }
 
     .jumbo-menu-link:hover{
-        color: {{ section.settings.jumbo_menu_text_color_hover }}
+        color: {{ section.settings.jumbo_menu_text_color_hover}}
     }
 </style>
 
@@ -64,7 +71,7 @@
                         <div class="socials header-banner-socials d-flex">
                             <div class="header-banner-social__item">
                                 <i class="fa fa-instagram" aria-hidden="true"></i>
-                                <span class="header-banner-social__item-count">1.6M</span>
+                                <span class="header-banner-social__item-count">{{ section.settings.Social_media_count }}</span>
                             </div>
                         </div>
                         <div class="header-banner-search">
@@ -307,25 +314,25 @@
                                                 <div class="col">
                                                     <ul class="jumbo-menu-items">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase">New in</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase">New in</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">New in women</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">New in women</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">New in men</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">New in men</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">New in plus+curve</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">New in plus+curve</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">New in kids</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">New in kids</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">New in beauty</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">New in beauty</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">New in collections</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">New in collections</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -357,116 +364,116 @@
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Shop All</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Shop All</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Shop new</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Shop new</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">best sellers</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">best sellers</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">sale</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">sale</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">Dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">Dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">all dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">all dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">mini dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">mini dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">midi dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">midi dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">maxi dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">maxi dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">casual dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">casual dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">formal dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">formal dresses</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">Tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">Tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">all tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">all tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shirts &amp; blouses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shirts &amp; blouses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">short sleeve tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">short sleeve tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">long sleeve tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">long sleeve tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">bodysuits</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">bodysuits</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">hoddies &amp; sweatshirts</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">hoddies &amp; sweatshirts</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">bottoms</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">bottoms</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">All bottoms</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">All bottoms</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">pants</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">pants</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">jeans</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">jeans</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shorts</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shorts</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">skirts</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">skirts</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">sweatpants</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">sweatpants</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">leggings</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">leggings</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">More</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">More</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">swimwear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">swimwear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">activewear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">activewear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">outerwear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">outerwear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">loungewear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">loungewear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shoes</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shoes</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -482,101 +489,101 @@
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Shop All</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Shop All</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Shop new</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Shop new</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">best sellers</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">best sellers</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">sale</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">sale</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">Tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">Tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">all tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">all tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">graphic tees</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">graphic tees</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">button down shirts</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">button down shirts</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">tees &amp; tanks</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">tees &amp; tanks</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">short sleeve shirts</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">short sleeve shirts</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">long sleeve shirts</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">long sleeve shirts</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">sweaters</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">sweaters</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">bottoms</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">bottoms</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">All bottoms</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">All bottoms</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">jeans</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">jeans</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">pants</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">pants</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">joggers &amp; sweats</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">joggers &amp; sweats</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shorts</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shorts</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">Outerwear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">Outerwear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">all outerwear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">all outerwear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">coats &amp; jackets</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">coats &amp; jackets</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">track suits</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">track suits</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">More</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">More</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">suits</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">suits</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">swimwear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">swimwear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">activewear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">activewear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shoes</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shoes</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -592,116 +599,116 @@
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Shop All</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Shop All</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Shop new</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Shop new</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">best sellers</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">best sellers</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">sale</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">sale</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">Dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">Dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">all dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">all dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">mini dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">mini dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">midi dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">midi dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">maxi dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">maxi dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">casual dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">casual dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">formal dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">formal dresses</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">Tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">Tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">all tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">all tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shirts &amp; blouses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shirts &amp; blouses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">short sleeve tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">short sleeve tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">long sleeve tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">long sleeve tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">bodysuits</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">bodysuits</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">hoddies &amp; sweatshirts</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">hoddies &amp; sweatshirts</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">bottoms</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">bottoms</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">All bottoms</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">All bottoms</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">pants</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">pants</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">jeans</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">jeans</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shorts</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shorts</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">skirts</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">skirts</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">sweatpants</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">sweatpants</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">leggings</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">leggings</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-sm-4 col-md-3 col-lg">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">More</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">More</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">swimwear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">swimwear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">activewear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">activewear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">outerwear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">outerwear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">loungewear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">loungewear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shoes</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shoes</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -717,72 +724,72 @@
                                                 <div class="col-md">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Shop All</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Shop All</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Shop new</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Shop new</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shop all girls</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shop all girls</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shop all boys</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shop all boys</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">best sellers</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">best sellers</a>
                                                         </li>
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">sale</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">sale</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-md">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">Girls</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">Girls</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">all girls</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">all girls</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">dresses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">dresses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">bottoms</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">bottoms</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shoes</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shoes</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">accessories</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">accessories</a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-md">
                                                     <ul class="jumbo-menu-items mar_bottom_20">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">Boys</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">Boys</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">All boys</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">All boys</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">tops</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">tops</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">bottoms</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">bottoms</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">outerwear</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">outerwear</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">shoes</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">shoes</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">accessories</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">accessories</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -806,31 +813,31 @@
                                                 <div class="col">
                                                     <ul class="jumbo-menu-items">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">Accessories</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">Accessories</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">all accessories</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">all accessories</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">sunglasses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">sunglasses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">jewelry</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">jewelry</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">face masks</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">face masks</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">bags &amp; purses</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">bags &amp; purses</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">headwear &amp; hair pieces</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">headwear &amp; hair pieces</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">makeup</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">makeup</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">phone accessories</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">phone accessories</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -862,25 +869,25 @@
                                                 <div class="col">
                                                     <ul class="jumbo-menu-items">
                                                         <li class="jumbo-menu-heading jumbo-menu-item">
-                                                            <a class="jumbo-menu-link uppercase" href="#">Sale in</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link uppercase" href="#">Sale in</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Sale in women</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Sale in women</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Sale in men</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Sale in men</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Sale in plus+curve</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Sale in plus+curve</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Sale in kids</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Sale in kids</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Sale in beauty</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Sale in beauty</a>
                                                         </li>
                                                         <li class="jumbo-menu-item">
-                                                            <a class="jumbo-menu-link" href="#">Sale in collections</a>
+                                                            <a href={{ routes.all_products_collection_url }} class="jumbo-menu-link" href="#">Sale in collections</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -910,7 +917,7 @@
                                     <div class="container-lg">
                                         <div class="row d-flex justify-content-around header-jumbo__pad full_width">
                                             <div class="mar_bottom_20">
-                                                <a href="/collections">
+                                                <a href={{ routes.all_products_collection_url }} >
                                                     <div class="jumbo-menu-img">
                                                         <img src={{'charli_collection.jpg' | asset_url}} alt="charli collection" style="width: 200px;" />
                                                     </div>
@@ -920,7 +927,7 @@
                                                 </a>
                                             </div>
                                             <div class="mar_bottom_20">
-                                                <a href="/collections">
+                                                <a href={{ routes.all_products_collection_url }}>
                                                     <div class="jumbo-menu-img">
                                                         <img src={{'hawaiian_shirt.jpg' | asset_url}} alt="boy with hawaiian shirt" style="width: 200px;" />                                        
                                                     </div>
@@ -930,7 +937,7 @@
                                                 </a>
                                             </div>
                                             <div class="mar_bottom_20">
-                                                <a href="/collections">
+                                                <a href={{ routes.all_products_collection_url }}>
                                                     <div class="jumbo-menu-img">
                                                         <img src={{'Jacket.jpg' | asset_url}} alt="girl with winter jacket" style="width: 200px" />
                                                         
@@ -941,7 +948,7 @@
                                                 </a>
                                             </div>
                                             <div class="mar_bottom_20">
-                                                <a href="/collections">
+                                                <a href={{ routes.all_products_collection_url }}>
                                                     <div class="jumbo-menu-img">
                                                         <img src={{'beige__dress.jpg' | asset_url}} alt="girl with beige dress" style="width: 200px;" />                                                         
                                                     </div>
@@ -959,7 +966,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
 </div>
 
 
