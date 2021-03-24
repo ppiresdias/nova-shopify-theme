@@ -2400,6 +2400,9 @@ textarea {
 }
 
 /*================ Vertical forms ================*/
+.comment-form{
+ padding-top: 2rem;
+}
 .form-vertical {
   input,
   select,
@@ -3588,6 +3591,9 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
 .product__price,
 .featured-product__price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1.25em;
 }
 
@@ -3604,8 +3610,8 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 .product-form__controls-group {
-  display: flex;
-  flex-wrap: wrap;
+ /*  display: flex;
+  flex-wrap: wrap; */
 }
 
 // When there are no form controls aside from submit
@@ -3622,6 +3628,27 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   flex-basis: 100%;
   margin-bottom: 10px;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  
+  label{
+    display: block;
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid black;
+    height: 70px;
+    width: 100%;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
+    &:hover{
+
+    }
+  }
+
+ 
 
   @include media-query($large-up) {
     flex-basis: 50%;
@@ -5507,6 +5534,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
 .comment__content {
   margin-bottom: 5px;
+  padding-left: 7px;
 }
 
 .comment__meta-item {
