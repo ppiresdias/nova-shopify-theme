@@ -11,7 +11,7 @@
     background-image: url({{ 'onelook.jpg' | asset_img_url: '300x' }});
     height: 800px;
     padding-top: 350px;
-    margin-top: 20px;
+    margin-top: -20px;
 }
 .affiliate__offerText{
     font-size: 28px;
@@ -44,8 +44,64 @@
         }
     }
 }
+.affiliate__heading h1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.affiliate__submitEmail{
+    padding-top: 50px;
+}
+.affiliate__formGroup{
+    margin-top: 10px;
+}
+.affiliate__formInput {
+    height: 40px;
+    margin-top: 10px;
+  }
+.affiliate__formButton {
+    background-color: rgb(0, 0, 0);
+    height: 50px;
+    background-color: rgb(0, 0, 0);
+    margin-top: 30px;
+    font-weight: 600;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    display: block;
+    padding: 0.5rem 0;
+    width: 100%;      
+  }
+  .affiliate__formButton:hover{
+    background-color: rgb(141, 141, 141);
+    color:rgb(0, 0, 0);
+    cursor: pointer;
+  }
+.affiliate__quotes{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    border: 1px solid black;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    padding: 20px;
+    h3{
+        color: rgb(255, 0, 179);
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .affiliate__quote{
+        text-align: center;
+    }
+    .affiliate__quoteImg{
+        height: 400px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
 .affiliate__description{
-    height: 400px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -62,7 +118,9 @@
         border-width: 1px;
     }
     h2:hover{
-        color:black
+        color:black;
+        cursor: pointer;
+        color: rgb(255, 0, 179);
     }
     h2 p{
         display: none;
@@ -75,4 +133,5 @@
         border-width: 1px;
         border-style: solid;
     }
+   
 }
