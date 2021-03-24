@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="carousel">
+    <h4 class="carousel__header">{{ collection.title }}</h4>
+    <div class="carousel__slider-container">
+      <div class="carousel__slider">
+        {% for product in collection.products %}
+          <div class="carousel__item gallery__column">
+            {% render 'gallery-card', product: product %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
