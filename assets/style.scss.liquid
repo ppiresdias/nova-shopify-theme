@@ -1550,6 +1550,10 @@ $p5: $p3 * 2;
   }
 }
 
+#product-sin{
+  margin-top: 100px;
+}
+
 .product__right-column {
   position: relative;
 
@@ -1575,6 +1579,14 @@ $p5: $p3 * 2;
       padding: 0 1rem;
     }
   }
+  .product-cont-2{
+    margin-top: 100px;
+  }
+
+  .flex-form-input{
+    display: flex;
+    flex-direction: column;
+  }
 
   .buttons {
     button {
@@ -1583,6 +1595,11 @@ $p5: $p3 * 2;
       height: 70px;
       width: 100%;
       margin-bottom: 1rem;
+      cursor: pointer;
+
+      &:hover{
+
+      }
     }
 
     :last-child {
@@ -1818,7 +1835,18 @@ $p5: $p3 * 2;
     cursor: pointer;
   }
 }
+.comment_author {
+  font-weight: 600;
+  color: black;
+}
+.comment-sec {
+  border-left: 1px solid lightgray;
+  padding-left: 5px;
+}
 
+#comments {
+  margin-bottom: 100px;
+}
 .blog-page {
   .blog-page__comment {
     h2 {
@@ -2056,6 +2084,19 @@ $p5: $p3 * 2;
     }
   }
 }
+.card__img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  max-height: 650px;
+  
+}
+
+.article-img{
+  
+  padding-top: 50px;
+  margin: auto;
+}
 
 .card {
   margin-bottom: 1.5rem;
@@ -2075,6 +2116,13 @@ $p5: $p3 * 2;
     line-height: 1.6rem;
     margin-top: 5px;
     margin-bottom: 15px;
+  }
+  .card__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 300px;
+    
   }
 
   .card__content {
@@ -2096,12 +2144,7 @@ $p5: $p3 * 2;
     }
   }
 
-  .card__img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-    height: 290px;
-  }
+
 
   .card__date {
     font-style: normal;
