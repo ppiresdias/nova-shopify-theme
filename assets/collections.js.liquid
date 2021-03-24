@@ -268,7 +268,7 @@ $(window).on("load", function() {
       img.attr("src", item.featured_image["url"]);
       img.attr("alt", item.featured_image["alt"]);
       $(dup).find(".shopping-cart-item__img .shopping-cart-items__link").append(img)
-      $(dup).find(".shopping-cart-item__price .item_original_price").text(`$${item.final_price / 100}.${end}`);
+      $(dup).find(".shopping-cart-item__price .item_original_price").text(`$${Math.floor(item.final_price / 100)}.${end}`);
       $(dup).find(".shopping-cart-item__quantity").text(`Qty: ${item.quantity}`);
       $(dup).find(".shopping-cart-item__title").text(item.title);
       $(dup).find(".shopping-cart-items__link").attr("href", item.url)

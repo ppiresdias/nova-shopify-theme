@@ -15,15 +15,6 @@
       <!-- <p class="res text-center">Words To Test</p> -->
     </div>
     <div class="row">
-      {%- comment -%}
-        FILTER
-      {%- endcomment -%}
-      <div class="d-none d-md-block col-md-3">
-        <div class="container">
-          {% render 'gallery-filter' %}
-        </div>
-      </div>
-
       {% assign url = content_for_header | json | split: '\"pageurl\":' | last | split: ',' | first %}
       {% assign url = url | replace: '\', '' | replace: '"', '' %}
       {% assign question = url | split: "?" %}
@@ -36,10 +27,19 @@
         {% assign sort_by = "manual" %}  
       {% endif %}
 
-      {% assign pagination = limit %}
       {% if limit <= 0 or limit > collection.all_products_count %}
         {% assign limit = collection.all_products_count %}
       {% endif %}
+
+      {%- comment -%}
+        FILTER
+      {%- endcomment -%}
+      <div class="d-none d-md-block col-md-3">
+        <div class="container">
+          {% assign link = "?sort_by=" | append: sort_by | append: "?pagination=" | append: limit %}
+          {% render 'gallery-filter', link: link %}
+        </div>
+      </div>
 
       {%- comment -%}
         GALLERY
@@ -96,11 +96,10 @@
               {% endfor %}
             </div>
             {% if paginate.next.is_link or paginate.previous.is_link %}
-              {% assign link = "?sort_by=" | append: sort_by | append: "?pagination=" | append: limit %}
               {% render 'pagination', paginate: paginate %}
             {% endif %}
           {% endpaginate %}
-        
+          
         {% assign link = "?sort_by=" | append: sort_by | append: "?pagination=" %}
         <div class="pt-5 d-flex align-items-center justify-content-center">
           <select class="" id="pagination" name="pagination">
@@ -109,7 +108,7 @@
             {% for count in counts %}
              {% assign option = link | append: count %}
              {% assign test = count | plus: 0 %}
-              <option value="{{ option }}" {% if test == pagination %}selected{% assign selected = true %}{% elsif count == "ALL" and selected == false %}selected
+              <option value="{{ option }}" {% if test == limit %}selected{% assign selected = true %}{% elsif count == "ALL" and selected == false %}selected
                 {% endif %}>{{ count }}</option>
             {% endfor %}
           </select>

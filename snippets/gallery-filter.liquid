@@ -1,11 +1,17 @@
+{% assign url = link | replace: '%3F', '?' | replace: '%3D', '=' %}
 <section class="filter">
   <div class="filter__br filter__br--first"></div>
   <div class="filter__section">
     <h4 class="filter__title">BRANDS</h4>
+    <div class="filter__row">
+      <span class="filter__row-span">
+        <a href="{{ shop.url }}/collections/all{{ url }}">ALL</a>
+      </span>
+    </div>
     {% for v in shop.vendors %}
       <div class="filter__row">
         <span class="filter__row-span">
-          <a href="{{ shop.url }}/collections/{{ v | handleize }}">{{ v | downcase }}</a>
+          <a href="{{ shop.url }}/collections/{{ v | handleize }}{{ url }}">{{ v | downcase }}</a>
       </span>
       </div>
     {% endfor %}
@@ -16,7 +22,7 @@
     {% for tag in collection.all_tags %}
       <div class="filter__row">
         <span class="filter__row-span">
-          {{ tag | link_to_tag: tag }}
+          <a href="{{ collection.url }}/{{ tag | handleize }}/{{ url }}">{{ tag }}</a>
         </span>
       </div>
     {% endfor %}
