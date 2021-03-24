@@ -27,18 +27,110 @@
         </div>
       </div>
 
+      <!--  {%if article.comments%} {% paginate article.comments by 2 %}
+      <div>
+        <div>
+          <div class="">
+            <span class="">{{ comment.author }}</span>
+            <span class="">{{
+              comment.created_at | time_tag: format:"date"
+            }}</span>
+          </div>
+          <div class="">
+            {{ comment.content }}
+          </div>
+        </div>
+
+        {%- if paginate.pages > 1 -%}
+        <div class="blog__pagination container">
+          <ul>
+            <li
+              class="page-item page-item--prev{% unless paginate.previous.is_link %} disabled{% endunless %}"
+            >
+              <a
+                class="page-link"
+                href="{{ paginate.previous.url | replace: '%3F', '?' | replace: '%3D', '=' }}"
+                tabindex="-1"
+                aria-disabled="{% if paginate.previous.is_link %}true{{ else }}false{% endif %}"
+                ><i class="fa fa-long-arrow-left" aria-hidden="true"></i
+                >Previous</a
+              >
+            </li>
+            {% for part in paginate.parts %}
+            <li
+              class="page-item{% if part.title == paginate.current_page %} active{% endif %}"
+            >
+              <a
+                class="page-link"
+                href="{% if part.is_link %}{{ part.url | replace: '%3F', '?' | replace: '%3D', '=' }}{% endif %}"
+                >{{ part.title }}</a
+              >
+            </li>
+            {% endfor %}
+            <li
+              class="page-item page-item--next{% unless paginate.next.is_link %} disabled{% endunless %}"
+            >
+              <a
+                class="page-link"
+                href="{{ paginate.next.url | replace: '%3F', '?' | replace: '%3D', '=' }}"
+                aria-disabled="{% if paginate.next.is_link %}true{{ else }}false{% endif %}"
+                >Next<i class="fa fa-long-arrow-right" aria-hidden="true"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        {%- endif -%} {% endpaginate %}
+      </div>
+      {%endif%} -->
+      <!-- {%if article.comments_enabled%}
+
       <div class="col-sm-12 col-md-12">
+        {% if form.posted_successfully? %} {% if blog.moderated? %}
+        <div class="notice">
+          Successfully posted your comment.<br />
+          It will have to be approved by the blog owner first before showing up.
+        </div>
+        {% else %}
+        <div class="notice">Successfully posted your comment.</div>
+        {% endif %} {% endif %} {% if form.errors %}
+        <div class="notice error">
+          Not all the fields have been filled out correctly!
+        </div>
+        {% endif %}
         <div class="blog-page__comment">
           <h2>Leave a comment</h2>
+          {% form article %}
+
           <label>Name</label>
-          <input placeholder="Your name" />
+          <input
+            class="{% if form.errors contains 'author' %}input-error{% endif %}"
+            value="{{ form.author }}"
+            placeholder="Your name"
+          />
           <label>Email Address</label>
-          <input placeholder="your@example.com" />
+          <input
+            class="{% if form.errors contains 'email' %}input-error{% endif %}"
+            value="{{ form.email }}"
+            placeholder="your@example.com"
+          />
           <label>Comment</label>
-          <textarea></textarea>
-          <button>Post comment</button>
+          <textarea
+            class="{% if form.errors contains 'body' %}input-error{% endif %}"
+            name="comment[body]"
+            cols="40"
+            rows="5"
+            >{{ form.body }}</textarea
+          >
+
+          {% if blog.moderated? %}
+          <p class="hint">comments have to be approved before showing up</p>
+          {% endif %}
+
+          <input type="submit" value="Post comment" id="comment-submit" />
+          {% endform %}
         </div>
       </div>
+      {%endif%} -->
     </div>
   </div>
 </div>

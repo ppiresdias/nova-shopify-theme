@@ -1,4 +1,5 @@
 
+{% paginate blog.articles by 6 %}
 <div class="blog">
     <div class="blog__header-wrapper">
         <header class="blog__header">
@@ -81,21 +82,26 @@
             </div>
            
         </div>
+        
+        {%- if paginate.pages > 1 -%} 
         <div class="blog__pagination container">
             <hr/>
-            <ul>
-                <li>
-                    <a href="#">1</a>
+            <ul >
+                <li class="page-item page-item--prev{% unless paginate.previous.is_link %} disabled{% endunless %}">
+                  <a class="page-link" href="{{ paginate.previous.url | replace: '%3F', '?' | replace: '%3D', '=' }}" tabindex="-1" aria-disabled="{% if paginate.previous.is_link %}true{{ else }}false{% endif %}"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Previous</a>
                 </li>
-                <li>
-                    <a href="#">2</a>
+                {% for part in paginate.parts %}
+                  <li class="page-item{% if part.title == paginate.current_page %} active{% endif %}">
+                    <a class="page-link" href="{% if part.is_link %}{{ part.url | replace: '%3F', '?' | replace: '%3D', '=' }}{% endif %}">{{ part.title }}</a>
+                  </li>
+                {% endfor %}
+                <li class="page-item page-item--next{% unless paginate.next.is_link %} disabled{% endunless %}">
+                  <a class="page-link" href="{{ paginate.next.url | replace: '%3F', '?' | replace: '%3D', '=' }}" aria-disabled="{% if paginate.next.is_link %}true{{ else }}false{% endif %}">Next<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </li>
-                <li>
-                    <a href="#">3</a>
-                </li>
-            </ul>
+              </ul>
             <hr/>
         </div>
+        {%- endif -%} {% endpaginate %} 
     </div>
 </div>
 
