@@ -1,0 +1,183 @@
+
+
+   {%- assign current_variant = product.selected_or_first_available_variant -%}
+   {%- assign product_image_zoom_size = '1024x1024' -%}
+   {%- assign product_image_scale = '2' -%}
+   {%- assign enable_image_zoom = section.settings.enable_image_zoom -%}
+   {%- assign compare_at_11 = current_variant.compare_at_price -%}
+   {%- assign price = current_variant.price -%}
+
+     <div class="product container">
+       <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img id="img01" />
+       </div>
+
+       <div class="product__row row ">
+        <div class="col-sm-12 col-md-6 product__left-column">
+          <div class="main-img">
+            <img src="{{ product.featured_image.src | img_url: '1024x' }}" alt="jeans" id="myImg" />
+          </div>
+          <div class="grid-img">
+            {% for media in product.media %}
+            <img src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="jeans" id="myImg2" />
+            {%endfor%}
+          
+          
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 product__right-column">
+          <h1 class="title">{{ product.title }}</h1>
+          <h1 class="price"> {% include 'product-price', variant: current_variant %}</h1>
+          <div class="review">
+            <span>
+              <i class="star"></i>
+              <i class="star"></i>
+              <i class="star"></i>
+              <i class="star"></i>
+            </span>
+            <span class="number">4.69</span>
+            <span>See 1814 reviews</span>
+          </div>
+          <div class="description">
+            <span>{{ product.description }}</span>
+            <p>
+              Easy and slim—but not skinny. The Slim Fit Jean is made of
+              premium 11 oz Japanese denim that feels substantial, but has a
+              touch of stretch for comfort. Need we say more?
+            </p>
+          </div>
+          <hr />
+          <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}"
+                {%- if variant == current_variant %} selected="selected" {%- endif -%}
+              >
+                {{ variant.title }}  {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+              </option>
+            {% endfor %}
+          </select>
+          <div class="pant-waist">
+            <p>Select Size</p>
+            {% for size_option in product.options_by_name['Size'].values %}
+            <span value="{{ variant.id }}">
+              {{ size_option}}  
+            </span>
+            {% endfor %}
+           
+          </div>
+         
+          <div class="color">
+            <p >color</p>
+            <select>
+            {% for color_option in product.options_by_name['Color'].values %}
+            
+                <option>{{ color_option }}</option>
+          
+             {% endfor %}
+            </select>
+          </div>
+          <div class="quantity">
+            <p>quantity</p>
+            <div class="square">
+              <span>-</span>
+              <span>1</span>
+              <span>+</span>
+            </div>
+          </div>
+          <hr />
+          <div class="buttons">
+            <button>Add to cart</button>
+            <button>Buy now</button>
+          </div>
+        </div>
+
+      </div>
+
+    <div class="outfit-wrapper">
+      <div class="c-outfit container">
+        <h2>Complete the outfit:</h2>
+        <div class="c-outfit__row row">
+          <div class="col-sm-12 col-md-12 c-outfit__cards">
+            <div class="card-">
+              <img src="{{ 'extra4.jpg' | asset_img_url: '1024x768' }}" alt="complete outfit" />
+              <span class="title">Freedom T-Shirt</span>
+              <span class="price">$38.52</span>
+            </div>
+            <div class="card-">
+              <img src="{{ 'extra1.jpg' | asset_img_url: '1024x768' }}" alt="complete outfit" />
+              <span class="title">Stretch Eco Blue Jeans</span>
+              <span class="price">$38.52</span>
+            </div>
+            <div class="card-">
+              <img src="{{ 'extra2.jpg' | asset_img_url: '1024x768' }}" alt="complete outfit" />
+              <span class="title">Stretch Eco Blue Jeans</span>
+              <span class="price">$38.52</span>
+            </div>
+            <div class="card-">
+              <img src="{{ 'extra3.jpg' | asset_img_url: '1024x768' }}" alt="complete outfit" />
+              <span class="title">Stretch Eco Blue Jeans</span>
+              <span class="price">$38.52</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="outfit-wrapper">
+        <div class="c-outfit container">
+        <h2>Others also bought</h2>
+        <div class="c-outfit__row row">
+          <div class="col-sm-12 col-md-12 c-outfit__cards">
+            <div class="card-">
+              <img src="{{ 'extra5.jpg' | asset_img_url: '1024x768' }}" alt="complete outfit" />
+              <span class="title">Freedom T-Shirt</span>
+              <span class="price">$38.52</span>
+            </div>
+            <div class="card-">
+              <img src="{{ 'extra6.jpg' | asset_img_url: '1024x768' }}" alt="complete outfit" />
+              <span class="title">Stretch Eco Blue Jeans</span>
+              <span class="price">$38.52</span>
+            </div>
+            <div class="card-">
+              <img src="{{ 'extra7.jpg' | asset_img_url: '1024x768' }}" alt="complete outfit" />
+              <span class="title">Stretch Eco Blue Jeans</span>
+              <span class="price">$38.52</span>
+            </div>
+            <div class="card-">
+              <img src="{{ 'extra8.jpg' | asset_img_url: '1024x768' }}" alt="complete outfit" />
+              <span class="title">Stretch Eco Blue Jeans</span>
+              <span class="price">$38.52</span>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+
+<!--       {%- if section.settings.show_product_recommendations -%}
+  {%- if recommendations.performed -%}
+    {%- if recommendations.products_count > 0 -%}
+      <div class="product-recommendations__inner">
+        {%- if section.settings.heading != blank -%}
+          <div class="section-header text-center">
+            <h2>{{ section.settings.heading | escape }}</h2>
+          </div>
+        {%- endif -%}
+        <ul class="grid grid--uniform grid--view-items">
+          {%- for product in recommendations.products -%}
+            <li class="grid__item small--one-half medium-up--one-quarter">
+              {% include 'product-card-grid', max_height: 250, product: product, show_vendor: section.settings.show_vendor %}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  {%- else  -%}
+    <div class="page-width" data-base-url="{{ routes.product_recommendations_url }}" data-product-id="{{ product.id }}" data-section-id="{{ section.id }}" data-section-type="product-recommendations"></div>
+  {%- endif -%}
+{%- endif -%}
+    
+ -->
+
+  
+
+ 

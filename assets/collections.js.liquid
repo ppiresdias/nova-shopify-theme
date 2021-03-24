@@ -1,0 +1,351 @@
+// simple print function
+function c() {
+  for (let i = 0; i < arguments.length; i++) {
+    console.log(arguments[i]);
+  }
+}
+
+$(window).on("load", function() { 
+  // SHOPPING CART MODAL
+  let shoppingBag = document.querySelector('#shopping-bag');
+
+  $("#shopping-cart-close-icon, .shopping-cart-items__link, .shopping-cart__buttons.primary-action, .shopping-cart__buttons.secondary-action").on({
+    click: function() {
+      deactivate_shopping_cart_modal();
+      // shoppingBag.classList.remove('show');
+    }
+  });
+
+    // COLLECTIONS FILTER MODAL ON MOBILE DEVICES
+    let collections_modal = $("#collections__modal");
+    $("#gallery__filter").on({
+      click: function() {
+        $(collections_modal).addClass("collections__modal--active");
+      }
+    });
+    
+    $("#collections__modal-close").on({
+      click: function() {
+        $(collections_modal).removeClass("collections__modal--active");
+      }
+    });  
+
+
+    Shopify.queryParams = {};
+
+  // SORT OPTIONS REDIRECT
+  // https://stackoverflow.com/questions/5150363/onchange-open-url-via-select-jquery
+  $('#gallery__dropdown').on('change', function () {
+    let url = $(this).val();
+
+    if(url) {
+      // let pattern = /\?sort_by=(.+)\?/;
+      // c("url",url)
+      // let match = url.match(pattern);
+      // if(match) {
+      //   c(match[1])
+      //   Shopify.queryParams.sort_by = match[1];
+      //   location.search = jQuery.param(Shopify.queryParams);
+      // }      
+      window.location = url; 
+    }
+  });
+
+  $('#pagination').on('change', function () {
+    let url = $(this).val();
+    if(url) {
+      window.location = url; 
+    }
+  });
+
+  // GALLERY HOVER
+  $(".gallery__image-container").on({
+    mouseenter: function() {
+      // when mouse enters, if carousel is right, move it left; if it's left, move it right
+      if($(this).hasClass("gallery__image-container--right")) {
+        shiftLeft($(this));
+      } else {
+        shiftRight($(this));
+        // restore right shift upon mouse leave
+        $(this).on("mouseleave", function() {shiftRight($(this));});
+      }
+    },
+    mouseleave: function() {
+      shiftRight($(this));
+    }
+  });
+
+  // COLLECTIONS CARD ARROW HANDLER
+  $(".gallery__image-container .gallery__icon--arrow--left").on({
+    click: function() {
+      shiftRight($(this).parent());
+    }
+  });
+  $(".gallery__image-container .gallery__icon--arrow--right").on({
+    click: function() {
+      // when right arrow is clicked, temporarily remove the on mouseleave right shift
+      shiftLeft($(this).parent());
+      $(this).parent().off('mouseleave');
+    }
+  });
+
+  function shiftLeft(carousel_parent) {
+    $(carousel_parent).removeClass("gallery__image-container--right");
+    $(carousel_parent).addClass("gallery__image-container--left");
+  }
+
+  function shiftRight(carousel_parent) {
+    $(carousel_parent).removeClass("gallery__image-container--left");
+    $(carousel_parent).addClass("gallery__image-container--right");
+  }
+  
+  // GALLERY FA-HEART-O and FA-HEART
+  $(".gallery__icon--heart").on({
+    click: function() {
+      let i = $(this).find("i");
+      let active = "gallery__icon--heart--active";
+
+      if($(this).hasClass(active)) {
+        $(this).removeClass(active);
+        $(i).removeClass("fa-heart");
+        $(i).addClass("fa-heart-o");
+      } else {
+        $(this).addClass(active);
+        $(i).removeClass("fa-heart-o");
+        $(i).addClass("fa-heart");
+      }
+
+    }
+  })
+
+  // IF MAIN BAG BUTTON CLICKED, ACTIVATE BAG MODAL
+  let active_bag_modal = {active: false, modal: null, first_clicked: false};
+  let active_shopping_cart = false;
+  let active_option = {active: false, option: null};
+  let active_option_class = "bag-modal__row--option--active";
+
+  function deactivate_bag_modal() {
+    deactivate_bag_button();
+    if(active_bag_modal["active"]) {
+      $(active_bag_modal["modal"]).removeClass("bag-modal--active");
+      active_bag_modal["active"] = false;
+      active_bag_modal["first_clicked"] = false;
+      active_bag_modal["modal"] = null;  
+    }
+  }
+
+  function activate_option(option) {
+    active_option["active"] = true;
+    active_option["option"] = $(option);
+    $(option).addClass(active_option_class);
+  }
+
+
+  function clear_active_option() {
+    if(active_option["active"]) {
+      $(active_option["option"]).removeClass(active_option_class);
+      active_option["active"] = false;
+      active_option["option"] = null;
+    }
+  }
+    
+  function activate_bag_button(option) {
+    let button = $(option).parent().parent().find(".bag-button");
+    $(button).prop("disabled", false);
+    $(button).addClass("bag-button--active")
+  }
+
+  function deactivate_bag_button() {
+    if(active_option["active"]) {
+      let button = $(active_option["option"]).parent().parent().find(".bag-button");
+      $(button).prop("disabled", true);
+      $(button).removeClass("bag-button--active")
+    }
+  }
+  
+  function activate_bag_modal(modal) {
+    active_bag_modal["active"] = true;
+    active_bag_modal["modal"] = modal;
+    $(modal).addClass("bag-modal--active");
+    let delay = 0;
+    let interval = setInterval(increment, 1000);
+
+    function increment() {
+      delay += .5;
+      if (delay >= .5) {
+        clearInterval(interval);
+        active_bag_modal["first_clicked"] = true;
+
+      }
+    }
+  }
+
+  $(".product-info__button").on({
+    click: function() {
+      deactivate_bag_modal();
+      activate_bag_modal($(this).parent().find(".bag-modal"));
+    }
+  });
+
+  // CLOSE BAG MODAL
+  $(".bag-modal__close-icon").on({
+    click: function() {
+      clear_active_option();
+      deactivate_bag_modal();
+    }
+  });
+
+  $(".bag-modal__row--option").on({
+    click: function() {
+      if(!$(this).is('[disabled=disabled]')) {
+        if(!$(this).hasClass(active_option_class)) {
+          clear_active_option();
+          activate_option($(this));
+          activate_bag_button($(this));
+        } else {
+          clear_active_option();
+          deactivate_bag_button();
+        }
+      }
+    }
+  })
+
+  // ADD TO CART IS CLICKED
+  $(".bag-modal__form .bag-button").on({
+    click: function(e) {
+      e.preventDefault();
+      if(active_bag_modal["active"]) {
+        if($(active_option["active"])) {
+          $.ajax({
+            type: "POST",
+            url: "/cart/add.js",
+            data: { items: [
+                {
+                  quantity: 1,
+                  id: $(active_option["option"]).attr("value"),
+                }
+            ] },
+            beforeSend: function (x) {
+              if (x && x.overrideMimeType) {
+                  x.overrideMimeType('application/json;charset=UTF-8' );
+              }
+            },
+            success: function() {
+              clear_active_option();
+              deactivate_bag_modal();
+              getCartItems(showShoppingBag);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                c(`jqXHR = ${jqXHR.responseText} Error, status = ${textStatus}, error thrown: ${errorThrown}`); 
+                }
+          });
+        }
+      }
+    },
+  });
+
+  function getCartItems(callbackFunction) {
+    fetch('/cart.js')
+    .then(response => response.json())
+    .then(data => {
+      c(data)
+      callbackFunction(data);
+    }).catch(error => {
+      c(error);
+    });
+  }
+
+  function showShoppingBag(data) {
+    let first = $("#shopping-bag #shopping-cart-item").clone().prop("hidden", false).removeAttr("id");
+    let container = $("#shopping-bag .shopping-cart-items");
+    let items = data.items;
+    container.empty();
+    for(let i = 0; i < items.length; ++i) {
+      let item = items[i];
+      let dup = $(first).clone().prop("hidden", false);
+      let img = $("<img>");
+      let end = `${item.final_price % 100}`.padEnd(2, 0);
+      img.attr("src", item.featured_image["url"]);
+      img.attr("alt", item.featured_image["alt"]);
+      $(dup).find(".shopping-cart-item__img .shopping-cart-items__link").append(img)
+      $(dup).find(".shopping-cart-item__price .item_original_price").text(`$${Math.floor(item.final_price / 100)}.${end}`);
+      $(dup).find(".shopping-cart-item__quantity").text(`Qty: ${item.quantity}`);
+      $(dup).find(".shopping-cart-item__title").text(item.title);
+      $(dup).find(".shopping-cart-items__link").attr("href", item.url)
+      $(container).append(dup);
+    }
+    activate_shopping_cart_modal();
+  }
+
+  function activate_shopping_cart_modal() {
+    active_shopping_cart = true;
+    $(shoppingBag).addClass("show");
+    $("body").addClass("modal-open");
+  }
+
+  function deactivate_shopping_cart_modal() {
+    active_shopping_cart = false;
+    $(shoppingBag).removeClass("show");
+    $("body").removeClass("modal-open");
+  }
+
+    // CLOSE MODALS WHEN CLICKED OUTSIDE THEIR WINDOWS
+  // https://stackoverflow.com/questions/3957017/jquery-if-target-is-child-of-wrapper-then-do-something
+  $(window).on({
+    click: function(e) {
+      if(active_bag_modal["active"]) {
+        if(active_bag_modal["first_clicked"]) {
+          if(!($.contains($(active_bag_modal["modal"])[0], $(e.target)[0]))) {
+            deactivate_bag_modal();
+          }
+        }
+      }
+      if(active_shopping_cart) {
+        if(!($.contains($(shoppingBag)[0], $(e.target)[0]))) {
+          deactivate_shopping_cart_modal();
+        }
+      }
+    }
+  });
+
+
+
+  // // TINY SLIDER
+  let slider = tns({
+    // autoplay: true,
+    container: '.carousel__slider',
+    controls: true,
+    controlsPosition: "top",
+    controlsText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+    gutter: 20,
+    items: 5,
+    lazyload: false,
+    loop: true,
+    mode: 'carousel',
+    nav: true,
+    navPosition: "top",
+    preventScrollOnTouch: "auto",
+    responsive: {
+      414: {
+        items: 2
+      },
+      640: {
+        items: 2
+      },
+      768: {
+        items: 3
+      },
+      992: {
+        items: 4
+      },
+      1200: {
+        items: 5
+      }},
+    rewind: true,
+    slideBy: 'page',
+    speed: 750,
+    touch: true
+  });
+  // BOOTSTRAP BREAKPOINTS
+  // $breakpoint: (lg: 1199.98px, md: 991.98px, sm: 767.98px, xs: 575.98px);
+});

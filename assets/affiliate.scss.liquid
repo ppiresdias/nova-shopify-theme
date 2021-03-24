@@ -1,0 +1,78 @@
+.affiliate{
+    padding-top: 100px;
+}
+.affiliate__offer{
+    max-height: 900px;
+}
+.affiliate__offerImage{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url({{ 'onelook.jpg' | asset_img_url: '300x' }});
+    height: 800px;
+    padding-top: 350px;
+    margin-top: 20px;
+}
+.affiliate__offerText{
+    font-size: 28px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    height: 100px;
+    width: 290px;
+    padding-top: 15px;
+    text-align: center;
+    h3{
+        color: white;
+        background-color: black;
+        padding: 5px;
+        padding-right: 100px;
+    }
+    h2{
+        background-color: inherit;
+        border: inherit;
+        font-size: 38px;
+        font-weight: 600;
+        padding: 5px;
+        width: 520px;
+        margin-left: 40px;
+        span{
+            font-size: 58px;
+            padding: 5px;
+        }
+    }
+}
+.affiliate__description{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    h1{
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    h2{
+        height: 60px;
+        width: 140px;
+        background-color: white;
+        border-color: black;
+        border-width: 1px;
+    }
+    h2:hover{
+        color:black
+    }
+    h2 p{
+        display: none;
+        font-size: 18px;
+    }
+    h2:hover p{
+        display: block;
+        margin-top: 10px;
+        padding: 5px;
+        border-width: 1px;
+        border-style: solid;
+    }
+}

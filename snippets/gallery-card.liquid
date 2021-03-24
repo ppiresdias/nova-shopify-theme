@@ -1,0 +1,75 @@
+{% assign images = product.media | where: "media_type", "image" %}
+<div class="gallery__container h-100">
+  <div class="gallery__image-container gallery__image-container--right">
+    <a href="{{ product.url }}">
+      <div class="gallery__carousel">
+        <div class="gallery__image">
+          <img src="{{ images[0] | img_url: "medium" }}" alt="{{ images[0].alt }}">
+        </div>
+        <div class="gallery__image">
+          <img src="{{ images[1] | img_url: "medium" }}" alt="{{ images[1].alt }}">
+        </div>
+      </div>
+    </a>
+    <div class="gallery__icon gallery__icon--heart">
+      <i class="fa fa-heart-o" aria-hidden="true"></i>
+    </div>
+    <div class="gallery__icon gallery__icon--arrow gallery__icon--arrow--left">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+    </div>
+    <div class="gallery__icon gallery__icon--arrow gallery__icon--arrow--right">
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div class="product-info">
+    {%- comment -%}
+    <a href="{{ product.url }}">
+      <div class="product-info__discount">{{ discount }}</div>
+    </a>
+    {%- endcomment -%}
+    <a href="{{ product.url }}">
+      <div class="product-info__title">{{ product.title }}</div>
+    </a>
+    <a href="{{ product.url }}">
+      <div class="product-info__price">{{ product.price | money_with_currency }}</div>
+    </a>
+    <button class="product-info__button bag-button">
+      <span class="bag-button__text">Add to Bag</span>
+      <i class="fa fa-chevron-down bag-button__icon" aria-hidden="true"></i>
+    </button>
+    <div class="bag-modal">
+      <div class="bag-modal__header-container">
+        <i class="fa fa-times bag-button__icon bag-modal__close-icon" aria-hidden="true"></i>
+        <h4 class="bag-modal__header">Select an option</h4>
+      </div>
+      {% assign count = product.options_with_values | size %}
+      {% if count == 1 %}
+        {% assign col = "col-12" %}
+      {% elsif count == 2 %}
+        {% assign col = "col-6" %}
+      {% else %}
+        {% assign col = "col-4" %}
+      {% endif %}
+      <div class="row bag-modal__row bag-modal__row--titles">
+        {% for option in product.options_with_values %}
+          <div class="{{ col }}">{{ option.name }}</div>
+        {% endfor %}
+      </div>
+      <div class="bag-modal__select">
+      {% for variant in product.variants %}
+        <div class="row bag-modal__row bag-modal__row--option" value="{{ variant.id }}" {% unless variant.available %} disabled="disabled"{% endunless %}>
+          {% for option in variant.options %}
+            <div class="{{ col }}">{{ option }}</div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+      </div>
+      <form class="bag-modal__form" action="">
+        <button class="bag-button"  name="add" type="submit" disabled="disabled">
+          <span class="bag-button__text">Add to Bag</span>
+          <i class="fa fa-chevron-up bag-button__icon" aria-hidden="true"></i>
+        </button>
+    </form>
+    </div> {%- comment -%}bag-modal{%- endcomment -%}
+  </div>
+</div>
