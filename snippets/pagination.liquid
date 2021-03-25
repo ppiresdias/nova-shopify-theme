@@ -1,14 +1,29 @@
+{% assign size = paginate.pages %}
 <nav aria-label="Page navigation">
   <ul class="pagination justify-content-center">
     <li class="page-item page-item--prev{% unless paginate.previous.is_link %} disabled{% endunless %}">
       <a class="page-link" href="{{ paginate.previous.url | replace: '%3F', '?' | replace: '%3D', '=' }}" tabindex="-1" aria-disabled="{% if paginate.previous.is_link %}true{{ else }}false{% endif %}"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Previous</a>
     </li>
-    {% for part in paginate.parts %}
-      <li class="page-item{% if part.title == paginate.current_page %} active{% endif %}">
-        <a class="page-link" href="{% if part.is_link %}{{ part.url | replace: '%3F', '?' | replace: '%3D', '=' }}{% endif %}">{{ part.title }}</a>
-      </li>
-    {% endfor %}
-    <li class="page-item page-item--next{% unless paginate.next.is_link %} disabled{% endunless %}">
+    {% if paginate.items <= 50 %}
+      {% for part in paginate.parts %}
+        <li class="page-item{% if part.title == paginate.current_page %} active{% endif %}">
+          <a class="page-link" href="{% if part.is_link %}{{ part.url | replace: '%3F', '?' | replace: '%3D', '=' }}{% endif %}">{{ part.title }}</a>
+        </li>
+      {% endfor %}
+    {% else %}
+      {% for part in paginate.parts limit:size %}
+        {% assign size = paginate.items | minus: 50 | divided_by: paginate.page_size %}
+        {% assign size = paginate.pages | minus: size %}
+        {% assign title = part.title | plus: 0 %}
+        {% if title < size %}
+          <li class="page-item{% if part.title == paginate.current_page %} active{% endif %}">
+            <a class="page-link" href="{% if part.is_link %}{{ part.url | replace: '%3F', '?' | replace: '%3D', '=' }}{% endif %}">{{ part.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% assign page = paginate.next.url | split: 'page=' | last | split: '&' | first | plus: 0 %}
+    <li class="page-item page-item--next{% unless paginate.next.is_link and page < size %} disabled{% endunless %}">
       <a class="page-link" href="{{ paginate.next.url | replace: '%3F', '?' | replace: '%3D', '=' }}" aria-disabled="{% if paginate.next.is_link %}true{{ else }}false{% endif %}">Next<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
     </li>
   </ul>

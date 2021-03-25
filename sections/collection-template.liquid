@@ -89,7 +89,7 @@
           {% endif %}
 
 
-          {% paginate collection.products by limit %}
+          {% paginate collection.products by limit %}            
             <div class="row gallery__row">
               {% for product in products offset:paginate.current_offset limit:paginate.page_size %}
               <div class="col-6 col-md-6 col-lg-4 col-xl-3 gallery__column">
