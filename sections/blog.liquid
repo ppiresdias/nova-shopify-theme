@@ -34,9 +34,7 @@
 
 
  <div class="cards__row row">
-    
-              {% comment%}
-              {%endcomment%}
+
               {% for article in blog.articles %}
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <div class="card">
@@ -49,7 +47,7 @@
 
                         {%- assign content = article.content -%}
                         <p class="card__content" >
-                            {{ content }}
+                            {{ article.excerpt_or_content | truncate: 200 }}
                             <a href="{{ article.url }}">
                              Read more
                             </a>

@@ -25,23 +25,11 @@
  
 </article>
 
-<!-- <article class="page-width">
-  <div class="grid">
-    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
-      {% section 'article' %}
-    </div>
-    <div class="text-center return-link-wrapper page-width margin-back-to-blog">
-      <a href="{{ blog.url }}" class="btn btn--secondary btn--has-icon-before">
-        {% include 'icon-arrow-left' %}
-        {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
-      </a>
-    </div>
-  </div>
-</article> -->
+
 
 {% if blog.comments_enabled? %}
 <div class="page-width">
-  <div class="grid">
+  <div class="grid" id="article-c">
     <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
       <div class="comment-form form-vertical">
         {% form 'new_comment', article %}
@@ -59,7 +47,7 @@
 
           {% include 'form-status', form: form, form_id: formId, success_message: post_message %}
 
-          <div class="grid">
+          <div class="grid " >
 
             <div class="grid__item medium-up--one-half">
               <label for="{{ formId }}-author">{{ 'blogs.comments.name' | t }}</label>
