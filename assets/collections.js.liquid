@@ -248,11 +248,15 @@ $(window).on("load", function() {
     fetch('/cart.js')
     .then(response => response.json())
     .then(data => {
-      c(data)
+      updateHeaderCartCount(data.item_count);
       callbackFunction(data);
     }).catch(error => {
       c(error);
     });
+  }
+
+  function updateHeaderCartCount(count) {
+    $("#header .header-cart-count").text(count);
   }
 
   function showShoppingBag(data) {

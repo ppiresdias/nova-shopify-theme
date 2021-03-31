@@ -23,14 +23,14 @@
         <button class="search-bar__submit search-form__submit"
           type="submit"
           data-search-form-submit>
-          {% render 'icon-search' %}
+          {% include 'icon-search' %}
           <span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>
         </button>
       </form>
 
       <div class="search-bar__actions">
         <button type="button" class="btn--link search-bar__close js-drawer-close">
-          {% render 'icon-close' %}
+          {% include 'icon-close' %}
           <span class="icon__fallback-text">{{ 'general.search.close' | t }}</span>
         </button>
       </div>
